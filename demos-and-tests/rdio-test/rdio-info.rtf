@@ -1,0 +1,1416 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \{\
+ "status": "ok", \
+ "result": \{\
+  "owned": [\
+   \{\
+    "ownerKey": "s22059266", \
+    "name": "ZZTEST", \
+    "shortUrl": "http://rd.io/x/Rl4SxkEvxyZO/", \
+    "baseIcon": "album/c/0/6/000000000043560c/5/square-200.jpg", \
+    "ownerIcon": "user/2/0/9/0000000001509902/1/square-100.jpg", \
+    "owner": "Ziqu Zou", \
+    "lastUpdated": 1402982164.0, \
+    "url": "/people/ZiquZou/playlists/9791242/ZZTEST/", \
+    "length": 7, \
+    "key": "p9791242", \
+    "ownerUrl": "/people/ZiquZou/", \
+    "embedUrl": "https://rd.io/e/Rl4SxkEvxyZO/", \
+    "type": "p", \
+    "icon": "http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200"\
+   \}, \
+   \{\
+    "ownerKey": "s22059266", \
+    "name": "test3", \
+    "shortUrl": "http://rd.io/x/Rl4SxkEvxy8G/", \
+    "baseIcon": "album/no-album-image-square.jpg", \
+    "ownerIcon": "user/2/0/9/0000000001509902/1/square-100.jpg", \
+    "owner": "Ziqu Zou", \
+    "lastUpdated": 1402980645.0, \
+    "url": "/people/ZiquZou/playlists/9793090/test3/", \
+    "length": 0, \
+    "key": "p9793090", \
+    "ownerUrl": "/people/ZiquZou/", \
+    "embedUrl": "https://rd.io/e/Rl4SxkEvxy8G/", \
+    "type": "p", \
+    "icon": "http://m.rdio.com/_is/?m=album/no-album-image-square.jpg&w=200&h=200"\
+   \}, \
+   \{\
+    "ownerKey": "s22059266", \
+    "name": "test2", \
+    "shortUrl": "http://rd.io/x/Rl4SxkEvxyY5/", \
+    "baseIcon": "album/f/7/c/0000000000036c7f/square-200.jpg", \
+    "ownerIcon": "user/2/0/9/0000000001509902/1/square-100.jpg", \
+    "owner": "Ziqu Zou", \
+    "lastUpdated": 1402971024.0, \
+    "url": "/people/ZiquZou/playlists/9791357/test2/", \
+    "length": 3, \
+    "key": "p9791357", \
+    "ownerUrl": "/people/ZiquZou/", \
+    "embedUrl": "https://rd.io/e/Rl4SxkEvxyY5/", \
+    "type": "p", \
+    "icon": "http://m.rdio.com/_is/?aid=224383-0,4412940-5&w=200&h=200"\
+   \}, \
+   \{\
+    "ownerKey": "s22059266", \
+    "name": "hi", \
+    "shortUrl": "http://rd.io/x/Rl4SxkEvxydC/", \
+    "baseIcon": "album/no-album-image-square.jpg", \
+    "ownerIcon": "user/2/0/9/0000000001509902/1/square-100.jpg", \
+    "owner": "Ziqu Zou", \
+    "lastUpdated": 1402968757.0, \
+    "url": "/people/ZiquZou/playlists/9790982/hi/", \
+    "length": 0, \
+    "key": "p9790982", \
+    "ownerUrl": "/people/ZiquZou/", \
+    "embedUrl": "https://rd.io/e/Rl4SxkEvxydC/", \
+    "type": "p", \
+    "icon": "http://m.rdio.com/_is/?m=album/no-album-image-square.jpg&w=200&h=200"\
+   \}\
+  ], \
+  "collab": [], \
+  "subscribed": []\
+ \}\
+\}\
+\
+\
+\
+\
+Last login: Wed Jun 18 11:10:37 on ttys000\
+intern-mac-021:~ ziquz$ cd /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Missing required arguments: user. See http://www.rdio.com/developers/docs/web-service/methods/ for more information.\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.j\
+\
+module.js:340\
+    throw err;\
+          ^\
+Error: Cannot find module '/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.j'\
+    at Function.Module._resolveFilename (module.js:338:15)\
+    at Function.Module._load (module.js:280:25)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.j\
+\
+module.js:340\
+    throw err;\
+          ^\
+Error: Cannot find module '/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.j'\
+    at Function.Module._resolveFilename (module.js:338:15)\
+    at Function.Module._load (module.js:280:25)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clea\
+-bash: clea: command not found\
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Missing required arguments: user. See http://www.rdio.com/developers/docs/web-service/methods/ for more information.\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:44:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Either email or vanityName must be supplied\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:35:31\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:35:31',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: playlists is not defined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:36:21\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:72:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:118:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: playlists is not defined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:36:21',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:72:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:118:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: playlists is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+\{ icon250: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-250.jpg',\
+  firstName: 'Ziqu',\
+  baseIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+  gender: 'm',\
+  url: '/people/ZiquZou/',\
+  icon500: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-500.jpg',\
+  key: 's22059266',\
+  lastName: 'Zou',\
+  libraryVersion: 8,\
+  isProtected: null,\
+  type: 's',\
+  icon: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-100.jpg' \}\
+\{ icon250: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-250.jpg',\
+  firstName: 'Ziqu',\
+  baseIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+  gender: 'm',\
+  url: '/people/ZiquZou/',\
+  icon500: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-500.jpg',\
+  key: 's22059266',\
+  lastName: 'Zou',\
+  libraryVersion: 8,\
+  isProtected: null,\
+  type: 's',\
+  icon: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-100.jpg' \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+\{ icon250: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-250.jpg',\
+  firstName: 'Ziqu',\
+  baseIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+  gender: 'm',\
+  url: '/people/ZiquZou/',\
+  icon500: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-500.jpg',\
+  key: 's22059266',\
+  lastName: 'Zou',\
+  libraryVersion: 8,\
+  isProtected: null,\
+  type: 's',\
+  icon: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-100.jpg' \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+\{ icon250: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-250.jpg',\
+  firstName: 'Ziqu',\
+  baseIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+  gender: 'm',\
+  url: '/people/ZiquZou/',\
+  icon500: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-500.jpg',\
+  key: 's22059266',\
+  lastName: 'Zou',\
+  libraryVersion: 8,\
+  isProtected: null,\
+  type: 's',\
+  icon: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-100.jpg' \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:72\
+      \};\
+       ^\
+SyntaxError: Unexpected token ;\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:72\
+      \};\
+       ^\
+SyntaxError: Unexpected token ;\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:72\
+      \};\
+       ^\
+SyntaxError: Unexpected token ;\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+\{ icon250: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-250.jpg',\
+  firstName: 'Ziqu',\
+  baseIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+  gender: 'm',\
+  url: '/people/ZiquZou/',\
+  icon500: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-500.jpg',\
+  key: 's22059266',\
+  lastName: 'Zou',\
+  libraryVersion: 8,\
+  isProtected: null,\
+  type: 's',\
+  icon: 'http://rdio3img-a.akamaihd.net/user/2/0/9/0000000001509902/1/square-100.jpg' \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clear\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: s22059266 is not defined\
+    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:65:43)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17\
+    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: s22059266 is not defined',\
+     '    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:65:43)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17',\
+     '    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: s22059266 is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:71:25\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:71:25',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60\
+          request.reply(body.join('\\n'));\
+                  ^\
+TypeError: Property 'reply' of object [object Object] is not a function\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60:19\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:72:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:118:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:71:25\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:71:25',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60\
+          request.reply(body.join('\\n'));\
+                  ^\
+TypeError: Property 'reply' of object [object Object] is not a function\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60:19\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:72:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:118:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+<h1>401 Invalid Signature</h1>\
+Debug: hapi, uncaught, handler, error TypeError: Cannot read property 'result' of undefined\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:72:25\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'TypeError: Cannot read property \\'result\\' of undefined',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:72:25',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:70:13',\
+     '    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:116:17)',\
+     '    at IncomingMessage.EventEmitter.emit (events.js:117:20)',\
+     '    at _stream_readable.js:919:16',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [TypeError: Cannot read property 'result' of undefined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60\
+          request.reply(body.join('\\n'));\
+                  ^\
+TypeError: Property 'reply' of object [object Object] is not a function\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:60:19\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:72:13\
+    at IncomingMessage.<anonymous> (/Users/ziquz/Desktop/rdio-test/rdio-node-test/rdio.js:118:17)\
+    at IncomingMessage.EventEmitter.emit (events.js:117:20)\
+    at _stream_readable.js:919:16\
+    at process._tickDomainCallback (node.js:463:13)\
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists','\{extras:'tracks'\}',function(err, data) \{\
+                                         ^^^^^^\
+SyntaxError: Unexpected identifier\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    tracks: \
+     [ [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object] ],\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    tracks: \
+     [ [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object] ],\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+undefined\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    tracks: \
+     [ [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object] ],\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+undefined\
+undefined\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    tracks: \
+     [ [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object] ],\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{user\{s22059266\}\},function(err, data) \{\
+                                    ^\
+SyntaxError: Unexpected token \{\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: s22059266 is not defined\
+    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:38)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17\
+    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: s22059266 is not defined',\
+     '    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:38)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17',\
+     '    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: s22059266 is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: s22059266 is not defined\
+    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:42)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17\
+    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: s22059266 is not defined',\
+     '    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:42)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17',\
+     '    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: s22059266 is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getUserPlaylists',\{s22059266\},function(err, data) \{\
+                                             ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: s22059266 is not defined\
+    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:48)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17\
+    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: s22059266 is not defined',\
+     '    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:48)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17',\
+     '    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: s22059266 is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getUserPlaylists',\{user:\{s22059266\}\},function(err, data) \{\
+                                                   ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    tracks: \
+     [ [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object],\
+       [Object] ],\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{'user':\{s22059266\}\},function(err, data) \{\
+                                                 ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{'user':\{'s22059266'\}\},function(err, data) \{\
+                                                   ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{user:\{'s22059266'\}\},function(err, data) \{\
+                                                 ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{user\{s22059266\}\},function(err, data) \{\
+                                    ^\
+SyntaxError: Unexpected token \{\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{user:\{s22059266\}\},function(err, data) \{\
+                                               ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+\
+/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66\
+      rdio.call('getPlaylists',\{'user':\{s22059266\}\},function(err, data) \{\
+                                                 ^\
+SyntaxError: Unexpected token \}\
+    at Module._compile (module.js:439:25)\
+    at Object.Module._extensions..js (module.js:474:10)\
+    at Module.load (module.js:356:32)\
+    at Function.Module._load (module.js:312:12)\
+    at Function.Module.runMain (module.js:497:10)\
+    at startup (node.js:119:16)\
+    at node.js:906:3\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+Debug: hapi, uncaught, handler, error ReferenceError: s22059266 is not defined\
+    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:40)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17\
+    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17\
+    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22\
+    at process._tickDomainCallback (node.js:463:13)\
+Debug: hapi, internal, implementation, error \{ [Error: Uncaught error]\
+  isBoom: true,\
+  response: \
+   \{ code: 500,\
+     payload: \
+      \{ code: 500,\
+        error: 'Internal Server Error',\
+        message: 'An internal server error occurred' \},\
+     headers: \{\} \},\
+  message: 'Uncaught error',\
+  trace: \
+   [ 'ReferenceError: s22059266 is not defined',\
+     '    at server.route.handler (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/web-based.js:66:40)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:592:43',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:148:9',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:589:17',\
+     '    at Function.internals.Ext.runProtected (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:134:5)',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/request.js:555:17',\
+     '    at /Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/hoek/lib/index.js:637:22',\
+     '    at process._tickDomainCallback (node.js:463:13)' ],\
+  outterTrace: \
+   [ 'internals.Boom.badImplementation (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/node_modules/boom/lib/index.js:314:30)',\
+     'null (/Users/ziquz/Desktop/rdio-test/rdio-node-test/examples/node_modules/hapi/lib/ext.js:142:32)',\
+     'g (events.js:180:16)',\
+     'EventEmitter.emit (events.js:95:17)',\
+     'process._fatalException (node.js:249:27)' ],\
+  data: \
+   \{ [ReferenceError: s22059266 is not defined]\
+     domain: \{ domain: null, _events: \{\}, _maxListeners: 10, members: [] \},\
+     domainThrown: true \},\
+  isDeveloperError: true \}\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+undefined\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+undefined\
+^Cintern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ \
+intern-mac-021:examples ziquz$ clear\
+\
+intern-mac-021:examples ziquz$ node web-based.js\
+Server started on port: 8080\
+undefined\
+[ \{ ownerKey: 's22059266',\
+    name: 'ZZTEST',\
+    baseIcon: 'album/c/0/6/000000000043560c/5/square-200.jpg',\
+    url: '/people/ZiquZou/playlists/9791242/ZZTEST/',\
+    ownerIcon: 'user/2/0/9/0000000001509902/1/square-100.jpg',\
+    ownerUrl: '/people/ZiquZou/',\
+    lastUpdated: 1402982164,\
+    shortUrl: 'http://rd.io/x/Rl4SxkEvxyZO/',\
+    length: 7,\
+    key: 'p9791242',\
+    owner: 'Ziqu Zou',\
+    embedUrl: 'https://rd.io/e/Rl4SxkEvxyZO/',\
+    type: 'p',\
+    icon: 'http://m.rdio.com/_is/?aid=4382443-2,4412940-5&w=200&h=200' \} ]\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
