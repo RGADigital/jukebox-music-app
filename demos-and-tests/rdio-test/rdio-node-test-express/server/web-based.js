@@ -10,101 +10,40 @@ var options = {
   }
 };
 
-var server = new Hapi.Server(8080);
+var server = new Hapi.Server(8888, { files: { relativeTo: __dirname+'/public' } });
 server.pack.allow({ ext: true }).require('yar', options, function (err) {
   if (err) {
     console.log(err);
     throw err;
   }
 });
+server.route([
+        { method: 'GET', path: '/{path?}', handler: { directory: { path: './' } } }
+]);
 
 server.route({
   method: 'GET',
   path: '/',
   handler: function (request) {
     var accessToken = request.session.get('accessToken');
+   
     if (accessToken) {
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
-      console.log('this is access token');
-      console.log(accessToken);
       rdio.call('currentUser', function(err, data) {
         if (err) {
-          console.log(err);
-          request.reply(new Error("Error getting current user"));
+          console.log(err);    
         }
-
-        var currentUser = data.result;
-        
-
-
+      var currentUser = data.result;
         rdio.call('getPlaylists',function(err, data) {
           if (err) {
             console.log(err);
-            request.reply(new Error("Error getting playlists"));
           }
-
           var playlists = data.result.owned;
-
-
-          var body = [];
-          body.push('<html><head><title>Rdio-Simple Example</title></head><body>');
-          body.push('<p>' + currentUser.firstName + "'s playlists:</p>");
-          body.push('<ul>');
-
-          playlists.forEach(function(playlist) {
-            body.push('<li><a href="' + playlist.shortUrl + '">' + playlist.name + '</a></li>');
-          });
-          body.push('</ul>');
-          body.push('<a href="/logout">Log out of Rdio</a></body></html>');
-
-          request.reply(body.join('\n'));
         });
       });
-      
-      // zz code from here
-      // {user:s22059266}
-      // get PlayList
-      rdio.call('getUserPlaylists',{user:'s22059266',extras:'tracks'},function(err, data) {
-        if (err) {
-          console.log(err);
-          request.reply(new Error("Error getting current user"));
-        }
-
-        var fromData=data.result;
-        // console.log(fromData[0].tracks);
-      });
-
-      // test addIntoPlayList
-      // rdio.call('addToPlaylist',{playlist:'p9791242',tracks:'t2714517'},function(err, data) {
-      //   if (err) {
-      //     console.log(err);
-      //     request.reply(new Error("Error getting current user"));
-      //   }
-
-      //   // console.log(data.result);
-      // });
-
-      // test Search
-      rdio.call('search',{query:'lily allen',types:'Artist'},function(err, data) {
-        if (err) {
-          console.log(err);
-          request.reply(new Error("Error getting current user"));
-        }
-
-        // console.log(data.result);
-      });
-
-      // zz end
-
     } else {
-      var body = [];
-
-      body.push('<html><head><title>Rdio-Simple Example</title></head><body>');
-      body.push('<a href="/login">Log into Rdio</a>');
-      body.push('</body></html>');
-
-      request.reply(body.join('\n'));
+     
     }
   }
 });
@@ -137,6 +76,7 @@ server.route({
   method: 'GET',
   path: '/callback',
   handler: function(request) {
+    // console.log('call back call back call back call back call back call back call back ')
     var requestToken = request.session.get('requestToken');
     var verifier = request.query.oauth_verifier;
 
