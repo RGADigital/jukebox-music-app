@@ -1,0 +1,11 @@
+{
+  "name": "music-app",
+  "description": "a music-app",
+  "version": "0.0.1",
+  "author": "zz",
+  "dependencies": {},
+  "devDependencies": {
+    "jquery": "~2.1.0"
+    
+  }
+}

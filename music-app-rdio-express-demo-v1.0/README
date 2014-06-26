@@ -1,0 +1,14 @@
+Rdio Music App Demo v1.0
+
+#1. cd
+#2. npm install
+#3. node server.js
+#4. run localhost:8888
+#5. follow the process and enjoy the music
+
+------------ edit the playlist---------------------
+#1. go to "http://www.rdio.com/"
+#2. search "ZZTEST"
+#3. click "collabrate" on the right
+
+tips: so far. After change the playlist please refresh the "MUSIC APP", the playlist in the music app will be changed.
