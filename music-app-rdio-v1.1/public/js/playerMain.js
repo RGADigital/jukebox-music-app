@@ -16,7 +16,10 @@ app.playerMain=(function(w,d,$){
   callback_object = {};
 
   // store playListId;
-  var playListId;
+  var tracksKeys=[],
+      tracksNames=[],
+      tracksDuration=[],
+      soundIsPlaying=0;
 
    // on page load use SWFObject to load the API swf into div#apiswf
   var flashvars = {
@@ -34,16 +37,64 @@ app.playerMain=(function(w,d,$){
 
   // set up the controls
   var attachEvents=function(){
-      elements.play.click(function() {apiswf.rdio_play(playListId);});
+      //click Play button
+      elements.play.click(function(){
+          apiswf.rdio_play();
+        });
+
+      // click Stop button
       elements.stop.click(function() { apiswf.rdio_stop(); });
+
+      //click Pause button
       elements.pause.click(function() { apiswf.rdio_pause(); });
-      elements.previous.click(function() { apiswf.rdio_previous(); });
-      elements.next.click(function() { apiswf.rdio_next(); });
+
+      //click Previous button
+      elements.previous.click(function() {
+        if(soundIsPlaying>0){
+          soundIsPlaying--;
+          apiswf.rdio_play(tracksKeys[soundIsPlaying]);
+        }; 
+      });
+
+      //click Next button
+      elements.next.click(function() {
+        if(soundIsPlaying<(playListData[0].tracks.length)){
+          soundIsPlaying++;
+          apiswf.rdio_play(tracksKeys[soundIsPlaying]);
+        };
+      });
   };
-  var firstRequestData=function(){
+  var savingData=function(){
+
+    tracksKeys=[];
+    tracksNames=[];
+    tracksDuration=[];
+
+    var i=0,
+        length=playListData[0].tracks.length;
+
+    for(i;i<length;i++){
+      tracksKeys[i]=playListData[0].tracks[i].key;
+      tracksNames[i]=playListData[0].tracks[i].name;
+      tracksDuration[i]=playListData[0].tracks[i].duration;
+    };
+
+    console.log(tracksKeys);
+    console.log(tracksNames);
+    console.log(tracksDuration);
 
 
+    //move this later
+    // $('.playlist-ctn').text(tracksNames);
+    $('#playlist').empty();
+    var j=0;
+    for(j;j<length;j++){
+      $('#playlist').append('<li>'+tracksNames[j]+'</li>');
+    };
+    
   };
+
+ 
   // callbacks
   callback_object.ready = function ready(user) {
     // Called once the API SWF has loaded and is ready to accept method calls.
@@ -62,14 +113,29 @@ app.playerMain=(function(w,d,$){
         type : 'GET',
         dataType : 'json',
         success : function(res) {
-        console.log('success-data from server.js');   
-        console.log(res);
-        playListId=res[0].key;
-        apiswf.rdio_play(playListId);
-        console.log('playMusic');
-
-      }
+          console.log('success-data from server.js');   
+          console.log(res);
+          playListData=res;
+          savingData();
+          apiswf.rdio_play(tracksKeys[soundIsPlaying]);
+          
+        }
     });
+
+    attachEvents();
+
+    setInterval(function(){
+      $.ajax({
+          url : '/getlist',
+          type : 'GET',
+          dataType : 'json',
+          success : function(res) {
+            console.log('success-data from 2 server.js');   
+            playListData=res;
+            savingData();
+          }
+      });
+    }, 15000);
 
   };
 
@@ -77,10 +143,26 @@ app.playerMain=(function(w,d,$){
     $('#remaining').text(remaining);
   };
 
+  var playing=false;
   callback_object.playStateChanged = function playStateChanged(playState) {
     // The playback state has changed.
     // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
     $('#playState').text(playState);
+
+    // if(playState==1){
+    //   playing=true;
+    //   // console.log('play');
+    // }
+    // if(playState==2){
+
+    //   if(!playing){
+    //     soundIsPlaying++;
+    //     apiswf.rdio_play(tracksKeys[soundIsPlaying]);
+    //     playing=false;
+    //     // console.log('next sound');
+    //   };
+      
+    // };
   };
 
   callback_object.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
@@ -92,6 +174,8 @@ app.playerMain=(function(w,d,$){
       $('#artist').text(playingTrack['artist']);
       $('#art').attr('src', playingTrack['icon']);
     };
+
+    // console.log(sourcePosition);
   };
 
   callback_object.playingSourceChanged = function playingSourceChanged(playingSource) {
@@ -111,6 +195,12 @@ app.playerMain=(function(w,d,$){
     //The position within the track changed to position seconds.
     // This happens both in response to a seek and during playback.
     $('#position').text(position);
+
+    if(position>=tracksDuration[soundIsPlaying]){
+      soundIsPlaying++;
+      apiswf.rdio_play(tracksKeys[soundIsPlaying]);
+
+    };
   };
 
   callback_object.queueChanged = function queueChanged(newQueue) {
@@ -146,7 +236,7 @@ app.playerMain=(function(w,d,$){
   }
 
   var init=function(){
-    attachEvents();
+    
   };
 
   return {

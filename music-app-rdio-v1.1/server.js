@@ -21,13 +21,8 @@ app.get('/getlist', function(req, res){
 	if (accessToken) {
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
-      rdio.call('currentUser', function(err, data) {
-        if (err) {
-          console.log(err);    
-        }
-      	var currentUser = data.result;
-      	
-        rdio.call('getUserPlaylists',{user:'s22059266',extras:'tracks'},function(err, data) {
+
+       rdio.call('getUserPlaylists',{user:'s22059266',extras:'tracks'},function(err, data) {
           if (err) {
             console.log(err);
             // request.reply(new Error("Error getting current user"));
@@ -37,7 +32,7 @@ app.get('/getlist', function(req, res){
           console.log(playListData);
           res.send(playListData);
         });
-      });
+
     } else {
       res.redirect("/");
     }
