@@ -1,0 +1,13 @@
+music-app-rdio is the Rdio Music App
+
+How to run the app:
+#1. cd to music-app-rdio.
+#2. run "npm install" in terminal (if you don't have the node module).
+#3. run "node server.js" in terminal.
+#4. run "localhost:8888" in your bowser.
+#5. follow the process and enjoy the music.
+
+------------ edit the playlist---------------------
+#1. go to "http://www.rdio.com/".
+#2. search "ZZTEST".
+#3. click "collabrate" on the right.
