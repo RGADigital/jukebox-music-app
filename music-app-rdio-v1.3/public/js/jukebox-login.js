@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.main=(function(w,d,$){
+app.login=(function(w,d,$){
 
 	var elements={
 		login: $( "#login" )
@@ -20,6 +20,7 @@ app.main=(function(w,d,$){
 	};
 
 	var init=function(){
+		console.log('login');
 		attachEvents();
 	};
 
@@ -29,7 +30,7 @@ app.main=(function(w,d,$){
 
 })(window, document, jQuery);
 
-window.addEventListener('DOMContentLoaded', app.main.init);
+window.addEventListener('DOMContentLoaded', app.login.init);
 
 
 
