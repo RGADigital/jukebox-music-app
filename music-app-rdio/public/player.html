@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head> 
+		<link rel="stylesheet" type="text/css" href="css/global.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head> 
+
+	<body> 
+		<div id="apiswf"></div>
+		<div class="entirescreen"> 
+
+			<div class="usablescreen"> 
+				<div class="albumart"> 
+					<img id="art" src="http://www.placekitten.com/200/200">
+				</div> 
+		
+				<div class="music-information"> 
+					<h1 id="track"> Song Name </h1> 
+					<h2 id="artist"> Artist </h2> 
+					<h6 id="position"> Time </h6> 
+				</div> 
+
+				<div class="music-buttons">
+				<!-- Play, Shuffle, Fast Foward --> 
+					<div class="control"> 
+						<button class="clickme" id="Rewind"> Rewind</button>
+					 </div> 
+					
+					<div class="control"> 
+						<button class="clickme" id="Play"> Pause </button> 
+					</div> 
+					
+					<div class="control">
+					 	<button class="clickme" id="fastforward"> FF </button>
+				 	 </div> 
+				
+					<br> 
+
+					<div class="shuffleline">
+						<div>
+							<button class="shuffle" id="shuffle"> Shuffle </button>  
+						</div> 
+					</div>		
+				</div> 
+
+				<div class="playlist"> 
+			    	<article class="song"> 
+			        	<section id="number">
+			        	 	1 
+			        	</section> 
+			        	<section id="thumbnail"> 
+			          		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
+			       		</section>
+			        	<section class="song-name-artist">  
+			          		<h3 id="song-name-list"> Artist Name</h3>
+			          		<h5 id="artist-name-list">Song Name </h5>
+			        	</section> 
+			        	<section class="time"> 
+			        		<h6 id="time"> 0:00 </h6> 
+			        	</section> 
+			    	</article>
+
+			  
+			    	<article class="song"> 
+			        	<section id="number">
+			        	 	1 
+			        	</section> 
+			        	<section id="thumbnail"> 
+			          		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
+			       		</section>
+			        	<section class="song-name-artist">  
+			          		<h3 id="song-name-list"> Artist Name</h3>
+			          		<h5 id="artist-name-list">Song Name </h5>
+			        	</section> 
+			        	<section class="time"> 
+			        		<h6 id="time"> 0:00 </h6> 
+			        	</section> 
+			    	</article>
+			   
+			    
+				    <article class="song"> 
+				        <section id="number"> 1 </section> 
+				        <section id="thumbnail"> 
+				          <img  id="miniartwork" src="http://www.placekitten.com/100/100">
+				        </section>
+				        <section class="song-name-artist">  
+				          <h3 id="song-name-list"> Artist Name</h3>
+				          <h5 id="artist-name-list">Song Name </h5>
+				        </section> 
+				        <section class="time"> 
+				        	<h6 id="time"> 0:00 </h6> 
+				        </section> 
+				    </article>
+
+				    <article class="song"> 
+				        <section id="number"> 1 </section> 
+				        <section id="thumbnail"> 
+				          <img  id="miniartwork" src="http://www.placekitten.com/100/100">
+				        </section>
+				        <section class="song-name-artist">  
+				          <h3 id="song-name-list"> Artist Name</h3>
+				          <h5 id="artist-name-list">Song Name </h5>
+				        </section> 
+				        <section class="time"> 
+				        	<h6 id="time"> 0:00 </h6> 
+				        </section> 
+				    </article>
+				        
+
+					<article class="song"> 
+				    	<section id="number">
+				    	 	1 
+				    	</section> 
+				    	<section id="thumbnail"> 
+				      		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
+				   		</section>
+				    	<section class="song-name-artist">  
+				      		<h3 id="song-name-list"> Artist Name</h3>
+				      		<h5 id="artist-name-list">Song Name </h5>
+				    	</section> 
+				    	<section class="time"> 
+				    		<h6 id="time"> 0:00 </h6> 
+				    	</section> 
+					</article>
+
+					<article class="song"> 
+				    	<section id="number">
+				    	 	1 
+				    	</section> 
+				    	<section id="thumbnail"> 
+				      		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
+				   		</section>
+				    	<section class="song-name-artist">  
+				      		<h3 id="song-name-list"> Artist Name</h3>
+				      		<h5 id="artist-name-list">Song Name </h5>
+				    	</section> 
+				    	<section class="time"> 
+				    		<h6 id="time"> 0:00 </h6> 
+				    	</section> 
+					</article>
+
+				</div>
+			</div> 
+		</div>
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
+	    <script src="js/jukebox-rdio-controller.js"></script>
+	    <script src="js/jukebox-view.js"></script>
+
+
+	</body>
+</html> 
