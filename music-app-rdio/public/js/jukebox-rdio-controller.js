@@ -99,6 +99,7 @@
         });
         RdioController.playerLoaded();
         RdioController.callForDataFromServer();
+        RdioController.intervalcallForDataFromServer();
       };
 
       callback_object.freeRemainingChanged = function freeRemainingChanged(remaining) {};

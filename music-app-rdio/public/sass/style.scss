@@ -1,12 +1,9 @@
 @import "compass";
 @import "compass/reset";
 
-
 @function usable-width ($width-entire, $margin-horizontal){
  @return($width-entire - (2*$margin-horizontal));
 };
-
-
 
 $width-entire: 1080px;
 $height-entire: 1920px;
@@ -31,87 +28,117 @@ $margin-left-button: ($control-width - $button-width-and-height) / 2.0 ;
 
 
 .entirescreen{
-width:$width-entire;
-height:$height-entire;
-border:solid 10px black;
-position:relative;
-font-family:georgia;
-
+	width:$width-entire;
+	height:$height-entire;
+	border:solid 10px black;
+	position:relative;
+	font-family:georgia;
 }
 
 h1{
 	font-size:2em;
 }
+
 h2{
 	font-size:1.25em;
 }
+
 h6{
 	font-size:0.75em;
 }
 
 div.usablescreen{
-position:absolute;
-margin-bottom: $margin-vertical;
-margin-top: $margin-vertical;
-margin-right: $margin-horizontal;
-margin-left: $margin-horizontal;
-width: usable-width($width-entire, $margin-horizontal);
-height: 1600px;
-
-background-color:white;
-overflow:hidden;
-
+	position:absolute;
+	margin-bottom: $margin-vertical;
+	margin-top: $margin-vertical;
+	margin-right: $margin-horizontal;
+	margin-left: $margin-horizontal;
+	width: usable-width($width-entire, $margin-horizontal);
+	height: 1600px;
+	overflow:hidden;
 }
 
-div.albumart{
-height:usable-width($width-entire, $margin-horizontal);
-width:usable-width($width-entire, $margin-horizontal);
+div.main-album-art{
+	height:usable-width($width-entire, $margin-horizontal);
+	width:usable-width($width-entire, $margin-horizontal);
 }
 
-#art{
-width:usable-width($width-entire, $margin-horizontal);
-height:usable-width($width-entire, $margin-horizontal);
+.main-album-art > img{
+	width:usable-width($width-entire, $margin-horizontal);
+	height:usable-width($width-entire, $margin-horizontal);
 }
 
-div.music-information{
-text-align:center;
-height:$music-information-height;
-	
+div.main-music-information{
+	text-align:center;
+	height:$music-information-height;
+	margin-top:30px;
 }
 
 /*The following contains styling on all buttons including size, spacing, and position. */
 
-
-div.music-buttons{
-position:absolute;
-height: $button-width-and-height + $shuffle-height;
+div.music-buttons-total{
+	position:absolute;
+	height: $button-width-and-height + $shuffle-height;
 }
 
+/*div to hold the buttons for spacing reasons */ 
 
 
-.control{
-width: $control-width;
-height:$button-width-and-height;
-margin-top:5px;
-margin-bottom:5px;
-display:inline-block;
+%not-a-button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: {
+        size: inherit;
+        family: inherit;
+    }
+
+    -webkit-font-smoothing: inherit;
+    margin: 0;
+    outline: none;
+    padding: 0;
 }
 
+.music-button-container{
+	width: $control-width;
+	height:$button-width-and-height;
+	margin-top:5px;
+	margin-bottom:5px;
+	display:inline-block;
+}
 
-
-button.clickme{
+@mixin button-style($button-width-and-height, $margin-left-button){
 	width:$button-width-and-height;
 	height:$button-width-and-height;
 	margin-left: $margin-left-button;
 	position:absolute;
+	@extend not-a-button 
+} 
+
+
+
+
+button.play{
+	@include button-style($button-width-and-height, $margin-left-button)
+
 
 }
+button.rewind{
+	@include button-style($button-width-and-height, $margin-left-button)
+}
+button.fastforward{
+	@include button-style($button-width-and-height, $margin-left-button)
+}
+
+
+/*START RENAMING CLASSES HERE */ 
 
 /* To properly align the shuffle button in the middle of the screen. Variable shuffle margins is equal to the usable width function */ 
 $usable-width: usable-width($width-entire, $margin-horizontal); 
 $margin-shuffle: ($usable-width - $shuffle-width) / 2.0 ;
 
-.shuffle{
+.shuffle-container{
 	width:$shuffle-width;
 	height:$shuffle-height;
 	position:absolute;
@@ -121,41 +148,35 @@ $margin-shuffle: ($usable-width - $shuffle-width) / 2.0 ;
 	margin-right:$margin-shuffle; 
 }
 
-
-
-
-.shuffleline{
+.shuffle-line-container{
 	
 	height:$shuffle-height + 10px;
 	border-top: solid 1px black;
 	border-bottom: solid 1px black;
-	
 }
 
 /*toggle styles for JS */ 
 
-.shuffleclick{
+.isShuffleOn{
 	width:$shuffle-width;
 	height:$shuffle-height;
 	position:absolute;
 	margin-top:5px;
 	margin-bottom:5px;
 	margin-left:$margin-shuffle;
-	margin-right:$margin-shuffle; 
-
+	margin-right:$margin-shuffle;
 	background-color:black;
 	opacity:0.5;
-
 }
 
-button.playclick{
+
+button.isPlaying{
 	width:$button-width-and-height;
 	height:$button-width-and-height;
 	margin-left: $margin-left-button;
 	position:absolute;
 	opacity:0.5;
 	background-color:black;
-
 }
 
 
@@ -174,50 +195,96 @@ button.playclick{
 
 
 .song{
-  background-color:white;
-  width:100%;
-  border-bottom:solid 1px black;
-  margin-top:10px;
-  margin-bottom:10px;
+	background-color:white;
+	width:100%;
+	border-bottom:solid 1px black;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
-#number{
-width:30px;
-height:100%;
-display:inline;
-position:relative;
-top:-50px;  
-
-
-
+.song-number{
+	width:30px;
+	height:100%;
+	display:inline;
+	position:relative;
+	top:-50px;  
 }
 
-#thumbnail{
-  height:$artwork-thumbnail;
-  width:$artwork-thumbnail;
-  display:inline;
-  position:relative;
- 
+.song-thumbnail{
+	height:$artwork-thumbnail;
+	width:$artwork-thumbnail;
+	display:inline;
+	position:relative;
 }
 
-#miniartwork{
-  height:$artwork-thumbnail;
-  width:$artwork-thumbnail;
-  margin-bottom:10px;  
+.song-thumbnail > img{
+	height:$artwork-thumbnail;
+	width:$artwork-thumbnail;
+	margin-bottom:10px;  
 }
 
 
-.song-name-artist{
-display:inline;  
-height: $artwork-thumbnail;
-position:absolute;
-padding:5px;
+.song-name-artist-container{
+	display:inline;  
+	height: $artwork-thumbnail;
+	position:absolute;
+	padding:5px;
 }
 
-.time{
-display:inline;
-float:right;
-margin-right:30px;
-height: $artwork-thumbnail;  
-position:relative; 
+.song-time{
+	display:inline;
+	float:right;
+	margin-right:30px;
+	height: $artwork-thumbnail;  
+	position:relative; 
+}
+
+
+/* iScroll Plugin Styling */ 
+
+#wrapper {
+	position:relative;
+	width:590px;
+	height:600px;
+	overflow: hidden;
+
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller {
+	position: absolute;
+
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	/* Put the scroller into the HW Compositing layer right from the start */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+li{
+
+	list-style-type:none;
+
+}
+body{
+	overflow:auto;
 }

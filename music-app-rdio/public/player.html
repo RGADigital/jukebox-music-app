@@ -2,8 +2,13 @@
 <html>
 
 	<head> 
-		<link rel="stylesheet" type="text/css" href="css/global.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		
+
 	</head> 
 
 	<body> 
@@ -11,85 +16,80 @@
 		<div class="entirescreen"> 
 
 			<div class="usablescreen"> 
-				<div class="albumart"> 
-					<img id="art" src="http://www.placekitten.com/200/200">
-				</div> 
-		
-				<div class="music-information"> 
-					<h1 id="track"> Song Name </h1> 
-					<h2 id="artist"> Artist </h2> 
-					<h6 id="position"> Time </h6> 
+				<div class="main-album-art"> 
+					<img class="art" src="http://www.placekitten.com/200/200">
 				</div> 
 
-				<div class="music-buttons">
+				<div class="main-music-information"> 
+					<h1 class="main-track"> Song Name </h1> 
+					<h2 class="main-artist"> Artist </h2> 
+					<h6 id="main-position"> Time </h6> 
+				</div> 
+
+				<div class="music-buttons-total">
 				<!-- Play, Shuffle, Fast Foward --> 
-					<div class="control"> 
-						<button class="clickme" id="Rewind"> Rewind</button>
+					<div class="music-button-container"> 
+						<button class="rewind"> Rewind</button>
 					 </div> 
-					
-					<div class="control"> 
-						<button class="clickme" id="Play"> Pause </button> 
+
+					<div class="music-button-container"> 
+						<button class="play"> Play </button> 
 					</div> 
-					
-					<div class="control">
-					 	<button class="clickme" id="fastforward"> FF </button>
+
+					<div class="music-button-container">
+					 	<button class="fastforward"> FF </button>
 				 	 </div> 
-				
+
 					<br> 
 
-					<div class="shuffleline">
+					<div class="shuffle-line-container">
 						<div>
-							<button class="shuffle" id="shuffle"> Shuffle </button>  
+							<button class="shuffle-container shuffle"> Shuffle </button>  
 						</div> 
 					</div>		
 				</div> 
 
-				<div class="playlist"> 
-			    	<article class="song"> 
-			        	<section id="number">
-			        	 	1 
-			        	</section> 
-			        	<section id="thumbnail"> 
-			          		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
-			       		</section>
-			        	<section class="song-name-artist">  
-			          		<h3 id="song-name-list"> Artist Name</h3>
-			          		<h5 id="artist-name-list">Song Name </h5>
-			        	</section> 
-			        	<section class="time"> 
-			        		<h6 id="time"> 0:00 </h6> 
-			        	</section> 
-			    	</article>
+				<div class="playlist">
+					<div id="wrapper"> 
+						<div class="scroller"> 
+							<ul class="playlist-content">
+								<!--  content coming from an underscore template -->
+					    	</ul> 
+					    </div> 	
+			    	</div> 	
+				</div>
+			</div> 
+		</div>
 
-			  
-			    	<article class="song"> 
-			        	<section id="number">
-			        	 	1 
-			        	</section> 
-			        	<section id="thumbnail"> 
-			          		<img  id="miniartwork" src="http://www.placekitten.com/100/100">
-			       		</section>
-			        	<section class="song-name-artist">  
-			          		<h3 id="song-name-list"> Artist Name</h3>
-			          		<h5 id="artist-name-list">Song Name </h5>
-			        	</section> 
-			        	<section class="time"> 
-			        		<h6 id="time"> 0:00 </h6> 
-			        	</section> 
-			    	</article>
-			   
-			    
-				    <article class="song"> 
-				        <section id="number"> 1 </section> 
-				        <section id="thumbnail"> 
-				          <img  id="miniartwork" src="http://www.placekitten.com/100/100">
-				        </section>
-				        <section class="song-name-artist">  
-				          <h3 id="song-name-list"> Artist Name</h3>
-				          <h5 id="artist-name-list">Song Name </h5>
-				        </section> 
-				        <section class="time"> 
-				        	<h6 id="time"> 0:00 </h6> 
+		<script type="text/template" class="playlist-item-tpl">
+			<li id="r">
+				<article class="song"> 
+					<section class="song-number">
+						<%= soundOrder %>
+					</section> 
+					<section class="song-thumbnail"> 
+						<img src="<%= iconUrl %>">
+					</section>
+					<section class="song-name-artist-container">  
+						<h3 class="song-name-list"> <%= artistName %></h3>
+						<h5 class="artist-name-list"> <%= songName %> </h5>
+					</section> 
+					<section class="song-time"> 
+						<h6 class="time"> <%= songTime %> </h6> 
+				</article>
+			</li> 
+	</script>
+
+		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="bower_components/iscroll/build/iscroll.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+	    <script type="text/javascript" src="js/jukebox-rdio-controller.js"></script>
+	    <script type="text/javascript" src="js/jukebox-view.js"></script>
+	    <script type="text/javascript" src="js/jukebox-render.js"></script>
+
+	</body>
+</html>        	<h6 id="time"> 0:00 </h6> 
 				        </section> 
 				    </article>
 

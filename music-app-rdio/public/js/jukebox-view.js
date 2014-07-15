@@ -1,36 +1,33 @@
 (function(w,d,$,_){
 
-  var View={
+  var ViewControler={
 
     self:{},//self=this; 
 
     // buttons
-    $play: $('#Play'), //play button
-    $pause: $('#pause'), //pause button
-    $previous: $('#Rewind'),// previous button
-    $next: $('#fastforward'),// next button
-    $shuffle: $('#shuffle'),
-    //track information
-    $trackName: $('#track'),
-    $artistName: $('#artist'),
-    $albumCover: $('#art'),
-    $timeStamp: $('#position'),
+    $play: $('.play'), //play button
+    $previous: $('.rewind'),// previous button
+    $next: $('.fastforward'),// next button
+    $shuffle: $('.shuffle-container'),
 
     // store playListData;
     playListData:{},
     tracksKeys:[],
     tracksNames:[],
-    tracksDuration:[],
+    tracksDurations:[],
+    tracksSmallIcon:[],
+    tracksAlbumNames:[],
+    tracksArtists:[],
+    trackKeysForCompare:[],
     soundIsPlaying:0,//which sound is playing
     isShuffle:false,
     isMusicPlaying:false,
+    isFirstPlay:true,
 
     // set up the controls
     attachUIEventS: function(){ 
       //click Play button
       self.$play.click(self.playClickEventHandler);
-      //click Pause button
-      self.$pause.click(self.pauseMusic);
       //click Previous button
       self.$previous.click(self.previousClickEventHandler);
       //click Next button
@@ -84,34 +81,39 @@
       $(d).trigger('PAUSE_MUSIC_EVENT');
     },
 
+    renderPlaylist:function(soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists){
+      $(d).trigger('PLAYLIST_RENDER_EVENT',[soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists]);
+    },
+
     bindrdioDataEvents: function(){
       //run when music player loaded
       $(d).bind('PLAYER_DATA_LOADED_EVENT',self.playerLoadedEventHandler);
       //run everytime after get data from rdio api
-      $(d).bind('RDIO_DATA_EVENT',self.getRdioDataEventHandler);
+      $(d).bind('RDIO_DATA_EVENT',self.rdioDataEventHandler);
       // get music position 
-      $(d).bind('MUSIC_POSITION_DATA_EVENT', self.getMusicPositionEventHandler);
-      $(d).bind('TRACK_INFORMATION_DATA_EVENT',self.getTrackInformationEventHandler);
+      $(d).bind('MUSIC_POSITION_DATA_EVENT', self.musicPositionEventHandler);
+      // $(d).bind('TRACK_INFORMATION_DATA_EVENT',self.trackInformationEventHandler);
     },
 
     playerLoadedEventHandler: function() {
       console.log('playerLoaded');
     },
 
-    getRdioDataEventHandler: function(event,data){
+    rdioDataEventHandler: function(event,data){
       self.playListData=data;
       self.updataData();
-      self.playMusic(self.tracksKeys[self.soundIsPlaying]);//first time play music in the playlist.
-      self.isMusicPlaying=true;
+
+      //play the music at the first time
+      if(self.isFirstPlay){
+        self.playMusic(self.tracksKeys[self.soundIsPlaying]);//first time play music in the playlist.
+        self.isMusicPlaying=true;
+        self.isFirstPlay=false;
+      }; 
     },
 
-    getMusicPositionEventHandler: function(event, position){
-      var time=parseInt(position);
-      var minutes = Math.floor(time / 60);
-      var seconds = (time - minutes * 60)<10?('0'+(time - minutes * 60)):(time - minutes * 60);
-      self.$timeStamp.text(minutes+':'+seconds);
+    musicPositionEventHandler: function(event, position){
       // when a music finished what we need to do: next sound/loop the play list/ shuffle
-      if(position >= (self.tracksDuration[self.soundIsPlaying]-0.5/*-0.5*/)){
+      if(position >= (self.tracksDurations[self.soundIsPlaying]-0.5/*-0.5*/)){
         if(self.isShuffle){
           //shuffle the playlist and play randomly
           self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
@@ -129,48 +131,49 @@
         }; 
       };
     },
-
-    getTrackInformationEventHandler:function(event, trackName, artist, art){
-      self.$trackName.text(trackName);
-      self.$artistName.text(artist);
-      self.$albumCover.attr('src', art);
-    },
-
-    //get tracksKeys,trackName, and tracksDuration information from data from rdio api and save them.
+    
+    //get tracksKeys,trackName, and tracksDurations information from data from rdio api and save them.
     updataData: function(){
 
       self.tracksKeys=[];
       self.tracksNames=[];
-      self.tracksDuration=[];
+      self.tracksDurations=[];
 
       var i=0,
       length=self.playListData[0].tracks.length;
-      // console.log(length);
-
       for(i;i < length;i++){
         self.tracksKeys[i]=self.playListData[0].tracks[i].key;
         self.tracksNames[i]=self.playListData[0].tracks[i].name;
-        self.tracksDuration[i]=self.playListData[0].tracks[i].duration;
+        self.tracksDurations[i]=self.playListData[0].tracks[i].duration;
+        self.tracksSmallIcon[i]=self.playListData[0].tracks[i].icon;
+        self.tracksAlbumNames[i]=self.playListData[0].tracks[i].album;
+        self.tracksArtists[i]=self.playListData[0].tracks[i].artist;
       };
-      // console.log(self.tracksDuration);
 
-      //move later
-      // $('#playlist').empty();
-      // var j=0;
-      // for(j;j<length;j++){
-      //   $('#playlist').append('<li>'+tracksNames[j]+'</li>');
-      // }; 
+      self.playListCompare();
     },
 
-    init: function() {
+    playListCompare: function(){
+      if((self.trackKeysForCompare.toString())!=(self.tracksKeys.toString())){
+          self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
+          self.trackKeysForCompare=self.tracksKeys;
+      }else{
+        return
+      };
+      
+    },
 
+    
+
+    init: function() {
       self=this;
       self.attachUIEventS();
       self.bindrdioDataEvents();
-      
     }
   };
 
-  View.init();
+  window.addEventListener('DOMContentLoaded', ViewControler.init());
+
+  
 
 })(window, document, jQuery, _);

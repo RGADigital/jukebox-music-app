@@ -7,7 +7,7 @@
 		attachEvents:function(){
 			$login.click(loginClickEventHandler);
 		},
-
+		
 		loginClickEventHandler: function() {
 			$.ajax({
 			      url : '/login',
@@ -20,7 +20,6 @@
 		},
 
 		init:function(){
-
 			console.log('init');
 		}
 	};
