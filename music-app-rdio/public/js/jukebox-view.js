@@ -23,6 +23,7 @@
     isShuffle:false,
     isMusicPlaying:false,
     isFirstPlay:true,
+    myScroll:{},
 
     // set up the controls
     attachUIEventS: function(){ 
@@ -43,38 +44,53 @@
 
     playClickEventHandler: function(){
 
-      console.log('click play');
       if(self.isMusicPlaying){
         //pauseMuisc
         self.pauseMusic();
-        self.$play.text('play');
+        $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[false]);
       }else{
         //playMusic
         self.playMusic();
-        self.$play.text('pause');
-      };
-      self.isMusicPlaying =! self.isMusicPlaying;      
+        $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
+      };  
     },
 
     previousClickEventHandler: function() {
-        if(self.soundIsPlaying > 0){
-            self.soundIsPlaying--;
-            self.playMusic(self.tracksKeys[self.soundIsPlaying]);
-        };
-        console.log('previous');  
+      if(self.soundIsPlaying > 0){
+        $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
+        //shuffle status on Previous control
+        if(self.isShuffle){
+          self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]); 
+        }else{
+          self.soundIsPlaying--;
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+        };   
+      }; 
     },
 
     nextClickEventHandler: function() {
       if(self.soundIsPlaying < (self.playListData[0].tracks.length)){
-        self.soundIsPlaying++;
-        self.playMusic(self.tracksKeys[self.soundIsPlaying]);
-      };
-      // console.log(self);
+        $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
+        //shuffle status on Next control
+        if(self.isShuffle){
+          self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]); 
+        }else{
+          self.soundIsPlaying++;
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+        };
+      }; 
     },
 
-    //broadcastStation is used to store the jquery broadcast function 'trigger'.
     playMusic: function(id){
+      var orderNumber=self.soundIsPlaying == 0 ? 1 : self.soundIsPlaying;
+      //play muisc by id
       $(d).trigger('PLAY_MUSIC_EVENT',[id]);
+      //change the play icon in playlist in PlayListItem Module.
+      $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
+      //iscroll auto scroll
+      self.myScroll.scrollToElement(document.querySelector('.playlist-content li:nth-child('+orderNumber+')'));
     },
 
     pauseMusic: function(){
@@ -85,15 +101,21 @@
       $(d).trigger('PLAYLIST_RENDER_EVENT',[soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists]);
     },
 
-    bindrdioDataEvents: function(){
+    bindDataEvents: function(){
       //run when music player loaded
       $(d).bind('PLAYER_DATA_LOADED_EVENT',self.playerLoadedEventHandler);
       //run everytime after get data from rdio api
       $(d).bind('RDIO_DATA_EVENT',self.rdioDataEventHandler);
       // get music position 
       $(d).bind('MUSIC_POSITION_DATA_EVENT', self.musicPositionEventHandler);
-      // $(d).bind('TRACK_INFORMATION_DATA_EVENT',self.trackInformationEventHandler);
+      //get soundisplaying number from PlaylistItem
+      $(d).bind('CHANGE_SOUNDISPLAYING_EVENT', self.changeSoundisPlayingEventHandler);
+      //get isMusicPlaying status from View and PlaylistItem
+      $(d).bind('CHANGE_ISMUSICPLAYING_STATUS_EVENT', self.changeIsMuicPlayingStatusEventHandler);
+      $(d).bind('INITIAL_ISCROLL_EVENT', self.initialIscrollEventHandler);
     },
+
+
 
     playerLoadedEventHandler: function() {
       console.log('playerLoaded');
@@ -106,14 +128,37 @@
       //play the music at the first time
       if(self.isFirstPlay){
         self.playMusic(self.tracksKeys[self.soundIsPlaying]);//first time play music in the playlist.
-        self.isMusicPlaying=true;
+        $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
         self.isFirstPlay=false;
       }; 
+    },
+
+    initialIscrollEventHandler:function(){
+      self.myScroll = new IScroll('#wrapper', { tap: true });
+      document.addEventListener('touchmove', function (e) { }, false);
+    },
+
+    changeSoundisPlayingEventHandler:function(event, soundIsPlaying){
+      self.soundIsPlaying=soundIsPlaying;
+    },
+
+    changeIsMuicPlayingStatusEventHandler:function(event, isMusicPlaying){
+      self.isMusicPlaying=isMusicPlaying;
+
+      //change the style of play button
+      if(self.isMusicPlaying){
+        self.$play.text('PAUSE');
+      }else{
+        self.$play.text('PLAY');
+      };
+
+
     },
 
     musicPositionEventHandler: function(event, position){
       // when a music finished what we need to do: next sound/loop the play list/ shuffle
       if(position >= (self.tracksDurations[self.soundIsPlaying]-0.5/*-0.5*/)){
+        //Shuffle
         if(self.isShuffle){
           //shuffle the playlist and play randomly
           self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
@@ -154,21 +199,18 @@
     },
 
     playListCompare: function(){
-      if((self.trackKeysForCompare.toString())!=(self.tracksKeys.toString())){
+      if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
           self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
           self.trackKeysForCompare=self.tracksKeys;
       }else{
         return
       };
-      
     },
-
-    
 
     init: function() {
       self=this;
       self.attachUIEventS();
-      self.bindrdioDataEvents();
+      self.bindDataEvents();
     }
   };
 

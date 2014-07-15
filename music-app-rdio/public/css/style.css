@@ -64,7 +64,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* For the containers holding the buttons, which properly space them */
-/* line 30, ../sass/style.scss */
+/* line 35, ../sass/style.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
@@ -73,22 +73,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-family: georgia;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 h1 {
   font-size: 2em;
 }
 
-/* line 42, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 h2 {
   font-size: 1.25em;
 }
 
-/* line 46, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 h6 {
   font-size: 0.75em;
 }
 
-/* line 50, ../sass/style.scss */
+/* line 55, ../sass/style.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 150px;
@@ -100,19 +100,19 @@ div.usablescreen {
   overflow: hidden;
 }
 
-/* line 61, ../sass/style.scss */
+/* line 66, ../sass/style.scss */
 div.main-album-art {
   height: 590px;
   width: 590px;
 }
 
-/* line 66, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 .main-album-art > img {
   width: 590px;
   height: 590px;
 }
 
-/* line 71, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 div.main-music-information {
   text-align: center;
   height: 150px;
@@ -120,14 +120,28 @@ div.main-music-information {
 }
 
 /*The following contains styling on all buttons including size, spacing, and position. */
-/* line 79, ../sass/style.scss */
+/* line 84, ../sass/style.scss */
 div.music-buttons-total {
   position: absolute;
   height: 120px;
 }
 
-/*div to hold the buttons for spacing reasons */
-/* line 103, ../sass/style.scss */
+/*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
+/* line 92, ../sass/style.scss */
+.not-a-button, button.play, button.rewind, button.fastforward, .shuffle-container {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  -webkit-font-smoothing: inherit;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+/* line 108, ../sass/style.scss */
 .music-button-container {
   width: 193.44262px;
   height: 100px;
@@ -136,7 +150,7 @@ div.music-buttons-total {
   display: inline-block;
 }
 
-/* line 122, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 button.play {
   width: 100px;
   height: 100px;
@@ -144,7 +158,7 @@ button.play {
   position: absolute;
 }
 
-/* line 127, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 button.rewind {
   width: 100px;
   height: 100px;
@@ -152,7 +166,7 @@ button.rewind {
   position: absolute;
 }
 
-/* line 130, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 button.fastforward {
   width: 100px;
   height: 100px;
@@ -160,9 +174,8 @@ button.fastforward {
   position: absolute;
 }
 
-/*START RENAMING CLASSES HERE */
 /* To properly align the shuffle button in the middle of the screen. Variable shuffle margins is equal to the usable width function */
-/* line 141, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 .shuffle-container {
   width: 50px;
   height: 20px;
@@ -173,7 +186,7 @@ button.fastforward {
   margin-right: 270px;
 }
 
-/* line 151, ../sass/style.scss */
+/* line 157, ../sass/style.scss */
 .shuffle-line-container {
   height: 30px;
   border-top: solid 1px black;
@@ -181,7 +194,7 @@ button.fastforward {
 }
 
 /*toggle styles for JS */
-/* line 160, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 .isShuffleOn {
   width: 50px;
   height: 20px;
@@ -194,7 +207,7 @@ button.fastforward {
   opacity: 0.5;
 }
 
-/* line 173, ../sass/style.scss */
+/* line 178, ../sass/style.scss */
 button.isPlaying {
   width: 100px;
   height: 100px;
@@ -205,7 +218,7 @@ button.isPlaying {
 }
 
 /*Song and playlist information */
-/* line 186, ../sass/style.scss */
+/* line 191, ../sass/style.scss */
 .playlist {
   position: absolute;
   overflow-y: auto;
@@ -215,25 +228,40 @@ button.isPlaying {
   margin-top: 250px;
 }
 
-/* line 197, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 .song {
-  background-color: white;
-  width: 100%;
+  width: 570px;
+  padding: 10px;
   border-bottom: solid 1px black;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-/* line 205, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 .song-number {
-  width: 30px;
+  width: 20px;
   height: 100%;
   display: inline;
   position: relative;
   top: -50px;
+  z-index: 1;
+  margin-right: 10px;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 220, ../sass/style.scss */
+.song-playing-icon {
+  width: 20px;
+  height: 20px;
+  display: inline;
+  position: relative;
+  top: -50px;
+  background-image: url("../img/volumeIcon.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  z-index: 2;
+  color: transparent;
+  margin-right: 10px;
+}
+
+/* line 234, ../sass/style.scss */
 .song-thumbnail {
   height: 100px;
   width: 100px;
@@ -241,32 +269,30 @@ button.isPlaying {
   position: relative;
 }
 
-/* line 220, ../sass/style.scss */
+/* line 241, ../sass/style.scss */
 .song-thumbnail > img {
   height: 100px;
   width: 100px;
-  margin-bottom: 10px;
 }
 
-/* line 227, ../sass/style.scss */
+/* line 247, ../sass/style.scss */
 .song-name-artist-container {
   display: inline;
   height: 100px;
   position: absolute;
-  padding: 5px;
+  margin-left: 5px;
 }
 
-/* line 234, ../sass/style.scss */
+/* line 254, ../sass/style.scss */
 .song-time {
   display: inline;
   float: right;
-  margin-right: 30px;
   height: 100px;
   position: relative;
 }
 
 /* iScroll Plugin Styling */
-/* line 245, ../sass/style.scss */
+/* line 264, ../sass/style.scss */
 #wrapper {
   position: relative;
   width: 590px;
@@ -288,7 +314,7 @@ button.isPlaying {
   text-size-adjust: none;
 }
 
-/* line 269, ../sass/style.scss */
+/* line 288, ../sass/style.scss */
 #scroller {
   position: absolute;
   /* Prevent elements to be highlighted on tap */
@@ -301,12 +327,12 @@ button.isPlaying {
   transform: translateZ(0);
 }
 
-/* line 283, ../sass/style.scss */
+/* line 302, ../sass/style.scss */
 li {
   list-style-type: none;
 }
 
-/* line 288, ../sass/style.scss */
+/* line 305, ../sass/style.scss */
 body {
   overflow: auto;
 }

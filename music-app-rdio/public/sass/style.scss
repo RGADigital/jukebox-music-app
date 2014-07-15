@@ -5,6 +5,10 @@
  @return($width-entire - (2*$margin-horizontal));
 };
 
+@function song-width ($usable-width, $song-padding){
+ @return($usable-width - 2 * $song-padding);
+};
+
 $width-entire: 1080px;
 $height-entire: 1920px;
 
@@ -21,6 +25,7 @@ $music-information-height:150px;
 
 $playlist-height:600px;
 
+$song-padding:10px;
 /* For the containers holding the buttons, which properly space them */ 
 
 $control-width: usable-width($width-entire, $margin-horizontal) / 3.05 ; 
@@ -81,10 +86,10 @@ div.music-buttons-total{
 	height: $button-width-and-height + $shuffle-height;
 }
 
-/*div to hold the buttons for spacing reasons */ 
+/*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */ 
 
 
-%not-a-button {
+.not-a-button {
     background-color: transparent;
     border: none;
     color: inherit;
@@ -112,16 +117,16 @@ div.music-buttons-total{
 	width:$button-width-and-height;
 	height:$button-width-and-height;
 	margin-left: $margin-left-button;
-	position:absolute;
-	@extend not-a-button 
-} 
+	position:absolute; 
+
+	@extend .not-a-button;} 
 
 
 
 
 button.play{
-	@include button-style($button-width-and-height, $margin-left-button)
 
+	@include button-style($button-width-and-height, $margin-left-button)
 
 }
 button.rewind{
@@ -132,7 +137,7 @@ button.fastforward{
 }
 
 
-/*START RENAMING CLASSES HERE */ 
+
 
 /* To properly align the shuffle button in the middle of the screen. Variable shuffle margins is equal to the usable width function */ 
 $usable-width: usable-width($width-entire, $margin-horizontal); 
@@ -146,10 +151,10 @@ $margin-shuffle: ($usable-width - $shuffle-width) / 2.0 ;
 	margin-bottom:5px;
 	margin-left:$margin-shuffle;
 	margin-right:$margin-shuffle; 
+	@extend .not-a-button; 
 }
 
 .shuffle-line-container{
-	
 	height:$shuffle-height + 10px;
 	border-top: solid 1px black;
 	border-bottom: solid 1px black;
@@ -195,19 +200,35 @@ button.isPlaying{
 
 
 .song{
-	background-color:white;
-	width:100%;
+	width:song-width($usable-width,$song-padding);
+	padding:$song-padding;
 	border-bottom:solid 1px black;
-	margin-top:10px;
-	margin-bottom:10px;
+	
 }
 
 .song-number{
-	width:30px;
+	width:20px;
 	height:100%;
 	display:inline;
 	position:relative;
 	top:-50px;  
+	z-index:1;
+	margin-right:10px;
+
+}
+
+.song-playing-icon{
+	width:20px;
+	height:20px;
+	display:inline;
+	position:relative;
+	top:-50px;  
+	background-image:url('../img/volumeIcon.png');
+	background-size: 20px 20px;
+	background-repeat:no-repeat;
+	z-index:2;
+	color:transparent;
+	margin-right:10px;
 }
 
 .song-thumbnail{
@@ -220,7 +241,6 @@ button.isPlaying{
 .song-thumbnail > img{
 	height:$artwork-thumbnail;
 	width:$artwork-thumbnail;
-	margin-bottom:10px;  
 }
 
 
@@ -228,13 +248,12 @@ button.isPlaying{
 	display:inline;  
 	height: $artwork-thumbnail;
 	position:absolute;
-	padding:5px;
+	margin-left:5px;
 }
 
 .song-time{
 	display:inline;
 	float:right;
-	margin-right:30px;
 	height: $artwork-thumbnail;  
 	position:relative; 
 }
@@ -281,9 +300,7 @@ button.isPlaying{
 }
 
 li{
-
 	list-style-type:none;
-
 }
 body{
 	overflow:auto;

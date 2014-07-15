@@ -27,11 +27,11 @@
     },
 
     bindEvents: function(){
-      $(d).bind('PLAY_MUSIC_EVENT',self.palyMusicEventHandler);
+      $(d).bind('PLAY_MUSIC_EVENT',self.playMusicEventHandler);
       $(d).bind('PAUSE_MUSIC_EVENT',self.pauseMusicEventHandler);
     },
 
-    palyMusicEventHandler: function(event, musicKey){
+    playMusicEventHandler: function(event, musicKey){
       if(musicKey){
         apiswf.rdio_play(musicKey);
       }else{

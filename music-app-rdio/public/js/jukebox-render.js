@@ -8,7 +8,8 @@
     $artistName: $('.main-artist'),
     $albumCover: $('.art'),
     $timeStamp: $('.main-position'),
-    $playlist: $('.playlist-item-tpl'),
+    $playlistTpl: $('.playlist-item-tpl'),
+    $playlistContiner:$('.playlist-content'),
 
     //track information
     tracksKeys:[],
@@ -50,16 +51,17 @@
     },
 
     renderPlayList:function(){
+      renderSelf.$playlistContiner.empty();
       var i=0;
       var length=renderSelf.tracksKeys.length;
       for(i;i<length;i++){
         new PlaylistItem(renderSelf.tracksKeys[i], renderSelf.tracksNames[i], renderSelf.tracksDurations[i], renderSelf.tracksSmallIcon[i], renderSelf.tracksAlbumNames[i], renderSelf.tracksArtists[i],(i+1)).init();
       };
-      renderSelf.initialIscroll();
+      $(d).trigger('INITIAL_ISCROLL_EVENT');
     },
 
     initialTamplate:function(){
-      renderSelf.tpl = renderSelf.$playlist.text();
+      renderSelf.tpl = renderSelf.$playlistTpl.text();
       renderSelf.renderPlaylist=_.template(renderSelf.tpl);
     },
 
@@ -73,14 +75,7 @@
       var time=parseInt(position);
       var minutes = Math.floor(time / 60);
       var seconds = (time - minutes * 60)<10?('0'+(time - minutes * 60)):(time - minutes * 60);
-      // console.log(position);
-      self.$timeStamp.text(minutes+':'+seconds);
-    },
-
-    initialIscroll:function(){
-      console.log('dd');
-      myScroll = new IScroll('#wrapper', { tap: true });
-      document.addEventListener('touchmove', function (e) { }, false);
+      renderSelf.$timeStamp.text(minutes+':'+seconds);
     },
 
     init:function(){
@@ -95,6 +90,7 @@
   var PlaylistItem=function(tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists, order){
     var self=this;
 
+    // playlist item information
     this.tracksKeys=tracksKeys;
     this.tracksNames=tracksNames;
     this.tracksDurations=tracksDurations;
@@ -103,7 +99,9 @@
     this.tracksArtists=tracksArtists;
     this.order=order;
     this.$listItem;
+    this.orderNumberClass;
 
+    //render the single playlist item in playlist
     this.render=function(){
       var time=parseInt(this.tracksDurations);
       var minutes = Math.floor(time / 60);
@@ -118,6 +116,8 @@
         iconUrl:this.tracksSmallIcon,
         soundOrder:this.order
       })).appendTo('.playlist-content');
+
+      this.orderNumberClass=this.$listItem.find('.song-number');
     };
 
     this.attachEvent=function(){
@@ -125,12 +125,33 @@
     };
 
     this.tapEventHandler=function(event){
+      var soundIsPlaying=(self.order-1);
+      var isMusicPlaying=true;
+
       event.preventDefault();
+      //play the musisc by track id.
       $(d).trigger('PLAY_MUSIC_EVENT',[self.tracksKeys]);
+      //update SOUNDISPLAYING in view module. 
+      $(d).trigger('CHANGE_SOUNDISPLAYING_EVENT',[soundIsPlaying]);
+      //update ISMUSICPLAYING status in view module.
+      $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[isMusicPlaying]);
+      //change the icon
+      $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[soundIsPlaying]);
+
+    };
+
+    this.bindEventLisnter=function(){
+      $(d).bind('CHANGE_PLAYLISTICON_EVENT', function(event, soundIsPlaying) {
+        self.orderNumberClass.removeClass('song-playing-icon');
+        if(soundIsPlaying == (self.order-1)){
+          self.orderNumberClass.toggleClass('song-playing-icon');//ADD EFFECT TO ICON
+        };
+      });
     };
 
     this.init=function(){
       this.render();
+      this.bindEventLisnter();
       this.attachEvent();
       return this;
     };
