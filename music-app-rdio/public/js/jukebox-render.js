@@ -4,13 +4,13 @@
 
     renderSelf:{},
     //Data for Playlist node
-    //track information
     $trackName: $('.main-track'),
     $artistName: $('.main-artist'),
     $albumCover: $('.art'),
     $timeStamp: $('.main-position'),
+    $playlist: $('.playlist-item-tpl'),
 
-
+    //track information
     tracksKeys:[],
     tracksNames:[],
     tracksSmallIcon:[],
@@ -29,14 +29,6 @@
     },
 
     playlistRenderEventHandler: function(event, soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists){
-      // console.log('render playlist');
-      // console.log('soundIsPlaying: '+soundIsPlaying);
-      // console.log('tracksKeys: '+tracksKeys);
-      // console.log('tracksNames: '+tracksNames);
-      // console.log('tracksDurations: '+tracksDurations);
-      // console.log('tracksSmallIcon: '+tracksSmallIcon);
-      // console.log('tracksAlbumNames:'+tracksAlbumNames);
-      // console.log('tracksArtists: '+tracksArtists);
 
       //update playlist data
       renderSelf.tracksKeys=[];
@@ -60,7 +52,6 @@
     renderPlayList:function(){
       var i=0;
       var length=renderSelf.tracksKeys.length;
-      $('.playlist-item-tpl').empty();
       for(i;i<length;i++){
         new PlaylistItem(renderSelf.tracksKeys[i], renderSelf.tracksNames[i], renderSelf.tracksDurations[i], renderSelf.tracksSmallIcon[i], renderSelf.tracksAlbumNames[i], renderSelf.tracksArtists[i],(i+1)).init();
       };
@@ -68,7 +59,7 @@
     },
 
     initialTamplate:function(){
-      renderSelf.tpl = $('.playlist-item-tpl').text();
+      renderSelf.tpl = renderSelf.$playlist.text();
       renderSelf.renderPlaylist=_.template(renderSelf.tpl);
     },
 
@@ -82,6 +73,7 @@
       var time=parseInt(position);
       var minutes = Math.floor(time / 60);
       var seconds = (time - minutes * 60)<10?('0'+(time - minutes * 60)):(time - minutes * 60);
+      // console.log(position);
       self.$timeStamp.text(minutes+':'+seconds);
     },
 
