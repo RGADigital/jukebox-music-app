@@ -1,6 +1,7 @@
 @import "compass";
 @import "compass/reset";
 
+
 @function usable-width ($width-entire, $margin-horizontal){
  @return($width-entire - (2*$margin-horizontal));
 };
@@ -26,23 +27,50 @@ $music-information-height:150px;
 $playlist-height:600px;
 
 $song-padding:10px;
+
+/* change the overflow to hidden to remove scroll bars and change the cursor variable to none to remove cursor! 
+On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
+The sizing should work for the screen and cut off any extra. 
+*/ 
+
+$overflow:auto;
+$cursor:none;
 /* For the containers holding the buttons, which properly space them */ 
 
 $control-width: usable-width($width-entire, $margin-horizontal) / 3.05 ; 
 $margin-left-button: ($control-width - $button-width-and-height) / 2.0 ;
 
 
+body{
+	overflow:$overflow;
+	@media (min-width:$width-entire) and (orientation:portrait){
+	overflow:hidden;
+	}
+}
+
+
+
+::selection{
+	background:transparent;
+}
+
+
 .entirescreen{
 	width:$width-entire;
 	height:$height-entire;
-	border:solid 10px black;
 	position:relative;
 	font-family:georgia;
+	cursor:$cursor;
+	-webkit-user-select:none;
+}
+
+img{
+	-webkit-user-select:none;
+	pointer-events:none;
 }
 
 h1{
-	font-size:200em;
-
+	font-size:2em;
 }
 
 h2{
@@ -119,16 +147,14 @@ div.music-buttons-total{
 	height:$button-width-and-height;
 	margin-left: $margin-left-button;
 	position:absolute; 
-
-	@extend .not-a-button;} 
+	@extend .not-a-button;
+} 
 
 
 
 
 button.play{
-
 	@include button-style($button-width-and-height, $margin-left-button)
-
 }
 button.rewind{
 	@include button-style($button-width-and-height, $margin-left-button)
@@ -198,19 +224,16 @@ button.isPlaying{
 	margin-top:250px;
 }
 
-
-
 .song{
 	width:song-width($usable-width,$song-padding);
 	padding:$song-padding;
 	border-bottom:solid 1px black;
-	
 }
 
 .song-number{
 	width:20px;
 	height:100%;
-	display:inline;
+	display:inline-block;
 	position:relative;
 	top:-50px;  
 	z-index:1;
@@ -247,7 +270,7 @@ button.isPlaying{
 
 .song-name-artist-container{
 	display:inline;  
-	height: $artwork-thumbnail;
+	height:$artwork-thumbnail;
 	position:absolute;
 	margin-left:5px;
 }
@@ -302,7 +325,4 @@ button.isPlaying{
 
 li{
 	list-style-type:none;
-}
-body{
-	overflow:auto;
 }
