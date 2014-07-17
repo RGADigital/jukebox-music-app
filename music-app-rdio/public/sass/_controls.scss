@@ -1,0 +1,141 @@
+@function button-container-margins ($usable-width, $button-container-ppreff-width){
+@return(($usable-width - $button-container-ppreff-width) / 2);
+};
+
+
+
+//button information 
+$button-container-ppreff-width:475px;
+$button-width-and-height:93px;
+
+$shuffle-width: 34px;
+$shuffle-height:26px;
+$shuffle-top-margin:40px;
+$shuffle-bottom-margin:20px;
+
+/* To properly align the shuffle button. Variable shuffle margins is equal to the usable width function */ 
+
+$margin-shuffle-right:19px;
+
+
+div.button-container-ppreff{
+	width:$button-container-ppreff-width;
+	height:$button-width-and-height;
+	margin-left: button-container-margins($usable-width, $button-container-ppreff-width);
+	margin-right: button-container-margins($usable-width, $button-container-ppreff-width);
+	margin-top:0px;
+	margin-bottom:0px;
+	position:relative;
+}
+
+
+/*The following contains styling on all buttons including size, spacing, and position. */
+div.button-container-ppreff{
+	width:$button-container-ppreff-width;
+	height:$button-width-and-height;
+	margin-left: button-container-margins($usable-width, $button-container-ppreff-width);
+	margin-right: button-container-margins($usable-width, $button-container-ppreff-width);
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+div.music-buttons-total{
+	
+	height: $button-width-and-height + $shuffle-height + $shuffle-top-margin + $shuffle-bottom-margin;
+	width:$usable-width;
+}
+
+/*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */ 
+
+
+.not-a-button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: {
+        size: inherit;
+        family: inherit;
+    }
+
+    -webkit-font-smoothing: inherit;
+    margin: 0;
+    outline: none;
+    padding: 0;
+}
+
+
+.music-button-container{
+	width:$button-width-and-height;
+	height:$button-width-and-height;
+	margin-left:30px;
+	margin-right:30px;
+	display:inline-block;
+}
+
+@mixin button-style($button-width-and-height){
+	width:$button-width-and-height;
+	height:$button-width-and-height;
+	position:absolute;
+	@extend .not-a-button;
+} 
+
+
+
+
+
+button.play{
+	background-image: image-url('play-button.png');
+	background-repeat:no-repeat;
+	@include button-style($button-width-and-height)	
+}
+button.rewind{
+	background-image: image-url('previous-button.png');
+	background-repeat:no-repeat;
+	@include button-style($button-width-and-height)
+}
+button.fastforward{
+	background-image:image-url('next-button.png');
+	background-repeat:no-repeat;
+	@include button-style($button-width-and-height)
+}
+
+
+
+
+
+
+.shuffle-container{
+	width:$shuffle-width;
+	height:$shuffle-height;
+	margin-top:$shuffle-top-margin;
+	margin-bottom:$shuffle-bottom-margin;
+	float:right;
+	margin-right:$margin-shuffle-right; 
+	background-image:image-url('shuffle-button-stop.png');
+
+	@extend .not-a-button; 
+}
+
+
+
+/*toggle styles for JS */ 
+
+.isShuffleOn{
+	width:$shuffle-width;
+	height:$shuffle-height;
+	margin-top:$shuffle-top-margin;
+	margin-bottom:$shuffle-bottom-margin;
+	margin-right:$margin-shuffle-right;
+	background-image: image-url('shuffle-button-working.png');
+}
+
+
+button.isPlaying{
+	width:$button-width-and-height;
+	height:$button-width-and-height;
+	background-image:image-url('pause-button.png');
+	position:relative;
+
+}
+
