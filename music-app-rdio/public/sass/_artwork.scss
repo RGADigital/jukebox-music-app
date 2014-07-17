@@ -1,0 +1,66 @@
+@function album-art-margins ($usable-width, $main-album-art-width-and-height){
+@return(($usable-width - $main-album-art-width-and-height) / 2);
+
+};
+
+
+//playing album art and song information 
+$main-album-art-width-and-height:599px;
+$music-information-margin:43px;
+
+$shadow-width:800px;
+
+$main-song-font-size:38px;
+$main-artist-font-size:30px;
+$main-album-title-font-size:24px;
+
+
+div.color{
+	position:absolute;
+	top:-0px;
+	height:665px;
+	width:$width-entire;
+	background-color:#4dd0e1;
+	z-index:-1;
+}
+
+.color > img{
+	top:629px;
+	position:absolute;
+	transform-origin:50% 0%;
+	margin-left:141px;
+}
+
+
+div.main-album-art{
+	height:$main-album-art-width-and-height;
+	width:$main-album-art-width-and-height;
+	
+}
+
+
+
+.main-album-art > img{
+	margin-left:album-art-margins($usable-width, $main-album-art-width-and-height);
+	margin-right:album-art-margins($usable-width, $main-album-art-width-and-height);
+}
+
+div.main-music-information{
+	text-align:center;
+	margin-top:$music-information-margin;
+	margin-bottom:$music-information-margin;
+	width:$usable-width;
+}
+
+.main-music-information > h1{
+	font-size:$main-song-font-size;
+}
+
+.main-music-information > h2{
+	font-size:$main-artist-font-size;
+}
+
+.main-music-information > h6{
+	font-size:$main-album-title-font-size;
+}
+

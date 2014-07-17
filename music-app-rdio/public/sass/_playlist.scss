@@ -1,0 +1,156 @@
+@function song-width ($usable-width, $song-padding){
+ @return($usable-width - 2 * $song-padding);
+};
+
+
+$playlist-height:615px;
+$playlist-top-margin:20px;
+
+//individual song and playlist information 
+$song-information-margin-left:20px;
+$song-padding:0px;
+$song-number-width:40px;
+$song-number-margin-left:8px;
+
+
+$artwork-thumbnail:70px;
+$artwork-thumbnail-margin-vertical:22px;
+
+$artist-name-margin-top:16px;
+$song-time-margin-right:22px;
+
+$font-size-song:20px;
+
+$song-height:110px;
+$song-number-height:20px;
+@function song-number-margin-vertical ($song-height, $song-number-height) {
+	@return(($song-height - $song-number-height) / 2);
+}
+$song-number-margin-vertical: song-number-margin-vertical($song-height, $song-number-height);
+/*Song and playlist information */ 
+
+.playlist{
+	position:absolute;
+	overflow-y:auto;
+  	overflow-x:hidden;
+	width:105%;
+	height:$playlist-height;
+	margin-top:$playlist-top-margin;
+	border-top:black 1px solid;
+	font-size:$font-size-song;
+}
+
+.song{
+	width:song-width($usable-width,$song-padding);
+	height:$song-height;
+	padding:$song-padding;
+	border-bottom:solid 1px black;
+}
+
+.song-number{
+	width:$song-number-width;
+	display:inline-block;
+	z-index:1;
+	margin-left:$song-number-margin-left;
+	margin-top:$song-number-margin-vertical;
+	margin-bottom:$song-number-margin-vertical;
+	text-align:left;
+	height:$song-number-height;
+
+}
+
+.song-playing-icon{
+	display:inline-block;
+	position:relative;
+	background-image:image-url('speaker-icon.png');
+	background-repeat:no-repeat;
+	z-index:2;
+	color:transparent;
+	
+}
+
+.song-thumbnail{
+	height:$artwork-thumbnail;
+	width:$artwork-thumbnail;
+	
+	display:inline;
+	position:relative;
+}
+
+.song-thumbnail > img{
+	height:$artwork-thumbnail;
+	width:$artwork-thumbnail;
+	margin-top:$artwork-thumbnail-margin-vertical;
+	margin-bottom:$artwork-thumbnail-margin-vertical;
+	
+}
+
+
+.song-name-artist-container{
+	display:inline;  
+	height:$artwork-thumbnail;
+	position:absolute;
+	margin-left:$song-information-margin-left;
+}
+
+.song-name-list{
+margin-top:$artist-name-margin-top;
+}
+
+.artist-name-list{
+
+}
+
+.song-time{
+	display:inline;
+	float:right;
+	height: $artwork-thumbnail;  
+	position:relative; 
+	margin-right:$song-time-margin-right;
+}
+
+
+/* iScroll Plugin Styling */ 
+
+#wrapper {
+	position:relative;
+	width:$usable-width;
+	height:$playlist-height;
+	overflow: hidden;
+
+	
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+#scroller {
+	position: absolute;
+
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	/* Put the scroller into the HW Compositing layer right from the start */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+li{
+	list-style-type:none;
+}

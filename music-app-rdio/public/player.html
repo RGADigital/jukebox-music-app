@@ -11,11 +11,15 @@
 	<body> 
 		<div id="apiswf"></div>
 		<div class="entirescreen"> 
+			<div class="color"> 
+				<img class="shadow" src="components/shadow.png"> 
+			</div> 	
 
-			<div class="usablescreen"> 
+			<div class="usablescreen"> 	
 				<div class="main-album-art"> 
 					<img class="art" src="">
 				</div> 
+			
 
 				<div class="main-music-information"> 
 					<h1 class="main-track"> Song Name </h1> 
@@ -25,26 +29,31 @@
 
 				<div class="music-buttons-total">
 				<!-- Play, Shuffle, Fast Foward --> 
-					<div class="music-button-container"> 
-						<button class="rewind"> Rewind</button>
+					<div class="button-container-ppreff">
+
+						<div class="music-button-container"> 
+							<button class="rewind"></button>
+						</div> 
+
+						<div class="music-button-container"> 
+							<button class="play"></button> 
+						</div> 
+
+						<div class="music-button-container">
+						 	<button class="fastforward"></button>
+					 	</div> 
+
 					 </div> 
 
-					<div class="music-button-container"> 
-						<button class="play"> Play </button> 
-					</div> 
-
-					<div class="music-button-container">
-					 	<button class="fastforward"> FF </button>
-				 	 </div> 
-
-					<br> 
-
-					<div class="shuffle-line-container">
+					
+					
 						<div>
-							<button class="shuffle-container shuffle"> Shuffle </button>  
+							<button class="shuffle-container shuffle"></button>  
 						</div> 
-					</div>		
+						
 				</div> 
+
+
 
 				<div class="playlist">
 					<div id="wrapper"> 
@@ -68,8 +77,9 @@
 						<img src="<%= iconUrl %>">
 					</section>
 					<section class="song-name-artist-container">  
-						<h3 class="song-name-list"> <%= artistName %></h3>
 						<h5 class="artist-name-list"> <%= songName %> </h5>
+						<h3 class="song-name-list"> <%= artistName %></h3>
+
 					</section> 
 					<section class="song-time"> 
 						<h6 class="time"> <%= songTime %> </h6> 

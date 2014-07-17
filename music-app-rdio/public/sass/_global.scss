@@ -1,0 +1,72 @@
+@function usable-width ($width-entire, $margin-horizontal){
+ @return($width-entire - (2*$margin-horizontal));
+};
+
+@function usable-height ($height-entire, $margin-top, $margin-bottom){
+	@return($height-entire - ($margin-top + $margin-bottom));
+};
+
+
+
+
+//total width and height
+$width-entire: 1080px;
+$height-entire: 1920px;
+
+
+//margins for usable width
+$margin-horizontal:177px;
+$margin-top: 150px;
+$margin-bottom:210px;
+
+$usable-width: usable-width($width-entire, $margin-horizontal); 
+
+/* change the overflow to hidden to remove scroll bars and change the cursor variable to none to remove cursor! 
+On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
+The sizing should work for the screen and cut off any extra. 
+*/ 
+
+
+$overflow:auto;
+$cursor:pointer;
+
+
+body{
+	overflow:$overflow;
+	font-family: 'Open Sans', Helvetica;
+	@media (min-width:$width-entire) and (orientation:portrait){
+	overflow:hidden;
+	}
+}
+
+
+::selection{
+	background:transparent;
+}
+
+
+.entirescreen{
+	width:$width-entire;
+	height:$height-entire;
+	position:relative;
+	cursor:$cursor;
+	-webkit-user-select:none;
+	font-family: 'Open Sans', Helvetica;
+}
+
+img{
+	-webkit-user-select:none;
+	pointer-events:none;
+}
+
+
+div.usablescreen{
+	position:absolute;
+	margin-bottom: $margin-bottom;
+	margin-top: $margin-top;
+	margin-right: $margin-horizontal;
+	margin-left: $margin-horizontal;
+	width: $usable-width;
+	height: usable-height($height-entire, $margin-top, $margin-bottom);
+	overflow:hidden;
+}
