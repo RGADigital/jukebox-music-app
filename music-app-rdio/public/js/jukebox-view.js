@@ -40,6 +40,12 @@
     shuffleClikcEventHandler: function(event) {
         self.isShuffle =! self.isShuffle;
         console.log('shuffle: '+self.isShuffle);
+        if(self.isShuffle){
+          self.$shuffle.removeClass('isShuffleOn')
+          self.$shuffle.toggleClass('isShuffleOn');
+        }else{
+          self.$shuffle.removeClass('isShuffleOn');
+        };
     },
 
     playClickEventHandler: function(){
@@ -144,12 +150,12 @@
 
     changeIsMuicPlayingStatusEventHandler:function(event, isMusicPlaying){
       self.isMusicPlaying=isMusicPlaying;
-
       //change the style of play button
       if(self.isMusicPlaying){
-        self.$play.text('PAUSE');
+        self.$play.removeClass('isPlaying');
+        self.$play.toggleClass('isPlaying');
       }else{
-        self.$play.text('PLAY');
+        self.$play.removeClass('isPlaying');
       };
 
 
