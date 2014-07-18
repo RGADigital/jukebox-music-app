@@ -5,7 +5,7 @@ var Rdio=require('./my_modules/rdio'),
     session = require('express-session'),
     http = require('http'),
     io = require('socket.io').listen(9001);
-
+// vvv
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 8888);
