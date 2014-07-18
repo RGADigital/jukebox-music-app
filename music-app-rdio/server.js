@@ -3,7 +3,9 @@ var Rdio=require('./my_modules/rdio'),
     express = require('express'),
     app = express(),
     session = require('express-session'),
-    http = require('http');
+    http = require('http'),
+    io = require('socket.io').listen(9001);
+
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 8888);
@@ -14,6 +16,17 @@ app.configure(function() {
 	app.use(express.static(__dirname + '/public'));
 });
 
+http.createServer(app).listen(app.get('port'), function () {
+    console.log("Express server listening on port " + app.get('port'));
+});
+
+app.get('/player', function(req, res){
+  res.sendfile('public/player.html');
+});
+
+app.get('/sidescreen', function(req, res){
+  res.sendfile('public/sidescreen.html');
+});
 
 app.get('/getlist', function(req, res){
 	console.log('wow getting list');
@@ -83,7 +96,8 @@ app.get('/callback', function(req, res){
 
         // req.session.clear('reqToken');
         console.log('good');
-        res.redirect('/player.html');
+        res.redirect('/player')
+        
       });
     } else {
       res.redirect('/logout');
@@ -96,7 +110,13 @@ app.get('/logout', function(request, result){
 });
 
 
-
-http.createServer(app).listen(app.get('port'), function () {
-    console.log("Express server listening on port " + app.get('port'));
+io.on('connection', function(socket){
+  console.log('connnnnnection----------------');
+  socket.on('bit', function(msg){
+    io.emit('pot', msg);
+  });
 });
+
+
+
+

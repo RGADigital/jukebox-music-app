@@ -3,9 +3,11 @@
   // a global variable that will hold a reference to the api swf once it has loaded
   apiswf = null;
   callback_object = {};
+  var socket=io.connect('http://localhost:9001');
 
   var RdioController={
     self:{},
+    
 
     // on page load use SWFObject to load the API swf into div#apiswf
     flashvars: {
@@ -156,6 +158,9 @@
         // $('#freq div').each(function(i) {
         //      $(this).width(parseInt(parseFloat(arr[i])*500));
         // })
+        // console.log(arrayAsString);
+        socket.emit('bit', arrayAsString);
+      
       };
 
     },
