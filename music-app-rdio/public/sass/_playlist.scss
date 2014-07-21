@@ -3,6 +3,7 @@
 };
 
 
+
 $playlist-height:615px;
 $playlist-top-margin:20px;
 
@@ -17,12 +18,22 @@ $artwork-thumbnail:70px;
 $artwork-thumbnail-margin-vertical:22px;
 
 $artist-name-margin-top:16px;
-$song-time-margin-right:22px;
+$song-time-margin-right:12.6px;
 
 $font-size-song:20px;
 
 $song-height:110px;
 $song-number-height:20px;
+
+
+//Color Scheme
+$playlist-song-number-color:#bfc2c3;
+$playlist-song-title-color:#424242;
+$playlist-song-album-color:#afb1b2;
+$playlist-song-time-color:#959ea3;
+$playlist-song-line-color:#eaf0f0;
+
+
 @function song-number-margin-vertical ($song-height, $song-number-height) {
 	@return(($song-height - $song-number-height) / 2);
 }
@@ -36,7 +47,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	width:105%;
 	height:$playlist-height;
 	margin-top:$playlist-top-margin;
-	border-top:black 1px solid;
+	border-top:$playlist-song-line-color 1px solid;
 	font-size:$font-size-song;
 }
 
@@ -44,7 +55,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	width:song-width($usable-width,$song-padding);
 	height:$song-height;
 	padding:$song-padding;
-	border-bottom:solid 1px black;
+	border-bottom:$playlist-song-line-color 1px solid;
 }
 
 .song-number{
@@ -58,6 +69,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	margin-top:$song-number-margin-vertical;
 	margin-bottom:$song-number-margin-vertical;
 	margin-left:$song-number-margin-left;
+	color:$playlist-song-number-color;
 }
 
 
@@ -90,32 +102,36 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 
 
 .song-name-artist-container{
-	display:inline;  
+	display:inline-block;  
 	height:$artwork-thumbnail;
 	margin-top:$artwork-thumbnail-margin-vertical;
 	margin-bottom:$artwork-thumbnail-margin-vertical;
 	position:absolute;
 	margin-left:$song-information-margin-left;
-
-
 }
 
 .song-name-list{
-margin-top:$artist-name-margin-top;
+	margin-top:$artist-name-margin-top;
+	color:$playlist-song-album-color;
 }
 
 .artist-name-list{
-
+	color:$playlist-song-title-color;
 }
 
+
 .song-time{
-	display:inline-block;
-	text-align:left;
+
+	color:$playlist-song-time-color;
 	float:right;
-	height: $artwork-thumbnail;  
+	height:$song-number-height;
+	display:inline-block;
 	position:relative; 
+	z-index:1;
+	margin-top:$song-number-margin-vertical;
+	margin-bottom:$song-number-margin-vertical;
 	margin-right:$song-time-margin-right;
-	top:50%;
+	
 }
 
 
