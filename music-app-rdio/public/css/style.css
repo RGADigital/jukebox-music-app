@@ -14,35 +14,35 @@ body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
-@media (min-width: 1080px) and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 39, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 48, ../sass/_global.scss */
+/* line 50, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 53, ../sass/_global.scss */
+/* line 55, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
   position: relative;
-  cursor: pointer;
+  cursor: none !important;
   -webkit-user-select: none;
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 62, ../sass/_global.scss */
+/* line 64, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
 }
 
-/* line 68, ../sass/_global.scss */
+/* line 70, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;
@@ -234,7 +234,7 @@ div.music-buttons-total {
   background-color: transparent;
   border: none;
   color: inherit;
-  cursor: pointer;
+  cursor: none;
   font-size: inherit;
   font-family: inherit;
   -webkit-font-smoothing: inherit;
@@ -321,7 +321,7 @@ div.color {
 
 /* line 29, ../sass/_artwork.scss */
 .color > img {
-  top: 628.5px;
+  top: 628px;
   position: absolute;
   transform-origin: 50% 0%;
   margin-left: 141px;
