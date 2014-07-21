@@ -48,16 +48,20 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 }
 
 .song-number{
+	text-align:left;
 	width:$song-number-width;
+	height:$song-number-height;
 	display:inline-block;
+	position:relative;
+	top:-50px;  
 	z-index:1;
-	margin-left:$song-number-margin-left;
 	margin-top:$song-number-margin-vertical;
 	margin-bottom:$song-number-margin-vertical;
-	text-align:left;
-	height:$song-number-height;
-
+	margin-left:$song-number-margin-left;
 }
+
+
+
 
 .song-playing-icon{
 	display:inline-block;
@@ -72,7 +76,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 .song-thumbnail{
 	height:$artwork-thumbnail;
 	width:$artwork-thumbnail;
-	
 	display:inline;
 	position:relative;
 }
@@ -89,8 +92,12 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 .song-name-artist-container{
 	display:inline;  
 	height:$artwork-thumbnail;
+	margin-top:$artwork-thumbnail-margin-vertical;
+	margin-bottom:$artwork-thumbnail-margin-vertical;
 	position:absolute;
 	margin-left:$song-information-margin-left;
+
+
 }
 
 .song-name-list{
@@ -102,12 +109,19 @@ margin-top:$artist-name-margin-top;
 }
 
 .song-time{
-	display:inline;
+	display:inline-block;
+	text-align:left;
 	float:right;
 	height: $artwork-thumbnail;  
 	position:relative; 
 	margin-right:$song-time-margin-right;
+	top:50%;
 }
+
+
+	
+
+
 
 
 /* iScroll Plugin Styling */ 

@@ -315,7 +315,7 @@ div.color {
 
 /* line 27, ../sass/_artwork.scss */
 .color > img {
-  top: 629px;
+  top: 628.5px;
   position: absolute;
   transform-origin: 50% 0%;
   margin-left: 141px;
@@ -379,17 +379,19 @@ div.main-music-information {
 
 /* line 50, ../sass/_playlist.scss */
 .song-number {
+  text-align: left;
   width: 40px;
+  height: 20px;
   display: inline-block;
+  position: relative;
+  top: -50px;
   z-index: 1;
-  margin-left: 8px;
   margin-top: 45px;
   margin-bottom: 45px;
-  text-align: left;
-  height: 20px;
+  margin-left: 8px;
 }
 
-/* line 62, ../sass/_playlist.scss */
+/* line 66, ../sass/_playlist.scss */
 .song-playing-icon {
   display: inline-block;
   position: relative;
@@ -399,7 +401,7 @@ div.main-music-information {
   color: transparent;
 }
 
-/* line 72, ../sass/_playlist.scss */
+/* line 76, ../sass/_playlist.scss */
 .song-thumbnail {
   height: 70px;
   width: 70px;
@@ -407,7 +409,7 @@ div.main-music-information {
   position: relative;
 }
 
-/* line 80, ../sass/_playlist.scss */
+/* line 83, ../sass/_playlist.scss */
 .song-thumbnail > img {
   height: 70px;
   width: 70px;
@@ -415,30 +417,34 @@ div.main-music-information {
   margin-bottom: 22px;
 }
 
-/* line 89, ../sass/_playlist.scss */
+/* line 92, ../sass/_playlist.scss */
 .song-name-artist-container {
   display: inline;
   height: 70px;
+  margin-top: 22px;
+  margin-bottom: 22px;
   position: absolute;
   margin-left: 20px;
 }
 
-/* line 96, ../sass/_playlist.scss */
+/* line 103, ../sass/_playlist.scss */
 .song-name-list {
   margin-top: 16px;
 }
 
-/* line 104, ../sass/_playlist.scss */
+/* line 111, ../sass/_playlist.scss */
 .song-time {
-  display: inline;
+  display: inline-block;
+  text-align: left;
   float: right;
   height: 70px;
   position: relative;
   margin-right: 22px;
+  top: 50%;
 }
 
 /* iScroll Plugin Styling */
-/* line 115, ../sass/_playlist.scss */
+/* line 129, ../sass/_playlist.scss */
 #wrapper {
   position: relative;
   width: 726px;
@@ -460,7 +466,7 @@ div.main-music-information {
   text-size-adjust: none;
 }
 
-/* line 140, ../sass/_playlist.scss */
+/* line 154, ../sass/_playlist.scss */
 #scroller {
   position: absolute;
   /* Prevent elements to be highlighted on tap */
@@ -473,7 +479,7 @@ div.main-music-information {
   transform: translateZ(0);
 }
 
-/* line 154, ../sass/_playlist.scss */
+/* line 168, ../sass/_playlist.scss */
 li {
   list-style-type: none;
 }
