@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "author": "zz",
   "dependencies": {
-    "iscroll": "~5.1.2"
+    "iscroll": "~5.1.2",
+    "Processing.js": "~1.4.8"
   },
   "devDependencies": {
     "jquery": "~2.1.0",
