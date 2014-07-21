@@ -33,16 +33,18 @@ The sizing should work for the screen and cut off any extra.
 
 
 $overflow:auto;
-$cursor:pointer;
+$cursor:none !important;
 
 
 body{
 	overflow:$overflow;
 	font-family: 'Open Sans', Helvetica;
-	@media (min-width:$width-entire) and (orientation:portrait){
+
+	@media (orientation:portrait){
 	overflow:hidden;
 	}
-}
+
+	}
 
 
 ::selection{
