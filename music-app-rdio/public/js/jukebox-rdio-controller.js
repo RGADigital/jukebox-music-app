@@ -114,6 +114,7 @@
         // Track metadata is provided as playingTrack and the position within the playing source as sourcePosition.
         if (playingTrack != null) {
           RdioController.trackInformation(playingTrack['name'], playingTrack['artist'], playingTrack['bigIcon']);
+          console.log(playingTrack);
         };
       };
       callback_object.playingSourceChanged = function playingSourceChanged(playingSource) {

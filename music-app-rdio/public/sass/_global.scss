@@ -7,7 +7,12 @@
 };
 
 
-
+//object in the way 
+#apiswf{
+	position:absolute;
+	top:-10px;
+	left:-10px;
+}
 
 //total width and height
 $width-entire: 1080px;
@@ -68,5 +73,5 @@ div.usablescreen{
 	margin-left: $margin-horizontal;
 	width: $usable-width;
 	height: usable-height($height-entire, $margin-top, $margin-bottom);
-	overflow:hidden;
+
 }

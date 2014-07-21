@@ -76,7 +76,7 @@
     },
 
     nextClickEventHandler: function() {
-      if(self.soundIsPlaying < (self.playListData[0].tracks.length)){
+      if(self.soundIsPlaying < (self.playListData[0].tracks.length-1)){
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
         //shuffle status on Next control
         if(self.isShuffle){
