@@ -112,6 +112,7 @@
       this.$listItem= $(Render.renderPlaylist({
         songName: this.tracksNames,
         artistName: this.tracksArtists,
+        albumeName: this.tracksAlbumNames,
         songTime:soundTime ,
         iconUrl:this.tracksSmallIcon,
         soundOrder:this.order
