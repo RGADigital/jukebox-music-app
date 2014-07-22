@@ -95,8 +95,7 @@
       $(d).trigger('PLAY_MUSIC_EVENT',[id]);
       //change the play icon in playlist in PlayListItem Module.
       $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
-      //iscroll auto scroll
-      self.myScroll.scrollToElement(document.querySelector('.playlist-content li:nth-child('+orderNumber+')'));
+      self.autoIscroll();
     },
 
     pauseMusic: function(){
@@ -105,6 +104,12 @@
 
     renderPlaylist:function(soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists){
       $(d).trigger('PLAYLIST_RENDER_EVENT',[soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists]);
+    },
+
+    autoIscroll: function(){
+      var orderNumber=self.soundIsPlaying == 0 ? 1 : self.soundIsPlaying;
+      //iscroll auto scroll
+      self.myScroll.scrollToElement(document.querySelector('.playlist-content li:nth-child('+orderNumber+')'));
     },
 
     bindDataEvents: function(){
@@ -120,8 +125,6 @@
       $(d).bind('CHANGE_ISMUSICPLAYING_STATUS_EVENT', self.changeIsMuicPlayingStatusEventHandler);
       $(d).bind('INITIAL_ISCROLL_EVENT', self.initialIscrollEventHandler);
     },
-
-
 
     playerLoadedEventHandler: function() {
       console.log('playerLoaded');
@@ -205,8 +208,26 @@
     },
 
     playListCompare: function(){
-      if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
+
+    var order;
+
+     if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
+          //ask renderPlaylist to render the playlist
           self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
+          //do something after the playlist order changed or deleted some music 
+          if((self.trackKeysForCompare.length) > 1){
+            order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
+            if(order >= 0){
+              ///change the soundisPlaying when the order of playlist is changed.
+              self.soundIsPlaying=order;
+            }else{
+              //a music is deleted
+              self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+              // $(d).trigger('PLAY_MUSIC_EVENT',[self.tracksKeys[self.soundIsPlaying]]);
+            };
+          };
+          $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
+          self.autoIscroll();
           self.trackKeysForCompare=self.tracksKeys;
       }else{
         return
