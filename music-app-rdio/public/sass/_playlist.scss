@@ -57,14 +57,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 }
 
 #overlay::after {
-    background-image: linear-gradient( top, 
-            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
-        background-image: -moz-linear-gradient( top, 
-            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
-        background-image: -ms-linear-gradient( top, 
-            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
-        background-image: -o-linear-gradient( top, 
-            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
         background-image: -webkit-linear-gradient( top, 
             rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
     content: " ";
