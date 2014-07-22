@@ -15,7 +15,7 @@ $main-artist-font-size:30px;
 $main-album-title-font-size:24px;
 
 //for when songs are incredibly long and don't fit inside their container
-$negative-margins-long-song:-40px;
+$negative-margins-long-song:-100px;
 
 div.color{
 	position:absolute;
@@ -53,7 +53,7 @@ div.main-music-information{
 	margin-bottom:$music-information-margin;
 	position:relative;
 	z-index:1;
-
+	pointer-events:none;
 
 }
 
@@ -66,11 +66,15 @@ div.main-music-information{
 	margin-right:$negative-margins-long-song;
 	position:relative;
 	z-index:200;
+	font-family:'Open Sans';
+	font-weight:bold;
+	margin-bottom:4px;
 
 }
 
 .main-music-information > h2{
 	font-size:$main-artist-font-size;
+	margin-bottom:12px;
 }
 
 .main-music-information > h6{

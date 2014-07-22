@@ -2,8 +2,6 @@
  @return($usable-width - 2 * $song-padding);
 };
 
-
-
 $playlist-height:615px;
 $playlist-top-margin:20px;
 
@@ -13,6 +11,8 @@ $song-padding:0px;
 $song-number-width:40px;
 $song-number-margin-left:8px;
 
+$song-name-artist-container-vertical-margin:27px;
+// derived by using total computed height of song/artist container via chrome computed and then subtracted and divided by two from the song height variable.
 
 $artwork-thumbnail:70px;
 $artwork-thumbnail-margin-vertical:22px;
@@ -51,6 +51,34 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	font-size:$font-size-song;
 }
 
+#overlay {
+    display: inline-block;
+    position: relative;
+}
+
+#overlay::after {
+    background-image: linear-gradient( top, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -moz-linear-gradient( top, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -ms-linear-gradient( top, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -o-linear-gradient( top, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+        background-image: -webkit-linear-gradient( top, 
+            rgba( 255, 255, 255, 0 ) 0%, rgba( 255, 255, 255, 1 ) 100% );
+    content: " ";
+    height: 5%;
+    top: 95%;
+    position: absolute;
+    width: 100%;
+    z-index:1000;
+
+}
+
+
+
+
 .song{
 	width:song-width($usable-width,$song-padding);
 	height:$song-height;
@@ -72,9 +100,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	color:$playlist-song-number-color;
 }
 
-
-
-
 .song-playing-icon{
 	display:inline-block;
 	position:relative;
@@ -82,7 +107,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	background-repeat:no-repeat;
 	z-index:2;
 	color:transparent;
-	
 }
 
 .song-thumbnail{
@@ -97,15 +121,13 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	width:$artwork-thumbnail;
 	margin-top:$artwork-thumbnail-margin-vertical;
 	margin-bottom:$artwork-thumbnail-margin-vertical;
-	
 }
 
 
 .song-name-artist-container{
 	display:inline-block;  
-	height:$artwork-thumbnail;
-	margin-top:$artwork-thumbnail-margin-vertical;
-	margin-bottom:$artwork-thumbnail-margin-vertical;
+	margin-top:$song-name-artist-container-vertical-margin;
+	margin-bottom:$song-name-artist-container-vertical-margin;
 	position:absolute;
 	margin-left:$song-information-margin-left;
 }
@@ -135,11 +157,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 }
 
 
-	
-
-
-
-
 /* iScroll Plugin Styling */ 
 
 #wrapper {
@@ -165,6 +182,8 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	-ms-text-size-adjust: none;
 	-o-text-size-adjust: none;
 	text-size-adjust: none;
+
+
 }
 
 #scroller {

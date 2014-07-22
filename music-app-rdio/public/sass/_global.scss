@@ -59,11 +59,13 @@ body{
 	cursor:$cursor;
 	-webkit-user-select:none;
 	font-family: 'Open Sans', Helvetica;
+
 }
 
 img{
 	-webkit-user-select:none;
 	pointer-events:none;
+	cursor:none;
 }
 
 
@@ -75,5 +77,6 @@ div.usablescreen{
 	margin-left: $margin-horizontal;
 	width: $usable-width;
 	height: usable-height($height-entire, $margin-top, $margin-bottom);
+	cursor: none;
 
 }
