@@ -19,11 +19,20 @@
 		<script>
 			var musicData;
 
+			function sortNumber(a,b)
+			{
+				return a - b
+			};
+
 	    	var socket = io.connect('http://localhost:9001');
 	    	socket.on('pot', function(data) {
 				musicData = data.split(',');
+				musicData = musicData.sort(sortNumber).reverse();
+				console.log(musicData);
 				
 			});
+
+		
 
 			// Simple way to attach js code to the canvas is by using a function
 			function sketchProc(processing) {
@@ -38,17 +47,19 @@
 
     				
     				if(musicData){
-    					var r=musicData[4];
-    					console.log(r);
+
+    					var length=musicData.length;
+    					var i=0;
+
+    					for(i;i<length;i++){
+    						processing.fill(225-i*20, 102+i*7, 0+i*20);
+    						processing.ellipse(processing.mouseX, processing.mouseY, 500*musicData[i], 500*musicData[i]);
+    					};
+
+    					
     				};
-    				
 
-    				processing.fill(204, 102, 0);
-    				processing.ellipse(processing.mouseX, processing.mouseY, 500*r, 500*r);
-    				
-    				
-
-    				// console.log(processing.mouseY);
+ 
     				
   				};
 			};
