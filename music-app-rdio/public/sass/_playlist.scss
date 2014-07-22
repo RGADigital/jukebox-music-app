@@ -21,6 +21,7 @@ $artist-name-margin-top:16px;
 $song-time-margin-right:12.6px;
 
 $font-size-song:20px;
+$font-size-song-album:17px;
 
 $song-height:110px;
 $song-number-height:20px;
@@ -127,10 +128,12 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 .song-name-list{
 	margin-top:$artist-name-margin-top;
 	color:$playlist-song-album-color;
+	font-size:$font-size-song-album;
 }
 
 .artist-name-list{
 	color:$playlist-song-title-color;
+
 }
 
 
