@@ -24,6 +24,7 @@
     isMusicPlaying:false,
     isFirstPlay:true,
     myScroll:{},
+    maxSoundsNumberInPlaylisy:50,
 
     // set up the controls
     attachUIEventS: function(){ 
@@ -166,7 +167,7 @@
 
     musicPositionEventHandler: function(event, position){
       // when a music finished what we need to do: next sound/loop the play list/ shuffle
-      if(position >= (self.tracksDurations[self.soundIsPlaying]-0.5/*-0.5*/)){
+      if(position >= (self.tracksDurations[self.soundIsPlaying]-0.7/*-0.5*/)){
         //Shuffle
         if(self.isShuffle){
           //shuffle the playlist and play randomly
@@ -208,26 +209,55 @@
     },
 
     playListCompare: function(){
+      var order;//order is the order number of the music which is playing on the screen
+      if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
 
-    var order;
+          var newPlaylistLength=self.playListData[0].tracks.length;
+          console.log(newPlaylistLength);
+          if(newPlaylistLength>self.maxSoundsNumberInPlaylisy){
+            //delete the music before the max naumber
+            console.log('----delete----some music-----')
+            var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylisy;
+            var tracksToDelete=[];
+            var i=0;
 
-     if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
-          //ask renderPlaylist to render the playlist
-          self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
-          //do something after the playlist order changed or deleted some music 
-          if((self.trackKeysForCompare.length) > 1){
-            order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
-            if(order >= 0){
-              ///change the soundisPlaying when the order of playlist is changed.
-              self.soundIsPlaying=order;
-            }else{
-              //a music is deleted
-              self.playMusic(self.tracksKeys[self.soundIsPlaying]);
-              // $(d).trigger('PLAY_MUSIC_EVENT',[self.tracksKeys[self.soundIsPlaying]]);
+
+            for(i; i < lengthToCleanUp; i++){
+              tracksToDelete[i]=self.tracksKeys[i]
             };
+
+            console.log(tracksToDelete);
+
+            $.ajax({
+              url : '/deletMusic',
+              type : 'POST',
+              dataType : 'json',
+              data:{lengthToClean:lengthToCleanUp,tracks:tracksToDelete},
+              success : function(res) {
+                console.log('success delete music from server.js');
+              }
+            });
+
+          }else{
+            //ask renderPlaylist to render the playlist
+            self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
+            //do something after the playlist order changed or deleted some music 
+            if((self.trackKeysForCompare.length) > 1){
+              order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
+              if(order >= 0){
+                ///change the soundisPlaying when the order of playlist is changed.
+                self.soundIsPlaying=order;
+              }else{
+                //a music is deleted
+                self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+              };
+            };
+            $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
+            self.autoIscroll();
+              
           };
-          $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
-          self.autoIscroll();
+
+          
           self.trackKeysForCompare=self.tracksKeys;
       }else{
         return

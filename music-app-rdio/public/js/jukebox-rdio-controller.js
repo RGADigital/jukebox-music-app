@@ -68,7 +68,9 @@
         dataType : 'json',
         success : function(res) {
           console.log('success data from server.js');
+          console.log(res);
           RdioController.rdioData(res);
+          
         }
       });
     },

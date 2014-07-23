@@ -28,6 +28,65 @@ app.get('/sidescreen', function(req, res){
   res.sendfile('public/sidescreen.html');
 });
 
+app.get('/cleanup', function(req, res){
+  console.log('clean up the playlist');
+  var accessToken = req.session.accessToken;
+  
+
+  if (accessToken) {
+      var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
+                          [accessToken.token, accessToken.secret]);
+
+      rdio.call('getUserPlaylists',{user:'s23152898',extras:'tracks'},function(err, data) {
+          if (err) {
+            console.log(err);
+          }
+
+          var playListData=data.result;
+          var trackListToCleanup=[];
+
+          var lengthToClean=playListData[0].tracks.length;
+          var i=0;
+
+          for(i;i < lengthToClean;i++){
+            trackListToCleanup[i]=playListData[0].tracks[i].key;
+          };
+
+          console.log('cleaup!!!!!');
+          
+          trackListToCleanup=trackListToCleanup.toString();
+          lengthToClean=lengthToClean.toString()
+          rdio.call('removeFromPlaylist',{playlist:'p10302240', index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {})
+          
+      });
+
+    } else {
+      res.redirect("/");
+    };
+  
+});
+
+
+app.post('/deletMusic', function(req, res){
+  console.log('detele music from the playlist');
+  var accessToken = req.session.accessToken;
+  var deleteData=req.body
+  var lengthToClean=deleteData.lengthToClean.toString();
+  var trackListToCleanup=deleteData.tracks.toString();
+
+  // console.log(lengthToClean);
+  // console.log(trackListToCleanup);
+
+  if (accessToken) {
+    var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
+                          [accessToken.token, accessToken.secret]);
+    rdio.call('removeFromPlaylist',{playlist:'p10302240', index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {});
+
+  } else {
+    res.redirect("/");
+  };
+});
+
 app.get('/getlist', function(req, res){
 	console.log('wow getting list');
 	var accessToken = req.session.accessToken;
@@ -35,15 +94,15 @@ app.get('/getlist', function(req, res){
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
 
-        // rdio.call('currentUser', function(err, data) {
-        // if (err) {
-        //   console.log(err);
-        //   request.reply(new Error("Error getting current user"));
-        // };
+        rdio.call('currentUser', function(err, data) {
+        if (err) {
+          console.log(err);
+          request.reply(new Error("Error getting current user"));
+        };
 
-        //     var currentUser = data.result;
-        //     console.log(currentUser);
-        // });
+            var currentUser = data.result;
+            console.log(currentUser);
+        });
 
         rdio.call('getUserPlaylists',{user:'s23152898',extras:'tracks'},function(err, data) {
           if (err) {
