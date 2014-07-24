@@ -1,13 +1,15 @@
-music-app-rdio is the Rdio Music App
+Jukebox(music-app-rdio) is a touch screen music web app using Rdio api.
 
-How to run the app:
+-------------run the app-----------------------------------
 #1. cd to music-app-rdio.
-#2. run "npm install" in terminal.
+#2. run "npm install" in terminal to install node moudles.
 #3. run "node server.js" in terminal.
 #4. run "localhost:8888" in your bowser.
 #5. follow the process and enjoy the music.
 
------------- edit the playlist---------------------
+------------ join and edit the playlist---------------------
 #1. go to "http://www.rdio.com/".
-#2. search "ZZTEST".
-#3. click "collabrate" on the right.
+#2. find "Jukebox" playlist on Rdio.com (http://rd.io/x/Rl4SxkEvz3Jk/).
+#3. click "collaborate" on the top right to collaborate with this playlist.
+#4. add musics you like into the playlist.
+
