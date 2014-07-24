@@ -1,4 +1,7 @@
-Jukebox(music-app-rdio) is a touch screen music web app using Rdio api.
+Jukebox(Music-App) is a music web app using Rdio api for touch screen.
+
+* demos-and-tests: demos and test around this app.
+* music-app-rdio: the main directory of music web app.
 
 -------------run the app-----------------------------------
 #1. cd to music-app-rdio.
