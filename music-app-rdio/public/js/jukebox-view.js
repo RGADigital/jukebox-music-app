@@ -24,7 +24,7 @@
     isMusicPlaying:false,
     isFirstPlay:true,
     myScroll:{},
-    maxSoundsNumberInPlaylisy:50,
+    maxSoundsNumberInPlaylisy:150,
 
     // set up the controls
     attachUIEventS: function(){ 
@@ -227,7 +227,7 @@
             };
 
             console.log(tracksToDelete);
-
+            //please remove this part to rdio-controller moudle
             $.ajax({
               url : '/deletMusic',
               type : 'POST',
