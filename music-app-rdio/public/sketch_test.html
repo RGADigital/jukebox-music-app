@@ -102,7 +102,7 @@
         var MAX_PARTICLES = 10;
         console.log(MAX_PARTICLES);
 
-        var COLOURS = [  '#FF530D', '#FF0DFF','#E82C0C', '#E80C7A' ,'#FF0000','#0002FF', '#460CE8', '#0C48E8', '#8E0DFF', '#0D8FFF' ];
+        var COLOURS = [  'CF0025', '#FF5108','#FF1258', '#FF7D2B' ,'#FFF22E','#00E53E', '#13CDFF', '#BF51E8', '#411C4F', '#002691' ];
 
         var particles = [];
         var pool = [];
@@ -172,7 +172,7 @@
 
         demo.draw = function() {
 
-            demo.globalCompositeOperation  = 'XOD';
+            demo.globalCompositeOperation  = 'lighter';
 
             for ( var i = particles.length - 1; i >= 0; i-- ) {
                 particles[i].draw( demo );
