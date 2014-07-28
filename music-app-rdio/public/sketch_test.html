@@ -5,7 +5,8 @@
         <style>
         body{
             cursor:none;
-            background-color:black;
+            background-color:white;
+            overflow:hidden;
         }
         </style> 
 
@@ -34,7 +35,7 @@
                 // console.log(musicData[5]);
                 MAX_PARTICLES=musicData[1]*100;
                 //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
-                DATA_FORCE=musicData[1]*20;
+               DATA_FORCE=musicData[4]*30;
                 //console.log('DATA_FORCE from io ------- ' + DATA_FORCE)
                 console.log(musicData);
             });
@@ -82,7 +83,7 @@
                 this.vx += sin( this.theta ) * 0.1;
                 this.vy += cos( this.theta ) * 0.1;
 
-                this.radius *= .96;
+                this.radius *= 0.97;
                 this.alive = this.radius > .01;
             },
 
@@ -102,7 +103,26 @@
         var MAX_PARTICLES = 10;
         console.log(MAX_PARTICLES);
 
-        var COLOURS = [  'CF0025', '#FF5108','#FF1258', '#FF7D2B' ,'#FFF22E','#00E53E', '#13CDFF', '#BF51E8', '#411C4F', '#002691' ];
+        var COLOURS = 
+//ten colors bold- darker on ends of array
+        // [  '#CF0025', '#FF5108','#FF1258', '#FF7D2B' ,'#FFF22E','#00E53E', '#4DD0E1', '#BF51E8', '#411C4F', '#002691' ];
+
+        [ '#FFF22E', '#FF7D2B' , '#FF1258', '#FF5108', '#CF0025', '#002691', '#411C4F' , '#BF51E8', '#4DD0E1', '#00E53E'
+        ];
+
+//OR ten colors kuler monochromatic
+        // [ '#4DD0E1', '#2C767F', '#57ECFF', '#163B40' , '#4FD4E5', '#57ECFF', '#2B767F', '#4ED4E5', '#163B40' , '#4FD4E5'
+
+        // ];
+
+//OR ten colors google design monochromatic
+
+    // [ '#00bcd4', '#e0f7fa' , '#b2ebf2' , '#80deea', '#4dd0e1', '#26c6da', '#00bcd4', '#00acc1' , '#0097a7', '#00838f', '#006064'
+
+    // ];
+
+
+
 
         var particles = [];
         var pool = [];
@@ -193,15 +213,18 @@
 
            intervalId = setInterval(function(){
             
-            //var max = random( 0, MAX_PARTICLES);
-
+        
 
 
             for (var i = 0; i < musicData.length; i++) {
                 var frequency = musicData[i],
                     colour = COLOURS[i];
-
-                demo.spawn( demo.touches[0].x, demo.touches[0].y, frequency, colour );
+                
+                if (musicData[i] > 0){
+                    
+                    demo.spawn( demo.touches[0].x, demo.touches[0].y, frequency * 2 , colour );
+                }
+                
             };
             
             

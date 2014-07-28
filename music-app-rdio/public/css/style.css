@@ -1,4 +1,10 @@
+/* this creates an all-blank mouse cursor on all elements of the page */
 /* line 11, ../sass/_global.scss */
+html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
+}
+
+/* line 17, ../sass/_global.scss */
 #apiswf {
   position: absolute;
   top: -10px;
@@ -9,24 +15,24 @@
 On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
 The sizing should work for the screen and cut off any extra. 
 */
-/* line 39, ../sass/_global.scss */
+/* line 45, ../sass/_global.scss */
 body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
 @media (orientation: portrait) {
-  /* line 39, ../sass/_global.scss */
+  /* line 45, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 50, ../sass/_global.scss */
+/* line 56, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 55, ../sass/_global.scss */
+/* line 61, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
@@ -36,14 +42,14 @@ body {
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 65, ../sass/_global.scss */
+/* line 71, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
   cursor: none;
 }
 
-/* line 72, ../sass/_global.scss */
+/* line 78, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;
@@ -256,7 +262,7 @@ div.music-buttons-total {
 
 /* line 87, ../sass/_controls.scss */
 button.play {
-  background-image: url('/components/play-button.png?1405956609');
+  background-image: url('/components/../img/play-button.png');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -265,7 +271,7 @@ button.play {
 
 /* line 92, ../sass/_controls.scss */
 button.rewind {
-  background-image: url('/components/previous-button.png?1405609380');
+  background-image: url('/components/../img/previous-button.png');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -274,7 +280,7 @@ button.rewind {
 
 /* line 97, ../sass/_controls.scss */
 button.fastforward {
-  background-image: url('/components/next-button.png?1405609530');
+  background-image: url('/components/../img/next-button.png');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -289,7 +295,7 @@ button.fastforward {
   margin-bottom: 20px;
   float: right;
   margin-right: 18px;
-  background-image: url('/components/shuffle-button-stop.png?1405613305');
+  background-image: url('/components/../img/shuffle-button-stop.png');
 }
 
 /*toggle styles for JS */
@@ -300,14 +306,14 @@ button.fastforward {
   margin-top: 40px;
   margin-bottom: 20px;
   margin-right: 18px;
-  background-image: url('/components/shuffle-button-working.png?1405609896');
+  background-image: url('/components/../img/shuffle-button-working.png');
 }
 
 /* line 134, ../sass/_controls.scss */
 button.isPlaying {
   width: 93px;
   height: 93px;
-  background-image: url('/components/pause-button.png?1405609470');
+  background-image: url('/components/../img/pause-button.png');
 }
 
 /* line 20, ../sass/_artwork.scss */
@@ -378,7 +384,7 @@ div.main-music-information {
 }
 
 /*Song and playlist information */
-/* line 46, ../sass/_playlist.scss */
+/* line 50, ../sass/_playlist.scss */
 .playlist {
   position: absolute;
   overflow-y: auto;
@@ -389,7 +395,7 @@ div.main-music-information {
   font-size: 20px;
 }
 
-/* line 55, ../sass/_playlist.scss */
+/* line 59, ../sass/_playlist.scss */
 .playlist_line {
   position: relative;
   top: 29px;
@@ -401,13 +407,13 @@ div.main-music-information {
   border-left-width: 0px;
 }
 
-/* line 67, ../sass/_playlist.scss */
+/* line 71, ../sass/_playlist.scss */
 #overlay {
   display: inline-block;
   position: relative;
 }
 
-/* line 72, ../sass/_playlist.scss */
+/* line 76, ../sass/_playlist.scss */
 #overlay::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
   content: " ";
@@ -418,7 +424,7 @@ div.main-music-information {
   z-index: 1000;
 }
 
-/* line 84, ../sass/_playlist.scss */
+/* line 88, ../sass/_playlist.scss */
 .song {
   width: 726px;
   height: 110px;
@@ -426,7 +432,7 @@ div.main-music-information {
   border-bottom: #eaf0f0 1px solid;
 }
 
-/* line 91, ../sass/_playlist.scss */
+/* line 95, ../sass/_playlist.scss */
 .song-number {
   text-align: left;
   width: 40px;
@@ -441,17 +447,20 @@ div.main-music-information {
   color: #bfc2c3;
 }
 
-/* line 105, ../sass/_playlist.scss */
+/* line 109, ../sass/_playlist.scss */
 .song-playing-icon {
   display: inline-block;
   position: relative;
-  background-image: url('/components/speaker-icon.png?1405610048');
+  background-image: url('/components/../img/speaker-icon.png');
   background-repeat: no-repeat;
   z-index: 2;
   color: transparent;
+  margin-left: 13px;
+  margin-right: 18px;
+  width: 17px;
 }
 
-/* line 114, ../sass/_playlist.scss */
+/* line 121, ../sass/_playlist.scss */
 .song-thumbnail {
   height: 70px;
   width: 70px;
@@ -459,7 +468,7 @@ div.main-music-information {
   position: relative;
 }
 
-/* line 121, ../sass/_playlist.scss */
+/* line 128, ../sass/_playlist.scss */
 .song-thumbnail > img {
   height: 70px;
   width: 70px;
@@ -467,7 +476,7 @@ div.main-music-information {
   margin-bottom: 22px;
 }
 
-/* line 129, ../sass/_playlist.scss */
+/* line 136, ../sass/_playlist.scss */
 .song-name-artist-container {
   display: inline-block;
   margin-top: 27px;
@@ -478,25 +487,30 @@ div.main-music-information {
   width: 500px;
 }
 
-/* line 140, ../sass/_playlist.scss */
+/* line 147, ../sass/_playlist.scss */
 .song-name-list {
   margin-top: 16px;
   color: #afb1b2;
   font-size: 17px;
+  height: 20px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* line 147, ../sass/_playlist.scss */
+/* line 159, ../sass/_playlist.scss */
 .artist-name-list {
   color: #424242;
-  text-overflow: ellipsis;
   width: 500px;
   height: 22px;
   white-space: nowrap;
   display: block;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* line 161, ../sass/_playlist.scss */
+/* line 173, ../sass/_playlist.scss */
 .song-time {
   color: #959ea3;
   float: right;
@@ -510,7 +524,7 @@ div.main-music-information {
 }
 
 /* iScroll Plugin Styling */
-/* line 178, ../sass/_playlist.scss */
+/* line 190, ../sass/_playlist.scss */
 #wrapper {
   position: relative;
   width: 726px;
@@ -532,7 +546,7 @@ div.main-music-information {
   text-size-adjust: none;
 }
 
-/* line 205, ../sass/_playlist.scss */
+/* line 217, ../sass/_playlist.scss */
 #scroller {
   position: absolute;
   /* Prevent elements to be highlighted on tap */
@@ -545,7 +559,7 @@ div.main-music-information {
   transform: translateZ(0);
 }
 
-/* line 219, ../sass/_playlist.scss */
+/* line 231, ../sass/_playlist.scss */
 li {
   list-style-type: none;
 }
