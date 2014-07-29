@@ -35,7 +35,7 @@
                 // console.log(musicData[5]);
                 MAX_PARTICLES=musicData[1]*100;
                 //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
-               DATA_FORCE=musicData[4]*30;
+               DATA_FORCE=musicData[4]*25;
                 //console.log('DATA_FORCE from io ------- ' + DATA_FORCE)
                 console.log(musicData);
             });
@@ -192,7 +192,7 @@
 
         demo.draw = function() {
 
-            demo.globalCompositeOperation  = 'lighter';
+            demo.globalCompositeOperation  = 'X0D';
 
             for ( var i = particles.length - 1; i >= 0; i-- ) {
                 particles[i].draw( demo );
