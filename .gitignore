@@ -14,6 +14,8 @@
 # Package folders
 node_modules
 # bower_components
+#credentials
+rdio_consumer_credentials.js
 
 # OS or Editor folders
 .DS_Store
