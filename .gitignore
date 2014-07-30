@@ -38,3 +38,6 @@ publish
 build
 bin
 #dist
+
+# Project files
+my_modules/rdio_consumer_credentials.js
