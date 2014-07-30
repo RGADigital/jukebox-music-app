@@ -6,12 +6,64 @@
 	@return($height-entire - ($margin-top + $margin-bottom));
 };
 
+/* disable/enable text selection css rules: copied from sass/skin/builder/core/base/_common.scss */
+
+@mixin enable-text-selection($show: true) {
+/* Solution taken from http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+  @if $show == true {
+    -webkit-touch-callout: inherit;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -o-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    -webkit-tap-highlight-color: inherit;
+    -webkit-user-drag: inherit;
+  } @else {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -o-user-select: text;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-drag: none;
+
+  /*
+     if also you want to support legacy IE, do the following from javascript onload:
+        window.onselectstart = function() { return false; }
+        window.ondragstart = function() { return false; }
+   */
+  }
+}
 
 /* this creates an all-blank mouse cursor on all elements of the page */
 html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
   cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII='),
   none !important;
 }
+
+/*
+Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
+(if you need scrollbars in the body, add overflow: auto to a nested div)
+Copied from sass/skin/builder/packages/studio/_base.scss
+*/
+html.touch-screen, html.touch-screen body {
+  height: 100%;         /* this is required to give complete coverage of the screen to the hidden cursor */
+  overflow: none;     /* this hides scrollbars and disables "rubberband" effect when scrolling beyond page limits on Mac OS X */
+
+  @include enable-text-selection(false);
+}
+
+::selection {
+  background: transparent;
+}
+
+
+
+
 
 //object in the way 
 #apiswf{

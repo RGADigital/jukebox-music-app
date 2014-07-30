@@ -1,10 +1,44 @@
+/* disable/enable text selection css rules: copied from sass/skin/builder/core/base/_common.scss */
 /* this creates an all-blank mouse cursor on all elements of the page */
-/* line 11, ../sass/_global.scss */
+/* line 43, ../sass/_global.scss */
 html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
   cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
 }
 
-/* line 17, ../sass/_global.scss */
+/*
+Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
+(if you need scrollbars in the body, add overflow: auto to a nested div)
+Copied from sass/skin/builder/packages/studio/_base.scss
+*/
+/* line 53, ../sass/_global.scss */
+html.touch-screen, html.touch-screen body {
+  height: 100%;
+  /* this is required to give complete coverage of the screen to the hidden cursor */
+  overflow: none;
+  /* this hides scrollbars and disables "rubberband" effect when scrolling beyond page limits on Mac OS X */
+  /* Solution taken from http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -o-user-select: text;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  /*
+     if also you want to support legacy IE, do the following from javascript onload:
+        window.onselectstart = function() { return false; }
+        window.ondragstart = function() { return false; }
+   */
+}
+
+/* line 60, ../sass/_global.scss */
+::selection {
+  background: transparent;
+}
+
+/* line 69, ../sass/_global.scss */
 #apiswf {
   position: absolute;
   top: -10px;
@@ -15,24 +49,24 @@ html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
 On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
 The sizing should work for the screen and cut off any extra. 
 */
-/* line 45, ../sass/_global.scss */
+/* line 97, ../sass/_global.scss */
 body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
 @media (orientation: portrait) {
-  /* line 45, ../sass/_global.scss */
+  /* line 97, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 56, ../sass/_global.scss */
+/* line 108, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 61, ../sass/_global.scss */
+/* line 113, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
@@ -42,14 +76,14 @@ body {
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 71, ../sass/_global.scss */
+/* line 123, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
   cursor: none;
 }
 
-/* line 78, ../sass/_global.scss */
+/* line 130, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;
@@ -262,7 +296,7 @@ div.music-buttons-total {
 
 /* line 87, ../sass/_controls.scss */
 button.play {
-  background-image: url('/components/../img/play-button.png');
+  background-image: url('/img/../img/play-button.png?1405956609');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -271,7 +305,7 @@ button.play {
 
 /* line 92, ../sass/_controls.scss */
 button.rewind {
-  background-image: url('/components/../img/previous-button.png');
+  background-image: url('/img/../img/previous-button.png?1405609380');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -280,7 +314,7 @@ button.rewind {
 
 /* line 97, ../sass/_controls.scss */
 button.fastforward {
-  background-image: url('/components/../img/next-button.png');
+  background-image: url('/img/../img/next-button.png?1405609530');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -295,7 +329,7 @@ button.fastforward {
   margin-bottom: 20px;
   float: right;
   margin-right: 18px;
-  background-image: url('/components/../img/shuffle-button-stop.png');
+  background-image: url('/img/../img/shuffle-button-stop.png?1405613305');
 }
 
 /*toggle styles for JS */
@@ -306,14 +340,14 @@ button.fastforward {
   margin-top: 40px;
   margin-bottom: 20px;
   margin-right: 18px;
-  background-image: url('/components/../img/shuffle-button-working.png');
+  background-image: url('/img/../img/shuffle-button-working.png?1405609896');
 }
 
 /* line 134, ../sass/_controls.scss */
 button.isPlaying {
   width: 93px;
   height: 93px;
-  background-image: url('/components/../img/pause-button.png');
+  background-image: url('/img/../img/pause-button.png?1405609470');
 }
 
 /* line 20, ../sass/_artwork.scss */
@@ -451,7 +485,7 @@ div.main-music-information {
 .song-playing-icon {
   display: inline-block;
   position: relative;
-  background-image: url('/components/../img/speaker-icon.png');
+  background-image: url('/img/../img/speaker-icon.png?1405610048');
   background-repeat: no-repeat;
   z-index: 2;
   color: transparent;
