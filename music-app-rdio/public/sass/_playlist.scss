@@ -102,7 +102,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 .song-playing-icon{
 	display:inline-block;
 	position:relative;
-	background-image:image-url('../img/speaker-icon.png');
+	background-image:image-url('../img/speaker-icon.svg');
 	background-repeat:no-repeat;
 	z-index:2;
 	color:transparent;
