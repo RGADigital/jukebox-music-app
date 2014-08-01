@@ -15,6 +15,7 @@
 
 
 1. Install the node modules,
+
         cd music-app-rdio
         npm install
 
@@ -33,12 +34,17 @@
 **Run the app**
 
 1. Direct to music-app-rdio.
+
         cd music-app-rdio
+
 2. Open node server in terminal.
+
         node server.js
 
 4. Run locally in your bowser.
+
         localhost:8888
+        
 5. Follow the process and enjoy the music.
 
 
