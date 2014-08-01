@@ -88,17 +88,17 @@ div.music-buttons-total{
 
 
 button.play{
-	background-image: image-url('play-button.png');
+	background-image: image-url('../img/play-button.svg');
 	background-repeat:no-repeat;
 	@include button-style($button-width-and-height)	
 }
 button.rewind{
-	background-image: image-url('previous-button.png');
+	background-image: image-url('../img/previous-button.svg');
 	background-repeat:no-repeat;
 	@include button-style($button-width-and-height)
 }
 button.fastforward{
-	background-image:image-url('next-button.png');
+	background-image:image-url('../img/next-button.svg');
 	background-repeat:no-repeat;
 	@include button-style($button-width-and-height)
 }
@@ -115,7 +115,7 @@ button.fastforward{
 	margin-bottom:$shuffle-bottom-margin;
 	float:right;
 	margin-right:$margin-shuffle-right; 
-	background-image:image-url('shuffle-button-stop.png');
+	background-image:image-url('../img/shuffle-button-stop.svg');
 
 	@extend .not-a-button; 
 }
@@ -130,14 +130,14 @@ button.fastforward{
 	margin-top:$shuffle-top-margin;
 	margin-bottom:$shuffle-bottom-margin;
 	margin-right:$margin-shuffle-right;
-	background-image: image-url('shuffle-button-working.png');
+	background-image: image-url('../img/shuffle-button-working.svg');
 }
 
 
 button.isPlaying{
 	width:$button-width-and-height;
 	height:$button-width-and-height;
-	background-image:image-url('pause-button.png');
+	background-image:image-url('../img/pause-button.svg');
 	
 
 }

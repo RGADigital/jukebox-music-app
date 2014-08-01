@@ -18,6 +18,7 @@ bower_components
 # credentials
 rdio_consumer_credentials
 
+
 # OS or Editor folders
 .DS_Store
 Thumbs.db
@@ -41,3 +42,7 @@ publish
 build
 bin
 #dist
+
+# Project files
+music-app-rdio/my_modules/rdio_consumer_credentials.js
+

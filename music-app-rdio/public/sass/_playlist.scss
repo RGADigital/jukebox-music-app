@@ -13,6 +13,10 @@ $song-number-margin-left:8px;
 
 $song-name-artist-container-vertical-margin:27px;
 $song-name-artist-container-width:500px;
+
+$song-name-height:20px;
+$artist-name-height:22px;
+
 // derived by using total computed height of song/artist container via chrome computed and then subtracted and divided by two from the song height variable.
 
 $artwork-thumbnail:70px;
@@ -29,12 +33,7 @@ $song-height:110px;
 $song-number-height:20px;
 
 
-//Color Scheme
-$playlist-song-number-color:#bfc2c3;
-$playlist-song-title-color:#424242;
-$playlist-song-album-color:#afb1b2;
-$playlist-song-time-color:#959ea3;
-$playlist-song-line-color:#eaf0f0;
+
 
 
 @function song-number-margin-vertical ($song-height, $song-number-height) {
@@ -55,7 +54,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 .playlist_line{
 	position:relative;
 	top:29px;
-	color:$playlist-song-line-color;
 	height:1px;
 	border-style:solid;
 	border-bottom-width:0px;
@@ -81,14 +79,11 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 
 }
 
-
-
-
 .song{
 	width:song-width($usable-width,$song-padding);
 	height:$song-height;
 	padding:$song-padding;
-	border-bottom:$playlist-song-line-color 1px solid;
+	border-bottom: 1px solid;
 }
 
 .song-number{
@@ -102,16 +97,18 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	margin-top:$song-number-margin-vertical;
 	margin-bottom:$song-number-margin-vertical;
 	margin-left:$song-number-margin-left;
-	color:$playlist-song-number-color;
 }
 
 .song-playing-icon{
 	display:inline-block;
 	position:relative;
-	background-image:image-url('speaker-icon.png');
+	background-image:image-url('../img/speaker-icon.svg');
 	background-repeat:no-repeat;
 	z-index:2;
 	color:transparent;
+	margin-left:13px;
+	margin-right:18px;
+	width:17px;
 }
 
 .song-thumbnail{
@@ -142,19 +139,23 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 
 .song-name-list{
 	margin-top:$artist-name-margin-top;
-	color:$playlist-song-album-color;
 	font-size:$font-size-song-album;
-	
-}
-
-.artist-name-list{
-	color:$playlist-song-title-color;
-	text-overflow:ellipsis;
-	width:$song-name-artist-container-width;
-	height:22px;
+	height:$song-name-height;
 	white-space:nowrap;
 	display:block;
 	overflow:hidden;
+	text-overflow:ellipsis;
+
+}
+
+.artist-name-list{
+
+	width:$song-name-artist-container-width;
+	height:$artist-name-height;
+	white-space:nowrap;
+	display:block;
+	overflow:hidden;
+	text-overflow:ellipsis;
 
 
 
@@ -163,7 +164,6 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 
 .song-time{
 
-	color:$playlist-song-time-color;
 	float:right;
 	height:$song-number-height;
 	display:inline-block;
