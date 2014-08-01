@@ -8,7 +8,7 @@
 *.swp
 *.vi
 *~
-# *.sass-cache
+*.sass-cache
 *.iml
 
 # Package folders
