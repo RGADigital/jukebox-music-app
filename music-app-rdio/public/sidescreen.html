@@ -12,10 +12,10 @@
 		</style>
 	
 		<script src="http://localhost:9001/socket.io/socket.io.js"></script>
+		<script src="http://jukebox.rga.com:9001/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="bower_components/Processing.js/processing.js"></script>
 		
-
 		<script>
 			var musicData;
 
@@ -24,11 +24,12 @@
 				return a - b
 			};
 
-	    	var socket = io.connect('http://localhost:9001');
+	    	var socket = io.connect('http://'+window.location.hostname.toString()+':9001');
+	    	console.log(window.location.hostname.toString());
 	    	socket.on('pot', function(data) {
 				musicData = data.split(',');
 				musicData = musicData.sort(sortNumber).reverse();
-				console.log(musicData);
+				// console.log(musicData);
 				
 			});
 

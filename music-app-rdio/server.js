@@ -1,5 +1,5 @@
-var Rdio=require('./my_modules/rdio'),
-    RdioCredentials = require('./my_modules/rdio_consumer_credentials'),
+var Rdio=require('./rdio_modules/rdio'),
+    RdioCredentials = require('./rdio_modules/rdio_consumer_credentials'),
     express = require('express'),
     app = express(),
     session = require('express-session'),
@@ -67,7 +67,7 @@ app.get('/cleanup', function(req, res){
 });
 
 
-app.post('/deletMusic', function(req, res){
+app.post('/deleteMusic', function(req, res){
   console.log('detele music from the playlist');
   var accessToken = req.session.accessToken;
   var deleteData=req.body
@@ -178,7 +178,7 @@ app.get('/logout', function(request, result){
 
 
 io.on('connection', function(socket){
-  console.log('connnnnnection----------------');
+  // console.log('connnnnnection----------------');
   socket.on('bit', function(msg){
     io.emit('pot', msg);
   });

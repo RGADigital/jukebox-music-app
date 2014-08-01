@@ -9,41 +9,41 @@
 On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
 The sizing should work for the screen and cut off any extra. 
 */
-/* line 39, ../sass/_global.scss */
+/* line 41, ../sass/_global.scss */
 body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
 @media (orientation: portrait) {
-  /* line 39, ../sass/_global.scss */
+  /* line 41, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 50, ../sass/_global.scss */
+/* line 52, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 55, ../sass/_global.scss */
+/* line 57, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
   position: relative;
-  cursor: none !important;
+  cursor: auto !important;
   -webkit-user-select: none;
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 65, ../sass/_global.scss */
+/* line 67, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
-  cursor: none;
+  cursor: auto !important;
 }
 
-/* line 72, ../sass/_global.scss */
+/* line 74, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;
@@ -52,7 +52,7 @@ div.usablescreen {
   margin-left: 177px;
   width: 726px;
   height: 1560px;
-  cursor: none;
+  cursor: auto !important;
 }
 
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
@@ -202,7 +202,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* To properly align the shuffle button. Variable shuffle margins is equal to the usable width function */
-/* line 21, ../sass/_controls.scss */
+/* line 24, ../sass/_controls.scss */
 div.button-container-ppreff {
   width: 475px;
   height: 93px;
@@ -214,7 +214,7 @@ div.button-container-ppreff {
 }
 
 /*The following contains styling on all buttons including size, spacing, and position. */
-/* line 33, ../sass/_controls.scss */
+/* line 36, ../sass/_controls.scss */
 div.button-container-ppreff {
   width: 475px;
   height: 93px;
@@ -224,19 +224,19 @@ div.button-container-ppreff {
   margin-bottom: 0px;
 }
 
-/* line 42, ../sass/_controls.scss */
+/* line 45, ../sass/_controls.scss */
 div.music-buttons-total {
   height: 179px;
   width: 726px;
 }
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
-/* line 51, ../sass/_controls.scss */
+/* line 54, ../sass/_controls.scss */
 .not-a-button, button.play, button.rewind, button.fastforward, .shuffle-container {
   background-color: transparent;
   border: none;
   color: inherit;
-  cursor: none;
+  cursor: auto !important;
   font-size: inherit;
   font-family: inherit;
   -webkit-font-smoothing: inherit;
@@ -245,7 +245,7 @@ div.music-buttons-total {
   padding: 0;
 }
 
-/* line 68, ../sass/_controls.scss */
+/* line 71, ../sass/_controls.scss */
 .music-button-container {
   width: 93px;
   height: 93px;
@@ -254,34 +254,34 @@ div.music-buttons-total {
   display: inline-block;
 }
 
-/* line 87, ../sass/_controls.scss */
+/* line 90, ../sass/_controls.scss */
 button.play {
-  background-image: url('/components/play-button.png?1405956609');
+  background-image: url('/components/play-button.png?1405962210');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
   position: absolute;
 }
 
-/* line 92, ../sass/_controls.scss */
+/* line 95, ../sass/_controls.scss */
 button.rewind {
-  background-image: url('/components/previous-button.png?1405609380');
+  background-image: url('/components/previous-button.png?1405633554');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
   position: absolute;
 }
 
-/* line 97, ../sass/_controls.scss */
+/* line 100, ../sass/_controls.scss */
 button.fastforward {
-  background-image: url('/components/next-button.png?1405609530');
+  background-image: url('/components/next-button.png?1405633554');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
   position: absolute;
 }
 
-/* line 108, ../sass/_controls.scss */
+/* line 111, ../sass/_controls.scss */
 .shuffle-container {
   width: 34px;
   height: 26px;
@@ -289,25 +289,25 @@ button.fastforward {
   margin-bottom: 20px;
   float: right;
   margin-right: 18px;
-  background-image: url('/components/shuffle-button-stop.png?1405613305');
+  background-image: url('/components/shuffle-button-stop.png?1405633554');
 }
 
 /*toggle styles for JS */
-/* line 124, ../sass/_controls.scss */
+/* line 127, ../sass/_controls.scss */
 .isShuffleOn {
   width: 34px;
   height: 26px;
   margin-top: 40px;
   margin-bottom: 20px;
   margin-right: 18px;
-  background-image: url('/components/shuffle-button-working.png?1405609896');
+  background-image: url('/components/shuffle-button-working.png?1405633554');
 }
 
-/* line 134, ../sass/_controls.scss */
+/* line 137, ../sass/_controls.scss */
 button.isPlaying {
   width: 93px;
   height: 93px;
-  background-image: url('/components/pause-button.png?1405609470');
+  background-image: url('/components/pause-button.png?1405633554');
 }
 
 /* line 20, ../sass/_artwork.scss */
@@ -445,7 +445,7 @@ div.main-music-information {
 .song-playing-icon {
   display: inline-block;
   position: relative;
-  background-image: url('/components/speaker-icon.png?1405610048');
+  background-image: url('/components/speaker-icon.png?1405633554');
   background-repeat: no-repeat;
   z-index: 2;
   color: transparent;

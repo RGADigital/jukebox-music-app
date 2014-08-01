@@ -210,13 +210,18 @@
 
     playListCompare: function(){
       var order;//order is the order number of the music which is playing on the screen
+
       if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
 
           var newPlaylistLength=self.playListData[0].tracks.length;
           console.log(newPlaylistLength);
+          /*
+            If playlist length is longer than maxSoundsNumberInPlaylisy we delete music from the playlist
+            first, and we will update our playlist next round.
+          */
           if(newPlaylistLength>self.maxSoundsNumberInPlaylisy){
             //delete the music before the max naumber
-            console.log('----delete----some music-----')
+            // console.log('----delete----some music-----')
             var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylisy;
             var tracksToDelete=[];
             var i=0;
@@ -229,7 +234,7 @@
             console.log(tracksToDelete);
             //please remove this part to rdio-controller moudle
             $.ajax({
-              url : '/deletMusic',
+              url : '/deleteMusic',
               type : 'POST',
               dataType : 'json',
               data:{lengthToClean:lengthToCleanUp,tracks:tracksToDelete},
@@ -242,13 +247,13 @@
             //ask renderPlaylist to render the playlist
             self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
             //do something after the playlist order changed or deleted some music 
-            if((self.trackKeysForCompare.length) > 1){
+            if((self.trackKeysForCompare.length) > 1){//make sure there are somemusic in the playlist
               order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
               if(order >= 0){
                 ///change the soundisPlaying when the order of playlist is changed.
                 self.soundIsPlaying=order;
               }else{
-                //a music is deleted
+                //the playing music is deleted
                 self.playMusic(self.tracksKeys[self.soundIsPlaying]);
               };
             };

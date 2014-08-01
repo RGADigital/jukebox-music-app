@@ -1,8 +1,8 @@
 {
-  "name": "Rdio-Simple-Node",
-  "version": "0.0.0",
-  "description": "Some Rdio API examples using node.js.",
-  "main": "server-test.js",
+  "name": "Jukebox(Music-App)",
+  "version": "1.0.0",
+  "description": "a music web app using Rdio api for touch screen.",
+  "main": "server.js",
   "dependencies": {
     "express": "^3.12.0",
     "express-session": "^1.5.1",
@@ -14,6 +14,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rdio",
+  "author": "RGA-Jukebox Group",
   "license": "BSD-2-Clause"
 }

@@ -33,7 +33,9 @@ The sizing should work for the screen and cut off any extra.
 
 
 $overflow:auto;
-$cursor:none !important;
+// $cursor:none !important;//use this during production
+$cursor:auto !important;//use this during development
+
 
 
 body{
@@ -65,7 +67,7 @@ body{
 img{
 	-webkit-user-select:none;
 	pointer-events:none;
-	cursor:none;
+	cursor:$cursor;
 }
 
 
@@ -77,6 +79,6 @@ div.usablescreen{
 	margin-left: $margin-horizontal;
 	width: $usable-width;
 	height: usable-height($height-entire, $margin-top, $margin-bottom);
-	cursor: none;
+	cursor: $cursor;
 
 }

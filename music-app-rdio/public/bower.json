@@ -1,11 +1,12 @@
 {
-  "name": "music-app",
-  "description": "a music-app",
-  "version": "0.0.1",
-  "author": "zz",
+  "name": "Rdio-Simple-Node",
+  "description": "a music web app using Rdio api for touch screen.",
+  "version": "1.0.0",
+  "author": "RGA-Jukebox Group",
   "dependencies": {
     "iscroll": "~5.1.2",
-    "Processing.js": "~1.4.8"
+    "Processing.js": "~1.4.8",
+    "sketch.js": "*"
   },
   "devDependencies": {
     "jquery": "~2.1.0",

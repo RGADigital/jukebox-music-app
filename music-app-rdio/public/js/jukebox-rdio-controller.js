@@ -3,16 +3,20 @@
   // a global variable that will hold a reference to the api swf once it has loaded
   apiswf = null;
   callback_object = {};
-  var socket=io.connect('http://localhost:9001');
+  var socket=io.connect(window.location.hostname.toString()+':9001');
 
   var RdioController={
     self:{},
-    
+
+    playbackTokenLocalhost:'GAlT2-gd_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdEnTiN6mOqxUbAhvRbIuYBU=',
+    playbackTokenJukebox:'GA9T2-LJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmp1a2Vib3gucmdhLmNvbXsjds3psyhtYbyNxq6uQ1o=',
+
+
 
     // on page load use SWFObject to load the API swf into div#apiswf
     flashvars: {
-      'playbackToken': "GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=", 
-      'domain': "localhost",                // from token.js
+      'playbackToken':'', //token is based on domain (http://www.rdio.com/developers/docs/web-service/methods/playback/ref-web-service-method-getplaybacktoken)
+      'domain': window.location.hostname.toString(),                // from token.js
       'listener': 'callback_object'    // the global name of the object that will receive callbacks from the SWF
     },
     params: {
@@ -168,9 +172,26 @@
 
     },
 
+    configDomain:function(){
+      
+      $.getJSON("config.json", function() {
+        console.log( "success" );
+      });
+
+      if(window.location.hostname.toString()=="localhost"){
+        self.flashvars.playbackToken=self.playbackTokenLocalhost;
+      }else if(window.location.hostname.toString()=="jukebox.rga.com"){
+        self.flashvars.playbackToken=self.playbackTokenJukebox;
+      }else{
+        console.log('change the token');
+      };
+
+    },
+
     init:function(){
       $(d).trigger('GET_RDIO_DATA_EVENT');
       self=this;
+      self.configDomain();
       self.embedSWF();
       self.bindEvents();
       self.rdioPlayerApiCallbacks();

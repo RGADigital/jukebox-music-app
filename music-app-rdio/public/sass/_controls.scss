@@ -17,6 +17,9 @@ $shuffle-bottom-margin:20px;
 
 $margin-shuffle-right:18px;
 
+// $cursor:none !important;//use this during production
+$cursor:auto !important;//use this during development
+
 
 div.button-container-ppreff{
 	width:$button-container-ppreff-width;
@@ -52,7 +55,7 @@ div.music-buttons-total{
     background-color: transparent;
     border: none;
     color: inherit;
-    cursor: none;
+    cursor: $cursor;
     font: {
         size: inherit;
         family: inherit;

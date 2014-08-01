@@ -1,0 +1,15 @@
+{
+  "jukebox": {
+  	"domain": "jukebox.rga.com",
+    "host": "jukebox.rga.com",
+    "webSocketport": 9001,
+ 	"playbackToken":"GA9T2-LJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmp1a2Vib3gucmdhLmNvbXsjds3psyhtYbyNxq6uQ1o="
+  },
+
+  "localhost": {
+  	"domain": "localhost",
+    "host": "localhost",
+    "webSocketport": 9001,
+ 	  "playbackToken":"GAlT2-gd_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdEnTiN6mOqxUbAhvRbIuYBU="
+  },
+}
