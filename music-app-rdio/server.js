@@ -1,5 +1,5 @@
 var Rdio=require('./rdio_modules/rdio'),
-    RdioCredentials = require('./rdio_modules/rdio_consumer_credentials'),
+    RdioCredentials = require('./my_modules/rdio_consumer_credentials.js'),
     express = require('express'),
     app = express(),
     session = require('express-session'),
@@ -90,6 +90,7 @@ app.post('/deleteMusic', function(req, res){
 app.get('/getlist', function(req, res){
 	console.log('wow getting list');
 	var accessToken = req.session.accessToken;
+  console.log(accessToken);
 	if (accessToken) {
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
