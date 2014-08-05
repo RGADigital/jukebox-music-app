@@ -1,0 +1,16 @@
+{
+  "informayion":"You can replace the information in production for your website. playbackToken is based on domain (http://www.rdio.com/developers/docs/web-service/methods/playback/ref-web-service-method-getplaybacktoken)",
+  "production": {
+  	"domain": "jukebox.rga.com",
+    "host": "jukebox.rga.com",
+    "webSocketport": 9001,
+ 	  "playbackToken":"GA9T2-LJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmp1a2Vib3gucmdhLmNvbXsjds3psyhtYbyNxq6uQ1o="
+  },
+
+  "development": {
+  	"domain": "localhost",
+    "host": "localhost",
+    "webSocketport": 9001,
+ 	  "playbackToken":"GAlT4PSf_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdKj9oceqQSJoGVOiCJ3hz2A="
+  } 
+}

@@ -40,10 +40,12 @@
 }
 
 /* this creates an all-blank mouse cursor on all elements of the page */
-html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
-  cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII='),
-  none !important;
-}
+
+//comment this during development
+// html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
+//   cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII='),
+//   none !important;
+// }
 
 /*
 Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection

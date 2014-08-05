@@ -4,8 +4,8 @@ var Rdio=require('./rdio_modules/rdio'),
     app = express(),
     session = require('express-session'),
     http = require('http'),
-    io = require('socket.io').listen(9001);
-// vvv
+    io = require('socket.io').listen(9001),
+    config = require('config.json')('./config.json');
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 8888);
@@ -37,7 +37,7 @@ app.get('/cleanup', function(req, res){
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
 
-      rdio.call('getUserPlaylists',{user:'s23152898',extras:'tracks'},function(err, data) {
+      rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
           if (err) {
             console.log(err);
           }
@@ -45,18 +45,21 @@ app.get('/cleanup', function(req, res){
           var playListData=data.result;
           var trackListToCleanup=[];
 
-          var lengthToClean=playListData[0].tracks.length;
+          var lengthToClean=(playListData[0].tracks.length)-2;
           var i=0;
 
           for(i;i < lengthToClean;i++){
             trackListToCleanup[i]=playListData[0].tracks[i].key;
           };
 
-          console.log('cleaup!!!!!');
+          
           
           trackListToCleanup=trackListToCleanup.toString();
-          lengthToClean=lengthToClean.toString()
-          rdio.call('removeFromPlaylist',{playlist:'p10302240', index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {})
+          lengthToClean=lengthToClean.toString();
+          rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {
+            console.log('Musics have been cleaned up from the Jukebox playlist');
+            res.redirect('/player');
+          })
           
       });
 
@@ -80,7 +83,7 @@ app.post('/deleteMusic', function(req, res){
   if (accessToken) {
     var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
-    rdio.call('removeFromPlaylist',{playlist:'p10302240', index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {});
+    rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {});
 
   } else {
     res.redirect("/");
@@ -104,7 +107,7 @@ app.get('/getlist', function(req, res){
             console.log(currentUser);
         });
 
-        rdio.call('getUserPlaylists',{user:'s23152898',extras:'tracks'},function(err, data) {
+        rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
           if (err) {
             console.log(err);
           }
@@ -163,7 +166,7 @@ app.get('/callback', function(req, res){
 
         // req.session.clear('reqToken');
         console.log('good');
-        res.redirect('/player')
+        res.redirect('/player');
         
       });
     } else {
