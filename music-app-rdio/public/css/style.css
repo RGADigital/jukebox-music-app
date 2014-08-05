@@ -1,16 +1,11 @@
 /* disable/enable text selection css rules: copied from sass/skin/builder/core/base/_common.scss */
 /* this creates an all-blank mouse cursor on all elements of the page */
-/* line 43, ../sass/_global.scss */
-html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
-  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
-}
-
 /*
 Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
 (if you need scrollbars in the body, add overflow: auto to a nested div)
 Copied from sass/skin/builder/packages/studio/_base.scss
 */
-/* line 53, ../sass/_global.scss */
+/* line 55, ../sass/_global.scss */
 html.touch-screen, html.touch-screen body {
   height: 100%;
   /* this is required to give complete coverage of the screen to the hidden cursor */
@@ -33,12 +28,12 @@ html.touch-screen, html.touch-screen body {
    */
 }
 
-/* line 60, ../sass/_global.scss */
+/* line 62, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 69, ../sass/_global.scss */
+/* line 71, ../sass/_global.scss */
 #apiswf {
   position: absolute;
   top: -10px;
@@ -49,24 +44,24 @@ html.touch-screen, html.touch-screen body {
 On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
 The sizing should work for the screen and cut off any extra. 
 */
-/* line 99, ../sass/_global.scss */
+/* line 101, ../sass/_global.scss */
 body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
 @media (orientation: portrait) {
-  /* line 99, ../sass/_global.scss */
+  /* line 101, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 110, ../sass/_global.scss */
+/* line 112, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 115, ../sass/_global.scss */
+/* line 117, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
@@ -76,14 +71,14 @@ body {
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 125, ../sass/_global.scss */
+/* line 127, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
   cursor: auto !important;
 }
 
-/* line 132, ../sass/_global.scss */
+/* line 134, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;

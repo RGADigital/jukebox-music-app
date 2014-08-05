@@ -8,15 +8,10 @@
   var RdioController={
     self:{},
 
-    playbackTokenLocalhost:'GAlT2-gd_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmxvY2FsaG9zdEnTiN6mOqxUbAhvRbIuYBU=',
-    playbackTokenJukebox:'GA9T2-LJ_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmp1a2Vib3gucmdhLmNvbXsjds3psyhtYbyNxq6uQ1o=',
-
-
-
     // on page load use SWFObject to load the API swf into div#apiswf
     flashvars: {
       'playbackToken':'', //token is based on domain (http://www.rdio.com/developers/docs/web-service/methods/playback/ref-web-service-method-getplaybacktoken)
-      'domain': window.location.hostname.toString(),                // from token.js
+      'domain': window.location.hostname.toString(),          
       'listener': 'callback_object'    // the global name of the object that will receive callbacks from the SWF
     },
     params: {
@@ -25,10 +20,11 @@
     attributes: {},
 
     embedSWF: function(){
+      console.log('embedSucessed');
       swfobject.embedSWF(
         'http://www.rdio.com/api/swf/', // the location of the Rdio Playback API SWF
         'apiswf', // the ID of the element that will be replaced with the SWF
-        1, 1, '9.0.0', 'expressInstall.swf', self.flashvars, self.params, self.attributes
+        1, 1, '9.0.0', 'expressInstall.swf', RdioController.flashvars, RdioController.params, RdioController.attributes
       );
     },
 
@@ -173,29 +169,27 @@
     },
 
     configDomain:function(){
+
+      var configData;
       
-      $.getJSON("config.json", function() {
-        console.log( "success" );
-      });
+      $.getJSON("js/config.json", function(data) {
+        configData=data;
+        if(window.location.hostname.toString()=="localhost"){
+          RdioController.flashvars.playbackToken=configData.development.playbackToken;
+        }else{
+          RdioController.flashvars.playbackToken=configData.production.playbackToken;
+        };
 
-      if(window.location.hostname.toString()=="localhost"){
-        self.flashvars.playbackToken=self.playbackTokenLocalhost;
-      }else if(window.location.hostname.toString()=="jukebox.rga.com"){
-        self.flashvars.playbackToken=self.playbackTokenJukebox;
-      }else{
-        console.log('change the token');
-      };
-
+        RdioController.embedSWF();
+      });      
     },
 
     init:function(){
       $(d).trigger('GET_RDIO_DATA_EVENT');
       self=this;
       self.configDomain();
-      self.embedSWF();
       self.bindEvents();
       self.rdioPlayerApiCallbacks();
-      
     }
 
 

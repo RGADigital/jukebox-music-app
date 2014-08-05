@@ -24,7 +24,8 @@
     isMusicPlaying:false,
     isFirstPlay:true,
     myScroll:{},
-    maxSoundsNumberInPlaylisy:150,
+    maxSoundsNumberInPlaylist:150,//how many music keep in playlist
+    easingLevelForShuffle:15,
 
     // set up the controls
     attachUIEventS: function(){ 
@@ -67,8 +68,9 @@
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
         //shuffle status on Previous control
         if(self.isShuffle){
-          self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
-          self.playMusic(self.tracksKeys[self.soundIsPlaying]); 
+          //the algorithm for Shuffling the music
+          self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
           self.soundIsPlaying--;
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
@@ -81,8 +83,9 @@
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
         //shuffle status on Next control
         if(self.isShuffle){
-          self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
-          self.playMusic(self.tracksKeys[self.soundIsPlaying]); 
+          //the algorithm for Shuffling the music
+          self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
           self.soundIsPlaying++;
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
@@ -171,8 +174,8 @@
         //Shuffle
         if(self.isShuffle){
           //shuffle the playlist and play randomly
-          self.soundIsPlaying=_.random(0, (self.playListData[0].tracks.length-1));
-          self.playMusic(self.tracksKeys[self.soundIsPlaying]); 
+          self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
+          self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
           if(self.soundIsPlaying == (self.playListData[0].tracks.length-1)){
             //loop after the playlist finish
@@ -216,13 +219,13 @@
           var newPlaylistLength=self.playListData[0].tracks.length;
           console.log(newPlaylistLength);
           /*
-            If playlist length is longer than maxSoundsNumberInPlaylisy we delete music from the playlist
+            If playlist length is longer than maxSoundsNumberInPlaylist we delete music from the playlist
             first, and we will update our playlist next round.
           */
-          if(newPlaylistLength>self.maxSoundsNumberInPlaylisy){
+          if(newPlaylistLength>self.maxSoundsNumberInPlaylist){
             //delete the music before the max naumber
             // console.log('----delete----some music-----')
-            var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylisy;
+            var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylist;
             var tracksToDelete=[];
             var i=0;
 
@@ -267,6 +270,17 @@
       }else{
         return
       };
+    },
+
+    randomNmuberWithEasing: function(easing, centerNumber){
+      var randomOutputNumber;
+      do{
+        randomOutputNumber=_.random((centerNumber-easing),(centerNumber+easing));
+      }
+      while(randomOutputNumber<0 || randomOutputNumber>(self.playListData[0].tracks.length-1));
+
+      return randomOutputNumber
+
     },
 
     init: function() {
