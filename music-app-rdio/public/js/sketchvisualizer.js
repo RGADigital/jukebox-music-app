@@ -184,31 +184,39 @@
         demo.mousedown = function() {
 
             var particle, theta, force, touch, max, i, j, n;
+            var centerX=0,
+                centerY=0,
+                speedX=3,
+                speedY=50;
 
 
             if (intervalId) {
                 return;
-            }
-
-           intervalId = setInterval(function(){
-            
-        
-
-
-            for (var i = 0; i < musicData.length; i++) {
-                var frequency = musicData[i],
-                    colour = COLOURS[i];
-                
-                if (musicData[i] > 0){
-                    
-                    demo.spawn( demo.touches[0].x, demo.touches[0].y, frequency * 2 , colour );
-                }
-                
             };
-            
-            
 
-           }, 100);
+            intervalId = setInterval(function(){
+                
+                for (var i = 0; i < musicData.length; i++) {
+                    var frequency = musicData[i],
+                        colour = COLOURS[i];
+
+                    centerX+=speedX;
+                    centerY+=speedY;
+
+                    if(centerX<0 || centerX>1000){
+                       speedX=-speedX;
+                    };
+
+                    if(centerY<0 || centerY>500){
+                        speedY=-speedY;
+                    };
+                    
+                    if (musicData[i] > 0){
+                        demo.spawn( centerX, centerX, frequency * 2 , colour );
+                    };
+                
+                };
+            }, 1000/20);
             
             
         };
