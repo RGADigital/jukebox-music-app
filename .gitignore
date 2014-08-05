@@ -44,5 +44,5 @@ bin
 #dist
 
 # Project files
-music-app-rdio/my_modules/rdio_consumer_credentials.js
+# music-app-rdio/my_modules/rdio_consumer_credentials.js
 
