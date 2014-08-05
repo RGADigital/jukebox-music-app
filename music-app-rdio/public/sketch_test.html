@@ -7,6 +7,7 @@
             cursor:none;
             background-color:white;
             overflow:hidden;
+            margin:0px;
         }
         </style> 
 
@@ -17,7 +18,7 @@
         <script src="http://localhost:9001/socket.io/socket.io.js"></script>
         <script src="http://jukebox.rga.com:9001/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="bower_components/Processing.js/processing.js"></script>
+        <script type="text/javascript" src="bower_components/sketch.js/js/sketch.js"></script>
         <script type="text/javascript" src="bower_components/iscroll/build/iscroll.js"></script>
 
         <script>
@@ -34,7 +35,6 @@
             socket.on('pot', function(data) {
                 musicData = data.split(',');
                 //musicData = musicData.sort(sortNumber).reverse();
-                // console.log(musicData[5]);
                 MAX_PARTICLES=musicData[1]*100;
                 //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
                DATA_FORCE=musicData[5]*25;
@@ -239,5 +239,6 @@
         
 
         </script>
+
     </body>
 </html>
