@@ -296,7 +296,6 @@ div.music-buttons-total {
 
 /* line 90, ../sass/_controls.scss */
 button.play {
-  background-image: url('/img/../img/play-button.svg?1406926036');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -305,7 +304,6 @@ button.play {
 
 /* line 95, ../sass/_controls.scss */
 button.rewind {
-  background-image: url('/img/../img/previous-button.svg?1406926036');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -314,7 +312,6 @@ button.rewind {
 
 /* line 100, ../sass/_controls.scss */
 button.fastforward {
-  background-image: url('/img/../img/next-button.svg?1406926036');
   background-repeat: no-repeat;
   width: 93px;
   height: 93px;
@@ -329,7 +326,6 @@ button.fastforward {
   margin-bottom: 20px;
   float: right;
   margin-right: 18px;
-  background-image: url('/img/../img/shuffle-button-stop.svg?1406926036');
 }
 
 /*toggle styles for JS */
@@ -340,14 +336,12 @@ button.fastforward {
   margin-top: 40px;
   margin-bottom: 20px;
   margin-right: 18px;
-  background-image: url('/img/../img/shuffle-button-working.svg?1406926036');
 }
 
 /* line 137, ../sass/_controls.scss */
 button.isPlaying {
   width: 93px;
   height: 93px;
-  background-image: url('/img/../img/pause-button.svg?1406926036');
 }
 
 /* line 20, ../sass/_artwork.scss */
@@ -360,7 +354,7 @@ div.color {
 }
 
 /* line 28, ../sass/_artwork.scss */
-.color > img {
+.color > svg {
   top: 628px;
   position: absolute;
   transform-origin: 50% 0%;
@@ -480,7 +474,7 @@ div.main-music-information {
 .song-playing-icon {
   display: inline-block;
   position: relative;
-  background-image: url('/img/../img/speaker-icon.svg?1406926036');
+  background-image: url('/img/../img/speaker-icon.svg?1406839031');
   background-repeat: no-repeat;
   z-index: 2;
   color: transparent;
@@ -608,6 +602,14 @@ h1 {
   margin-top: 100px;
   text-decoration: none;
   font-size: 24px;
+}
+
+/* line 2, ../sass/_sidescreen.scss */
+body.visual {
+  cursor: none;
+  background-color: white;
+  overflow: hidden;
+  margin: 0px;
 }
 
 /* line 2, ../sass/themes/_blue.scss */
