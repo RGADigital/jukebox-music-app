@@ -99,17 +99,38 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	margin-left:$song-number-margin-left;
 }
 
-.song-playing-icon{
+// .song-playing-icon{
+// 	display:inline-block;
+// 	position:relative;
+// 	//background-image:image-url('../img/speaker-icon.svg');
+// 	//background-repeat:no-repeat;
+// 	z-index:2;
+// 	color:transparent;
+// 	margin-left:13px;
+// 	margin-right:18px;
+// 	width:17px;
+// }
+
+.song-number{
+	.icon{
+		display:none;
+	}
+
+	&.song-playing-icon{
 	display:inline-block;
 	position:relative;
-	background-image:image-url('../img/speaker-icon.svg');
-	background-repeat:no-repeat;
-	z-index:2;
-	color:transparent;
 	margin-left:13px;
 	margin-right:18px;
 	width:17px;
+	}
+
 }
+.song-playing-icon > svg{
+		display:block;
+	}
+
+
+
 
 .song-thumbnail{
 	height:$artwork-thumbnail;
