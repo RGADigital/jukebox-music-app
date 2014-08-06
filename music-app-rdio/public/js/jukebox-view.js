@@ -1,16 +1,18 @@
+/* View module's job is taking care of interaction on the screen and logic of music player*/
+
 (function(w,d,$,_){
 
   var ViewControler={
 
     self:{},//self=this; 
 
-    // buttons
+    /* DOM button element. */
     $play: $('.play'), //play button
     $previous: $('.rewind'),// previous button
     $next: $('.fastforward'),// next button
     $shuffle: $('.shuffle-container'),
 
-    // store playListData;
+    /*store playListData.*/
     playListData:{},
     tracksKeys:[],
     tracksNames:[],
@@ -19,23 +21,23 @@
     tracksAlbumNames:[],
     tracksArtists:[],
     trackKeysForCompare:[],
-    soundIsPlaying:0,//which sound is playing
+    soundIsPlaying:0,//The number of playing musisc in the playlist.
     isShuffle:false,
     isMusicPlaying:false,
     isFirstPlay:true,
     myScroll:{},
-    maxSoundsNumberInPlaylist:150,//how many music keep in playlist
+    maxSoundsNumberInPlaylist:150,//How many musics keep in playlist
     easingLevelForShuffle:15,
 
-    // set up the controls
+    /*set up the touch event controlers.*/
     attachUIEventS: function(){ 
-      //click Play button
+      /*click Play button*/
       self.$play.click(self.playClickEventHandler);
-      //click Previous button
+      /*click Previous button*/
       self.$previous.click(self.previousClickEventHandler);
-      //click Next button
+      /*click Next button*/
       self.$next.click(self.nextClickEventHandler);
-      //click shuffle button
+      /*click shuffle button*/
       self.$shuffle.click(self.shuffleClikcEventHandler);
     },
 
@@ -164,8 +166,6 @@
       }else{
         self.$play.removeClass('isPlaying');
       };
-
-
     },
 
     musicPositionEventHandler: function(event, position){
@@ -190,7 +190,7 @@
       };
     },
     
-    //get tracksKeys,trackName, and tracksDurations information from data from rdio api and save them.
+    /*get tracksKeys,trackName, and tracksDurations information from data from rdio api and save them.*/
     updataData: function(){
 
       self.tracksKeys=[];
@@ -223,8 +223,7 @@
             first, and we will update our playlist next round.
           */
           if(newPlaylistLength>self.maxSoundsNumberInPlaylist){
-            //delete the music before the max naumber
-            // console.log('----delete----some music-----')
+            /*delete the music before the max naumber*/
             var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylist;
             var tracksToDelete=[];
             var i=0;
@@ -235,7 +234,7 @@
             };
 
             console.log(tracksToDelete);
-            //please remove this part to rdio-controller moudle
+            /*please remove this part to rdio-controller moudle*/
             $.ajax({
               url : '/deleteMusic',
               type : 'POST',
@@ -247,16 +246,16 @@
             });
 
           }else{
-            //ask renderPlaylist to render the playlist
+            /*ask renderPlaylist to render the playlist*/
             self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
-            //do something after the playlist order changed or deleted some music 
+            /*do something after the playlist order changed or deleted some music */
             if((self.trackKeysForCompare.length) > 1){//make sure there are somemusic in the playlist
               order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
               if(order >= 0){
-                ///change the soundisPlaying when the order of playlist is changed.
+                /*change the soundisPlaying when the order of playlist is changed.*/
                 self.soundIsPlaying=order;
               }else{
-                //the playing music is deleted
+                /*the playing music is deleted*/
                 self.playMusic(self.tracksKeys[self.soundIsPlaying]);
               };
             };
@@ -272,6 +271,12 @@
       };
     },
 
+
+    /**
+    * randomNmuberWithEasing give you a random number in a range around a center number
+    * @param {int} easing - easing range.
+    * @param {int} centerNumber - center of the range.
+    */
     randomNmuberWithEasing: function(easing, centerNumber){
       var randomOutputNumber;
       do{

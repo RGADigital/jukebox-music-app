@@ -52,8 +52,6 @@ app.get('/cleanup', function(req, res){
             trackListToCleanup[i]=playListData[0].tracks[i].key;
           };
 
-          
-          
           trackListToCleanup=trackListToCleanup.toString();
           lengthToClean=lengthToClean.toString();
           rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {
@@ -76,9 +74,6 @@ app.post('/deleteMusic', function(req, res){
   var deleteData=req.body
   var lengthToClean=deleteData.lengthToClean.toString();
   var trackListToCleanup=deleteData.tracks.toString();
-
-  // console.log(lengthToClean);
-  // console.log(trackListToCleanup);
 
   if (accessToken) {
     var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
@@ -182,7 +177,6 @@ app.get('/logout', function(request, result){
 
 
 io.on('connection', function(socket){
-  // console.log('connnnnnection----------------');
   socket.on('bit', function(msg){
     io.emit('pot', msg);
   });

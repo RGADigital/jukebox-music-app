@@ -3,7 +3,7 @@
 	var Login={
 
 		$login: $( "#login" ),
-
+		
 		attachEvents:function(){
 			$login.click(loginClickEventHandler);
 		},
