@@ -54,45 +54,67 @@ body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
-@media (orientation: portrait) {
-  /* line 101, ../sass/_global.scss */
-  body {
-    overflow: hidden;
-  }
-}
 
 /* line 112, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 117, ../sass/_global.scss */
-.entirescreen {
-  width: 1080px;
-  height: 1920px;
-  position: relative;
-  cursor: none !important;
-  -webkit-user-select: none;
-  font-family: 'Open Sans', Helvetica;
+@media (orientation: portrait) {
+  /* line 117, ../sass/_global.scss */
+  .entirescreen {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    cursor: none !important;
+    -webkit-user-select: none;
+    font-family: 'Open Sans', Helvetica;
+  }
 }
 
-/* line 127, ../sass/_global.scss */
+/* line 133, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
   cursor: none !important;
 }
 
-/* line 134, ../sass/_global.scss */
-div.usablescreen {
-  position: absolute;
-  margin-bottom: 210px;
-  margin-top: 150px;
-  margin-right: 177px;
-  margin-left: 177px;
-  width: 726px;
-  height: 1560px;
-  cursor: none !important;
+@media (orientation: portrait) {
+  /* line 140, ../sass/_global.scss */
+  div.usablescreen {
+    position: absolute;
+    margin-bottom: 210px;
+    margin-top: 150px;
+    margin-right: 177px;
+    margin-left: 177px;
+    width: 726px;
+    height: 1560px;
+    cursor: none !important;
+  }
+}
+@media (orientation: landscape) {
+  /* line 140, ../sass/_global.scss */
+  div.usablescreen {
+    min-width: 1400px;
+  }
+}
+
+@media (orientation: landscape) {
+  /* line 159, ../sass/_global.scss */
+  .container1 {
+    width: 49%;
+    display: inline-block;
+    min-width: 650px;
+  }
+}
+
+@media (orientation: landscape) {
+  /* line 167, ../sass/_global.scss */
+  .container2 {
+    width: 49%;
+    display: inline-block;
+    min-width: 650px;
+  }
 }
 
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
@@ -344,66 +366,109 @@ button.isPlaying {
   height: 93px;
 }
 
-/* line 20, ../sass/_artwork.scss */
-div.color {
-  position: absolute;
-  top: -0px;
-  height: 665px;
-  width: 1080px;
-  z-index: -1;
+@media (orientation: portrait) {
+  /* line 20, ../sass/_artwork.scss */
+  div.color {
+    position: absolute;
+    top: -0px;
+    height: 665px;
+    width: 1080px;
+    z-index: -1;
+  }
+}
+@media (orientation: landscape) {
+  /* line 20, ../sass/_artwork.scss */
+  div.color {
+    display: none;
+  }
 }
 
-/* line 28, ../sass/_artwork.scss */
-.color > svg {
-  top: 628px;
-  position: absolute;
-  transform-origin: 50% 0%;
-  margin-left: 141px;
+@media (orientation: portrait) {
+  /* line 36, ../sass/_artwork.scss */
+  .color > svg {
+    top: 628px;
+    position: absolute;
+    transform-origin: 50% 0%;
+    margin-left: 141px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 36, ../sass/_artwork.scss */
+  .color > svg {
+    display: none;
+  }
 }
 
-/* line 36, ../sass/_artwork.scss */
-div.main-album-art {
-  height: 599px;
-  width: 599px;
+@media (orientation: portrait) {
+  /* line 51, ../sass/_artwork.scss */
+  div.main-album-art {
+    height: 599px;
+    width: 599px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 51, ../sass/_artwork.scss */
+  div.main-album-art {
+    padding: 10%;
+  }
 }
 
-/* line 44, ../sass/_artwork.scss */
-.main-album-art > img {
-  margin-left: 63.5px;
-  margin-right: 63.5px;
+@media (orientation: portrait) {
+  /* line 66, ../sass/_artwork.scss */
+  .main-album-art > img {
+    margin-left: 63.5px;
+    margin-right: 63.5px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 66, ../sass/_artwork.scss */
+  .main-album-art > img {
+    width: 100%;
+    margin: 0px;
+  }
 }
 
-/* line 49, ../sass/_artwork.scss */
+/* line 79, ../sass/_artwork.scss */
 div.main-music-information {
   text-align: center;
-  margin-top: 43px;
-  margin-bottom: 43px;
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
+}
+@media (orientation: portrait) {
+  /* line 79, ../sass/_artwork.scss */
+  div.main-music-information {
+    margin-top: 43px;
+    margin-bottom: 43px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
 }
 
-/* line 59, ../sass/_artwork.scss */
+/* line 95, ../sass/_artwork.scss */
 .main-music-information > h1 {
-  font-size: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-left: -100px;
   margin-right: -100px;
-  position: relative;
-  z-index: 200;
-  margin-bottom: 4px;
-  height: 50px;
+}
+@media (orientation: portrait) {
+  /* line 95, ../sass/_artwork.scss */
+  .main-music-information > h1 {
+    font-size: 38px;
+    position: relative;
+    z-index: 200;
+    margin-bottom: 4px;
+    height: 50px;
+  }
 }
 
-/* line 73, ../sass/_artwork.scss */
+/* line 116, ../sass/_artwork.scss */
 .main-music-information > h2 {
   font-size: 30px;
   margin-bottom: 12px;
 }
 
-/* line 78, ../sass/_artwork.scss */
+/* line 121, ../sass/_artwork.scss */
 .main-music-information > h6 {
   font-size: 24px;
 }

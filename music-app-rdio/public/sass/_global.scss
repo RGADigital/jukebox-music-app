@@ -102,9 +102,9 @@ body{
 	overflow:$overflow;
 	font-family: 'Open Sans', Helvetica;
 
-	@media (orientation:portrait){
-	overflow:hidden;
-	}
+	// @media (orientation:portrait){
+	// overflow:hidden;
+	// }
 
 	}
 
@@ -115,12 +115,18 @@ body{
 
 
 .entirescreen{
+  @media (orientation:portrait){
 	width:$width-entire;
 	height:$height-entire;
 	position:relative;
 	cursor:$cursor;
 	-webkit-user-select:none;
 	font-family: 'Open Sans', Helvetica;
+}
+  
+  @media (orientation:landscape){
+  
+  }
 
 }
 
@@ -132,13 +138,37 @@ img{
 
 
 div.usablescreen{
-	position:absolute;
-	margin-bottom: $margin-bottom;
-	margin-top: $margin-top;
-	margin-right: $margin-horizontal;
-	margin-left: $margin-horizontal;
-	width: $usable-width;
+
+
+	@media (orientation:portrait){
+  position:absolute;
+  margin-bottom: $margin-bottom;
+  margin-top: $margin-top;
+  margin-right: $margin-horizontal;
+  margin-left: $margin-horizontal;
+  width: $usable-width;
 	height: usable-height($height-entire, $margin-top, $margin-bottom);
 	cursor: $cursor;
+}
+  @media (orientation:landscape){
+  min-width:1400px;
+  }
+
+}
+
+.container1{
+   @media (orientation:landscape){
+    width:49%;
+    display:inline-block;
+    min-width:650px;
+  }
+}
+
+.container2{
+   @media (orientation:landscape){
+    width:49%;
+    display:inline-block;
+    min-width:650px;
+  }
 
 }

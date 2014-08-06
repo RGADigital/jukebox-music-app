@@ -18,56 +18,99 @@ $main-album-title-font-size:24px;
 $negative-margins-long-song:-100px;
 
 div.color{
-	position:absolute;
-	top:-0px;
-	height:665px;
-	width:$width-entire;
-	z-index:-1;
+	
+	 @media (orientation:portrait){
+		position:absolute;
+		top:-0px;
+		height:665px;
+		width:$width-entire;
+		z-index:-1;
+	}
+
+	 @media (orientation:landscape){
+	 	display:none;
+  
+  }
 }
 
 .color > svg{
-	top:628px;
-	position:absolute;
-	transform-origin:50% 0%;
-	margin-left:141px;
+	 @media (orientation:portrait){
+		top:628px;
+		position:absolute;
+		transform-origin:50% 0%;
+		margin-left:141px;
+	}
+
+	 @media (orientation:landscape){
+	 	display:none;
+  
+  }
 }
 
 
 div.main-album-art{
-	height:$main-album-art-width-and-height;
-	width:$main-album-art-width-and-height;
+	 @media (orientation:portrait){
+		height:$main-album-art-width-and-height;
+		width:$main-album-art-width-and-height;
+	}
+
+	 @media (orientation:landscape){
+	 	padding:10%;	 	
+  		
+  	}
 	
 }
 
 
 
 .main-album-art > img{
+	@media (orientation:portrait){
 	margin-left:album-art-margins($usable-width, $main-album-art-width-and-height);
 	margin-right:album-art-margins($usable-width, $main-album-art-width-and-height);
+	}
+	@media (orientation:landscape){
+		width:100%;
+		margin:0px;
+		
+	}
+
 }
 
 div.main-music-information{
-	text-align:center;
-	margin-top:$music-information-margin;
-	margin-bottom:$music-information-margin;
-	position:relative;
-	z-index:1;
-	pointer-events:none;
+		text-align:center;
+	@media (orientation:portrait){
+		margin-top:$music-information-margin;
+		margin-bottom:$music-information-margin;
+		position:relative;
+		z-index:1;
+		pointer-events:none;
+	}	
+	@media (orientation:landscape){
+
+  
+  	}
 
 }
 
 .main-music-information > h1{
-	font-size:$main-song-font-size;
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
 	margin-left:$negative-margins-long-song;
 	margin-right:$negative-margins-long-song;
+
+	@media (orientation:portrait){
+	font-size:$main-song-font-size;
 	position:relative;
 	z-index:200;
 	margin-bottom:4px;
 	height:50px;
+	}
 
+	@media (orientation:landscape){
+
+  
+  	}
 }
 
 .main-music-information > h2{
