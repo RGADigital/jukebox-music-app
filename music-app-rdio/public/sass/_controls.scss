@@ -3,7 +3,6 @@
 };
 
 
-
 //button information 
 $button-container-ppreff-width:475px;
 $button-width-and-height:93px;
@@ -21,31 +20,38 @@ $cursor:none !important;//use this during production
 $cursor:auto !important;//use this during development
 
 
-div.button-container-ppreff{
-	width:$button-container-ppreff-width;
-	height:$button-width-and-height;
-	margin-left: button-container-margins($usable-width, $button-container-ppreff-width);
-	margin-right: button-container-margins($usable-width, $button-container-ppreff-width);
-	margin-top:0px;
-	margin-bottom:0px;
-	position:relative;
-}
+
 
 
 /*The following contains styling on all buttons including size, spacing, and position. */
 div.button-container-ppreff{
 	width:$button-container-ppreff-width;
 	height:$button-width-and-height;
+
+	@media (orientation:portrait){
 	margin-left: button-container-margins($usable-width, $button-container-ppreff-width);
 	margin-right: button-container-margins($usable-width, $button-container-ppreff-width);
 	margin-top:0px;
 	margin-bottom:0px;
+	}
+
+	@media (orientation:landscape){
+	margin-right:auto;
+	margin-left:auto;
+	}
 }
 
 div.music-buttons-total{
-	
+
+	@media (orientation:portrait){
 	height: $button-width-and-height + $shuffle-height + $shuffle-top-margin + $shuffle-bottom-margin;
 	width:$usable-width;
+	}
+	
+	@media (orientation:landscape){
+	margin-top:20px;
+	
+	}
 }
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */ 

@@ -47,11 +47,21 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	overflow-y:auto;
   	overflow-x:hidden;
 	width:105%;
+	
+	@media (orientation:portrait){
 	height:$playlist-height;
 	margin-top:$playlist-top-margin;
 	font-size:$font-size-song;
+	}
+
+	@media (orientation:landscape){
+	top:-90px;
+  
+  	}
 }
 .playlist_line{
+
+	@media (orientation:portrait){
 	position:relative;
 	top:29px;
 	height:1px;
@@ -59,13 +69,19 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	border-bottom-width:0px;
 	border-right-width:0px;
 	border-left-width:0px;
+	}
+
+	@media (orientation:landscape){
+		display:none;
+
+	}
 
 	}
 
 #overlay {
     display: inline-block;
     position: relative;
-}
+	}
 
 #overlay::after {
         background-image: -webkit-linear-gradient( top, 
@@ -80,13 +96,21 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 }
 
 .song{
-	width:song-width($usable-width,$song-padding);
 	height:$song-height;
 	padding:$song-padding;
 	border-bottom: 1px solid;
+
+	@media (orientation:portrait){
+	width:song-width($usable-width,$song-padding);
+	}	
+
+	@media (orientation:landscape){
+  
+  	}
 }
 
 .song-number{
+
 	text-align:left;
 	width:$song-number-width;
 	height:$song-number-height;
@@ -133,7 +157,17 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	position:absolute;
 	margin-left:$song-information-margin-left;
 	text-overflow:ellipsis;
+	
+	@media (orientation:portrait){
 	width:$song-name-artist-container-width;
+
+  	}
+
+	@media (orientation:landscape){
+	width:70%;
+
+  	}
+
 	
 }
 
@@ -150,12 +184,22 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 
 .artist-name-list{
 
-	width:$song-name-artist-container-width;
+	
 	height:$artist-name-height;
 	white-space:nowrap;
 	display:block;
 	overflow:hidden;
 	text-overflow:ellipsis;
+
+	@media (orientation:portrait){
+	width:$song-name-artist-container-width;
+
+  	}
+
+	@media (orientation:landscape){
+	width:70%;
+
+  	}
 
 
 
@@ -179,10 +223,21 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 /* iScroll Plugin Styling */ 
 
 #wrapper {
-	position:relative;
+
+	@media (orientation:portrait){
 	width:$usable-width;
 	height:$playlist-height;
-	overflow: hidden;
+
+  	}
+
+  	@media (orientation:landscape){
+  	height:700px;
+  	
+  	  	}
+
+
+	position:relative;
+	overflow:hidden;
 
 	
 	/* Prevent native touch events on Windows */
@@ -222,3 +277,5 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 li{
 	list-style-type:none;
 }
+
+

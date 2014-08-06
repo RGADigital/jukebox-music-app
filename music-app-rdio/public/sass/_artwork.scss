@@ -55,7 +55,7 @@ div.main-album-art{
 	}
 
 	 @media (orientation:landscape){
-	 	padding:10%;	 	
+	 		 	
   		
   	}
 	
@@ -70,7 +70,9 @@ div.main-album-art{
 	}
 	@media (orientation:landscape){
 		width:100%;
-		margin:0px;
+		margin:0;
+		margin-bottom:10px;
+
 		
 	}
 
@@ -98,28 +100,26 @@ div.main-music-information{
 	white-space:nowrap;
 	margin-left:$negative-margins-long-song;
 	margin-right:$negative-margins-long-song;
-
-	@media (orientation:portrait){
 	font-size:$main-song-font-size;
 	position:relative;
 	z-index:200;
 	margin-bottom:4px;
 	height:50px;
-	}
 
-	@media (orientation:landscape){
-
-  
-  	}
 }
 
 .main-music-information > h2{
+
 	font-size:$main-artist-font-size;
 	margin-bottom:12px;
+	
 }
 
 .main-music-information > h6{
+
 	font-size:$main-album-title-font-size;
+  	
+	
 }
 
 

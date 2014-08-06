@@ -97,6 +97,9 @@ $overflow:auto;
 $cursor:none !important;//use this during development
 
 
+//for portrait 
+$container1-width:49%;
+
 
 body{
 	overflow:$overflow;
@@ -115,13 +118,13 @@ body{
 
 
 .entirescreen{
+  font-family: 'Open Sans', Helvetica;
   @media (orientation:portrait){
 	width:$width-entire;
 	height:$height-entire;
 	position:relative;
 	cursor:$cursor;
 	-webkit-user-select:none;
-	font-family: 'Open Sans', Helvetica;
 }
   
   @media (orientation:landscape){
@@ -152,23 +155,28 @@ div.usablescreen{
 }
   @media (orientation:landscape){
   min-width:1400px;
+  max-height:900px;
+  padding:3%;
+
   }
 
 }
 
 .container1{
    @media (orientation:landscape){
-    width:49%;
+    width:$container1-width;
     display:inline-block;
     min-width:650px;
+    top:0px;
   }
 }
 
 .container2{
    @media (orientation:landscape){
-    width:49%;
+    width:$container1-width;
     display:inline-block;
     min-width:650px;
+    top:0px;
   }
 
 }
