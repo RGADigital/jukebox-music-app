@@ -85,13 +85,26 @@ div.music-buttons-total{
 
 
 
+.play{
+	.svg1{
+		display:block;
+	}
+	.svg2{
+		display:none;
+	}
+	&.isPlaying{
+		.svg1{
+			display:none;
+		}
+		.svg2{
+			display:block;
+		}
+	}
 
-
-button.play{
-	//background-image: image-url('../img/play-button.svg');
-	background-repeat:no-repeat;
 	@include button-style($button-width-and-height)	
+
 }
+
 button.rewind{
 	//background-image: image-url('../img/previous-button.svg');
 	background-repeat:no-repeat;
@@ -106,9 +119,30 @@ button.fastforward{
 
 
 
+button.isPlaying{
+	width:$button-width-and-height;
+	height:$button-width-and-height;
+	//background-image:image-url('../img/pause-button.svg');
+	
 
+}
 
 .shuffle-container{
+	.shuffle1{
+		display:block;
+	}
+	.shuffle2{
+		display:none;
+	}
+	&.isShuffleOn{
+		.shuffle1{
+			display:none;
+		}
+		.shuffle2{
+			display:block;
+		}
+	}
+
 	width:$shuffle-width;
 	height:$shuffle-height;
 	margin-top:$shuffle-top-margin;
@@ -117,28 +151,8 @@ button.fastforward{
 	margin-right:$margin-shuffle-right; 
 	//background-image:image-url('../img/shuffle-button-stop.svg');
 
-	@extend .not-a-button; 
-}
-
-
-
-/*toggle styles for JS */ 
-
-.isShuffleOn{
-	width:$shuffle-width;
-	height:$shuffle-height;
-	margin-top:$shuffle-top-margin;
-	margin-bottom:$shuffle-bottom-margin;
-	margin-right:$margin-shuffle-right;
-	//background-image: image-url('../img/shuffle-button-working.svg');
-}
-
-
-button.isPlaying{
-	width:$button-width-and-height;
-	height:$button-width-and-height;
-	//background-image:image-url('../img/pause-button.svg');
-	
+	@extend .not-a-button;
 
 }
+
 

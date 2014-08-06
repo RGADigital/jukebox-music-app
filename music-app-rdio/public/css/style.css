@@ -272,7 +272,7 @@ div.music-buttons-total {
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
 /* line 54, ../sass/_controls.scss */
-.not-a-button, button.play, button.rewind, button.fastforward, .shuffle-container {
+.not-a-button, .play, button.rewind, button.fastforward, .shuffle-container {
   background-color: transparent;
   border: none;
   color: inherit;
@@ -294,15 +294,30 @@ div.music-buttons-total {
   display: inline-block;
 }
 
-/* line 90, ../sass/_controls.scss */
-button.play {
-  background-repeat: no-repeat;
+/* line 88, ../sass/_controls.scss */
+.play {
   width: 93px;
   height: 93px;
   position: absolute;
 }
+/* line 89, ../sass/_controls.scss */
+.play .svg1 {
+  display: block;
+}
+/* line 92, ../sass/_controls.scss */
+.play .svg2 {
+  display: none;
+}
+/* line 96, ../sass/_controls.scss */
+.play.isPlaying .svg1 {
+  display: none;
+}
+/* line 99, ../sass/_controls.scss */
+.play.isPlaying .svg2 {
+  display: block;
+}
 
-/* line 95, ../sass/_controls.scss */
+/* line 108, ../sass/_controls.scss */
 button.rewind {
   background-repeat: no-repeat;
   width: 93px;
@@ -310,7 +325,7 @@ button.rewind {
   position: absolute;
 }
 
-/* line 100, ../sass/_controls.scss */
+/* line 113, ../sass/_controls.scss */
 button.fastforward {
   background-repeat: no-repeat;
   width: 93px;
@@ -318,7 +333,13 @@ button.fastforward {
   position: absolute;
 }
 
-/* line 111, ../sass/_controls.scss */
+/* line 122, ../sass/_controls.scss */
+button.isPlaying {
+  width: 93px;
+  height: 93px;
+}
+
+/* line 130, ../sass/_controls.scss */
 .shuffle-container {
   width: 34px;
   height: 26px;
@@ -327,21 +348,21 @@ button.fastforward {
   float: right;
   margin-right: 18px;
 }
-
-/*toggle styles for JS */
-/* line 127, ../sass/_controls.scss */
-.isShuffleOn {
-  width: 34px;
-  height: 26px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  margin-right: 18px;
+/* line 131, ../sass/_controls.scss */
+.shuffle-container .shuffle1 {
+  display: block;
 }
-
-/* line 137, ../sass/_controls.scss */
-button.isPlaying {
-  width: 93px;
-  height: 93px;
+/* line 134, ../sass/_controls.scss */
+.shuffle-container .shuffle2 {
+  display: none;
+}
+/* line 138, ../sass/_controls.scss */
+.shuffle-container.isShuffleOn .shuffle1 {
+  display: none;
+}
+/* line 141, ../sass/_controls.scss */
+.shuffle-container.isShuffleOn .shuffle2 {
+  display: block;
 }
 
 /* line 20, ../sass/_artwork.scss */
@@ -470,20 +491,25 @@ div.main-music-information {
   margin-left: 8px;
 }
 
-/* line 102, ../sass/_playlist.scss */
-.song-playing-icon {
+/* line 115, ../sass/_playlist.scss */
+.song-number .icon {
+  display: none;
+}
+/* line 119, ../sass/_playlist.scss */
+.song-number.song-playing-icon {
   display: inline-block;
   position: relative;
-  background-image: url('/img/../img/speaker-icon.svg?1406839031');
-  background-repeat: no-repeat;
-  z-index: 2;
-  color: transparent;
   margin-left: 13px;
   margin-right: 18px;
   width: 17px;
 }
 
-/* line 114, ../sass/_playlist.scss */
+/* line 128, ../sass/_playlist.scss */
+.song-playing-icon > svg {
+  display: block;
+}
+
+/* line 135, ../sass/_playlist.scss */
 .song-thumbnail {
   height: 70px;
   width: 70px;
@@ -491,7 +517,7 @@ div.main-music-information {
   position: relative;
 }
 
-/* line 121, ../sass/_playlist.scss */
+/* line 142, ../sass/_playlist.scss */
 .song-thumbnail > img {
   height: 70px;
   width: 70px;
@@ -499,7 +525,7 @@ div.main-music-information {
   margin-bottom: 22px;
 }
 
-/* line 129, ../sass/_playlist.scss */
+/* line 150, ../sass/_playlist.scss */
 .song-name-artist-container {
   display: inline-block;
   margin-top: 27px;
@@ -510,7 +536,7 @@ div.main-music-information {
   width: 500px;
 }
 
-/* line 140, ../sass/_playlist.scss */
+/* line 161, ../sass/_playlist.scss */
 .song-name-list {
   margin-top: 16px;
   font-size: 17px;
@@ -521,7 +547,7 @@ div.main-music-information {
   text-overflow: ellipsis;
 }
 
-/* line 151, ../sass/_playlist.scss */
+/* line 172, ../sass/_playlist.scss */
 .artist-name-list {
   width: 500px;
   height: 22px;
@@ -531,7 +557,7 @@ div.main-music-information {
   text-overflow: ellipsis;
 }
 
-/* line 165, ../sass/_playlist.scss */
+/* line 186, ../sass/_playlist.scss */
 .song-time {
   float: right;
   height: 20px;
@@ -544,7 +570,7 @@ div.main-music-information {
 }
 
 /* iScroll Plugin Styling */
-/* line 181, ../sass/_playlist.scss */
+/* line 202, ../sass/_playlist.scss */
 #wrapper {
   position: relative;
   width: 726px;
@@ -566,7 +592,7 @@ div.main-music-information {
   text-size-adjust: none;
 }
 
-/* line 208, ../sass/_playlist.scss */
+/* line 229, ../sass/_playlist.scss */
 #scroller {
   position: absolute;
   /* Prevent elements to be highlighted on tap */
@@ -579,7 +605,7 @@ div.main-music-information {
   transform: translateZ(0);
 }
 
-/* line 222, ../sass/_playlist.scss */
+/* line 243, ../sass/_playlist.scss */
 li {
   list-style-type: none;
 }
