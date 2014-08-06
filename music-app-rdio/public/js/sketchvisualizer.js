@@ -16,7 +16,7 @@
                 //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
                DATA_FORCE=musicData[5]*25;
                 //console.log('DATA_FORCE from io ------- ' + DATA_FORCE)
-                console.log(musicData);
+                // console.log(musicData);
             });
 
 
@@ -179,27 +179,30 @@
         };
 
        
-
+        var centerX=300,
+            centerY=300,
+            speedX=30,
+            speedY=50;
+            var upOrDown=true;
 
         demo.mousedown = function() {
+            upOrDown=false;
+        };
 
+        demo.mouseup=function(){
+            upOrDown=true;
+        };
+
+
+        intervalAnimation=function(){
             var particle, theta, force, touch, max, i, j, n;
-            var centerX=0,
-                centerY=0,
-                speedX=3,
-                speedY=50;
-
 
             if (intervalId) {
                 return;
             };
-
             intervalId = setInterval(function(){
-                
-                for (var i = 0; i < musicData.length; i++) {
-                    var frequency = musicData[i],
-                        colour = COLOURS[i];
 
+                if(upOrDown){
                     centerX+=speedX;
                     centerY+=speedY;
 
@@ -208,18 +211,27 @@
                     };
 
                     if(centerY<0 || centerY>500){
-                        speedY=-speedY;
+                        speedY=-speedY; 
                     };
+                }else{
+                    centerX=demo.touches[0].x;
+                    centerY=demo.touches[0].y;
+                };
                     
+                
+                    for (var i = 0; i < musicData.length; i++) {
+                    var frequency = musicData[i],
+                        colour = COLOURS[i];
+                   
                     if (musicData[i] > 0){
-                        demo.spawn( centerX, centerX, frequency * 2 , colour );
+                        demo.spawn( centerX, centerY, frequency * 2 , colour );
                     };
                 
                 };
             }, 1000/20);
-            
-            
         };
+
+        intervalAnimation();
 
      
          
