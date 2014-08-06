@@ -505,7 +505,7 @@ div.main-music-information {
 }
 
 /* line 128, ../sass/_playlist.scss */
-.song-playing-icon > svg {
+.song-playing-icon > .icon {
   display: block;
 }
 
