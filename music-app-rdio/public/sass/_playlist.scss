@@ -55,24 +55,26 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	}
 
 	@media (orientation:landscape){
-	top:-90px;
+	
   
   	}
 }
 .playlist_line{
 
-	@media (orientation:portrait){
-	position:relative;
-	top:29px;
-	height:1px;
 	border-style:solid;
 	border-bottom-width:0px;
 	border-right-width:0px;
 	border-left-width:0px;
+
+	@media (orientation:portrait){
+	position:relative;
+	top:29px;
+	height:1px;
+	
 	}
 
 	@media (orientation:landscape){
-		display:none;
+	display:none;
 
 	}
 
@@ -81,6 +83,11 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 #overlay {
     display: inline-block;
     position: relative;
+
+    @media (orientation:landscape){
+	
+	}
+
 	}
 
 #overlay::after {
@@ -105,6 +112,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	}	
 
 	@media (orientation:landscape){
+	width:100%;
   
   	}
 }
@@ -231,8 +239,14 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
   	}
 
   	@media (orientation:landscape){
-  	height:700px;
-  	
+  		max-height:900px;
+  		min-height:400px;
+		// height:90vh;
+		width:100%;
+		float:right;
+		top:-22px;
+
+
   	  	}
 
 

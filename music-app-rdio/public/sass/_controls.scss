@@ -115,6 +115,7 @@ button.fastforward{
 
 
 .shuffle-container{
+	@media (orientation:portrait){
 	width:$shuffle-width;
 	height:$shuffle-height;
 	margin-top:$shuffle-top-margin;
@@ -122,8 +123,22 @@ button.fastforward{
 	float:right;
 	margin-right:$margin-shuffle-right; 
 	//background-image:image-url('../img/shuffle-button-stop.svg');
+  		
+  	}
+
+	
 
 	@extend .not-a-button; 
+
+	@media (orientation:landscape){
+	width:10%;
+	margin-right:45%;
+	margin-left:45%;
+	margin-top:2vh;
+
+  		
+  	}
+
 }
 
 
@@ -131,12 +146,23 @@ button.fastforward{
 /*toggle styles for JS */ 
 
 .isShuffleOn{
+	@media (orientation:landscape){
 	width:$shuffle-width;
 	height:$shuffle-height;
 	margin-top:$shuffle-top-margin;
 	margin-bottom:$shuffle-bottom-margin;
 	margin-right:$margin-shuffle-right;
 	//background-image: image-url('../img/shuffle-button-working.svg');
+ 		
+  	}
+	
+	@media (orientation:landscape){
+	width:10%;
+	margin-right:45%;
+	margin-left:45%;
+	margin-top:2vh;
+
+  	}
 }
 
 

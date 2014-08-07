@@ -69,27 +69,27 @@ div.main-album-art{
 	margin-right:album-art-margins($usable-width, $main-album-art-width-and-height);
 	}
 	@media (orientation:landscape){
-		width:100%;
-		margin:0;
-		margin-bottom:10px;
-
-		
+		width:70%;
+		margin-left:15%;
+		margin-right:15%;
+		margin-bottom:3%;	
 	}
 
 }
 
 div.main-music-information{
 		text-align:center;
-	@media (orientation:portrait){
-		margin-top:$music-information-margin;
-		margin-bottom:$music-information-margin;
 		position:relative;
 		z-index:1;
 		pointer-events:none;
+	@media (orientation:portrait){
+		margin-top:$music-information-margin;
+		margin-bottom:$music-information-margin;
+	
 	}	
 	@media (orientation:landscape){
-
-  
+		margin-bottom:3%;
+  	
   	}
 
 }
@@ -98,28 +98,56 @@ div.main-music-information{
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-	margin-left:$negative-margins-long-song;
-	margin-right:$negative-margins-long-song;
-	font-size:$main-song-font-size;
 	position:relative;
 	z-index:200;
 	margin-bottom:4px;
+	
+
+	@media (orientation:portrait){
 	height:50px;
+	margin-left:$negative-margins-long-song;
+	margin-right:$negative-margins-long-song;
+	font-size:$main-song-font-size;
+  	}
+
+	@media (orientation:landscape){
+	font-size:3.5vh;
+	margin-bottom:5px;
+  
+  	}
+
 
 }
 
 .main-music-information > h2{
 
+	
+
+	@media (orientation:portrait){
 	font-size:$main-artist-font-size;
 	margin-bottom:12px;
+  
+  	}
+
+  	@media (orientation:landscape){
+	font-size:3vh;
+	margin-bottom:5px;
+  
+  	}
 	
 }
 
 .main-music-information > h6{
 
-	font-size:$main-album-title-font-size;
-  	
 	
+  	@media (orientation:portrait){
+	font-size:$main-album-title-font-size;
+  	}
+	
+	@media (orientation:landscape){
+	font-size:2vh;
+  
+  	}
 }
 
 

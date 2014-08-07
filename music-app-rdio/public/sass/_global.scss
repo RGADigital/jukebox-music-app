@@ -98,16 +98,19 @@ $cursor:none !important;//use this during development
 
 
 //for portrait 
-$container1-width:49%;
+$container1-width:45%;
 
 
 body{
 	overflow:$overflow;
 	font-family: 'Open Sans', Helvetica;
 
-	// @media (orientation:portrait){
-	// overflow:hidden;
-	// }
+	@media (orientation:portrait){
+  overflow:hidden;
+	}
+  @media (orientation:landscape){
+  height:100%;
+  }
 
 	}
 
@@ -128,7 +131,10 @@ body{
 }
   
   @media (orientation:landscape){
-  
+  height:100%;
+  min-width:1100px;
+  min-height:600px;
+  box-sizing:border-box;  
   }
 
 }
@@ -154,10 +160,11 @@ div.usablescreen{
 	cursor: $cursor;
 }
   @media (orientation:landscape){
-  min-width:1400px;
-  max-height:900px;
-  padding:3%;
-
+  //min-width:850px;
+  height:100%;
+  overflow-y:hidden;
+  box-sizing:border-box; 
+  padding:2.5%; 
   }
 
 }
@@ -165,18 +172,22 @@ div.usablescreen{
 .container1{
    @media (orientation:landscape){
     width:$container1-width;
+    min-width:475px;
+    box-sizing:border-box;  
     display:inline-block;
-    min-width:650px;
-    top:0px;
+    vertical-align:top;
   }
 }
 
 .container2{
    @media (orientation:landscape){
     width:$container1-width;
+    min-width:475px;
     display:inline-block;
-    min-width:650px;
-    top:0px;
+    box-sizing:border-box;  
+    vertical-align:top;
+    margin-left:5%;
+    
   }
 
 }
