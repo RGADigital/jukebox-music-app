@@ -85,6 +85,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
     position: relative;
 
     @media (orientation:landscape){
+    	width:100%;
 	
 	}
 
@@ -99,6 +100,11 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
     position: absolute;
     width: 100%;
     z-index:1000;
+
+  	@media (orientation:landscape){
+	height: 5%;
+	top: 95%;
+	}
 
 }
 
@@ -241,7 +247,7 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
   	@media (orientation:landscape){
   		max-height:900px;
   		min-height:400px;
-		// height:90vh;
+		height:95vh;
 		width:100%;
 		float:right;
 		top:-22px;

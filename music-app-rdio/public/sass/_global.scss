@@ -162,9 +162,9 @@ div.usablescreen{
   @media (orientation:landscape){
   //min-width:850px;
   height:100%;
-  overflow-y:hidden;
+  overflow:hidden;
   box-sizing:border-box; 
-  padding:2.5%; 
+  padding:2%; 
   }
 
 }
@@ -186,7 +186,8 @@ div.usablescreen{
     display:inline-block;
     box-sizing:border-box;  
     vertical-align:top;
-    margin-left:5%;
+    margin-left:3%;
+    overflow:hidden;
     
   }
 
