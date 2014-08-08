@@ -14,7 +14,7 @@
                 //musicData = musicData.sort(sortNumber).reverse();
                 MAX_PARTICLES=musicData[1]*100;
                 //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
-               DATA_FORCE=musicData[5]*25;
+                DATA_FORCE=musicData[5]*25;
                 //console.log('DATA_FORCE from io ------- ' + DATA_FORCE)
                 // console.log(musicData);
             });
@@ -206,11 +206,11 @@
                     centerX+=speedX;
                     centerY+=speedY;
 
-                    if(centerX<0 || centerX>1000){
+                    if(centerX<0 || centerX>980){
                        speedX=-speedX;
                     };
 
-                    if(centerY<0 || centerY>500){
+                    if(centerY<0 || centerY>1820){
                         speedY=-speedY; 
                     };
                 }else{

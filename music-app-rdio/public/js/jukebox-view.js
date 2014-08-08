@@ -213,39 +213,7 @@
 
     playListCompare: function(){
       var order;//order is the order number of the music which is playing on the screen
-
       if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
-
-          var newPlaylistLength=self.playListData[0].tracks.length;
-          console.log(newPlaylistLength);
-          /*
-            If playlist length is longer than maxSoundsNumberInPlaylist we delete music from the playlist
-            first, and we will update our playlist next round.
-          */
-          if(newPlaylistLength>self.maxSoundsNumberInPlaylist){
-            /*delete the music before the max naumber*/
-            var lengthToCleanUp=newPlaylistLength-self.maxSoundsNumberInPlaylist;
-            var tracksToDelete=[];
-            var i=0;
-
-
-            for(i; i < lengthToCleanUp; i++){
-              tracksToDelete[i]=self.tracksKeys[i]
-            };
-
-            console.log(tracksToDelete);
-            /*please remove this part to rdio-controller moudle*/
-            $.ajax({
-              url : '/deleteMusic',
-              type : 'POST',
-              dataType : 'json',
-              data:{lengthToClean:lengthToCleanUp,tracks:tracksToDelete},
-              success : function(res) {
-                console.log('success delete music from server.js');
-              }
-            });
-
-          }else{
             /*ask renderPlaylist to render the playlist*/
             self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
             /*do something after the playlist order changed or deleted some music */
@@ -261,16 +229,12 @@
             };
             $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
             self.autoIscroll();
-              
-          };
-
-          
-          self.trackKeysForCompare=self.tracksKeys;
+            
+            self.trackKeysForCompare=self.tracksKeys;
       }else{
         return
       };
     },
-
 
     /**
     * randomNmuberWithEasing give you a random number in a range around a center number
