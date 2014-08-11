@@ -1,93 +1,892 @@
-/*
-Syntax error: Invalid CSS after "...h:1080px height": expected ")", was ":1920px){"
-        on line 112 of /Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/_global.scss
-        from line 1 of /Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/style.scss
+/* disable/enable text selection css rules: copied from sass/skin/builder/core/base/_common.scss */
+/* this creates an all-blank mouse cursor on all elements of the page */
+/* line 45, ../sass/_global.scss */
+html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
+}
 
-Backtrace:
-/Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/_global.scss:112
-/Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/style.scss:1
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:1149:in `expected'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:1085:in `expected'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:1080:in `tok!'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:412:in `media_expr'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:387:in `media_query'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:354:in `media_query_list'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:1066:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:1066:in `expr!'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:349:in `media_directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:174:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:174:in `special_directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:146:in `directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:554:in `block_child'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:546:in `block_contents'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:535:in `block'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:529:in `ruleset'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:553:in `block_child'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:546:in `block_contents'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:82:in `stylesheet'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/scss/parser.rb:27:in `parse'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/engine.rb:342:in `_to_tree'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/engine.rb:274:in `to_tree'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:128:in `visit_root'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/tree/root_node.rb:20:in `render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/engine.rb:315:in `_render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.19/lib/sass/../sass/engine.rb:262:in `render'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:139:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:126:in `timed'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:138:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/logger.rb:45:in `red'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:137:in `compile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:118:in `compile_if_required'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:103:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:101:in `each'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:101:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:126:in `timed'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/compiler.rb:100:in `run'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/commands/watch_project.rb:147:in `recompile'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `to_proc'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `modified'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `each'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `loop'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/commands/watch_project.rb:87:in `perform'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/commands/base.rb:18:in `execute'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/commands/project_base.rb:19:in `execute'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/bin/compass:30
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/bin/compass:44:in `call'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.6/bin/compass:44
-/usr/bin/compass:19:in `load'
-/usr/bin/compass:19
+/*
+Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
+(if you need scrollbars in the body, add overflow: auto to a nested div)
+Copied from sass/skin/builder/packages/studio/_base.scss
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"...h:1080px height\": expected \")\", was \":1920px){\"\A         on line 112 of /Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/_global.scss\A         from line 1 of /Users/catherines/Sites/Muisc-App/music-app-rdio/public/sass/style.scss"; }
+/* line 55, ../sass/_global.scss */
+html.touch-screen, html.touch-screen body {
+  height: 100%;
+  /* this is required to give complete coverage of the screen to the hidden cursor */
+  overflow: none;
+  /* this hides scrollbars and disables "rubberband" effect when scrolling beyond page limits on Mac OS X */
+  /* Solution taken from http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: moz-none;
+  -o-user-select: text;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  /*
+     if also you want to support legacy IE, do the following from javascript onload:
+        window.onselectstart = function() { return false; }
+        window.ondragstart = function() { return false; }
+   */
+}
+
+/* line 62, ../sass/_global.scss */
+::selection {
+  background: transparent;
+}
+
+/* line 71, ../sass/_global.scss */
+#apiswf {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+/* change the overflow to hidden to remove scroll bars and change the cursor variable to none to remove cursor! 
+On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
+The sizing should work for the screen and cut off any extra. 
+*/
+/* line 104, ../sass/_global.scss */
+body {
+  font-family: 'Open Sans', Helvetica;
+}
+@media (orientation: portrait) {
+  /* line 104, ../sass/_global.scss */
+  body {
+    overflow: auto;
+  }
+}
+@media (orientation: landscape) {
+  /* line 104, ../sass/_global.scss */
+  body {
+    height: 100%;
+  }
+}
+
+/* line 121, ../sass/_global.scss */
+::selection {
+  background: transparent;
+}
+
+/* line 126, ../sass/_global.scss */
+.entirescreen {
+  font-family: 'Open Sans', Helvetica;
+}
+@media (orientation: portrait) {
+  /* line 126, ../sass/_global.scss */
+  .entirescreen {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    cursor: none !important;
+    -webkit-user-select: none;
+  }
+}
+@media (orientation: landscape) {
+  /* line 126, ../sass/_global.scss */
+  .entirescreen {
+    height: 100%;
+    min-width: 1100px;
+    min-height: 600px;
+    box-sizing: border-box;
+  }
+}
+
+/* line 145, ../sass/_global.scss */
+img {
+  -webkit-user-select: none;
+  pointer-events: none;
+  cursor: none !important;
+}
+
+@media (orientation: portrait) {
+  /* line 152, ../sass/_global.scss */
+  div.usablescreen {
+    position: absolute;
+    margin-bottom: 210px;
+    margin-top: 150px;
+    margin-right: 177px;
+    margin-left: 177px;
+    width: 726px;
+    height: 1560px;
+    cursor: none !important;
+  }
+}
+@media (orientation: landscape) {
+  /* line 152, ../sass/_global.scss */
+  div.usablescreen {
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 1%;
+  }
+}
+
+@media (orientation: landscape) {
+  /* line 175, ../sass/_global.scss */
+  .container1 {
+    width: 45%;
+    min-width: 475px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+@media (orientation: landscape) {
+  /* line 185, ../sass/_global.scss */
+  .container2 {
+    width: 45%;
+    min-width: 475px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-left: 3%;
+    overflow: hidden;
+  }
+}
+
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on July 17, 2014 */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/opensans-semibolditalic-webfont.eot');
+  src: url('/fonts/opensans-semibolditalic-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-semibolditalic-webfont.woff') format("woff"), url('/fonts/opensans-semibolditalic-webfont.ttf') format("truetype"), url('/fonts/opensans-semibolditalic-webfont.svg#open_sanssemibold_italic') format("svg");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/opensans-lightitalic-webfont.eot');
+  src: url('/fonts/opensans-lightitalic-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-lightitalic-webfont.woff') format("woff"), url('/fonts/opensans-lightitalic-webfont.ttf') format("truetype"), url('/fonts/opensans-lightitalic-webfont.svg#open_sanslight_italic') format("svg");
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/opensans-regular-webfont.eot');
+  src: url('/fonts/opensans-regular-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-regular-webfont.woff') format("woff"), url('/fonts/opensans-regular-webfont.ttf') format("truetype"), url('/fonts/opensans-regular-webfont.svg#open_sansregular') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url('/fonts/opensans-semibold-webfont.eot');
+  src: url('/fonts/opensans-semibold-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-semibold-webfont.woff') format("woff"), url('/fonts/opensans-semibold-webfont.ttf') format("truetype"), url('/fonts/opensans-semibold-webfont.svg#open_sanssemibold') format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansitalic';
+  src: url('/fonts/opensans-italic-webfont.eot');
+  src: url('/fonts/opensans-italic-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-italic-webfont.woff') format("woff"), url('/fonts/opensans-italic-webfont.ttf') format("truetype"), url('/fonts/opensans-italic-webfont.svg#open_sansitalic') format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('/fonts/opensans-light-webfont.eot');
+  src: url('/fonts/opensans-light-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-light-webfont.woff') format("woff"), url('/fonts/opensans-light-webfont.ttf') format("truetype"), url('/fonts/opensans-light-webfont.svg#open_sanslight') format("svg");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansextrabold_italic';
+  src: url('/fonts/opensans-extrabolditalic-webfont.eot');
+  src: url('/fonts/opensans-extrabolditalic-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-extrabolditalic-webfont.woff') format("woff"), url('/fonts/opensans-extrabolditalic-webfont.ttf') format("truetype"), url('/fonts/opensans-extrabolditalic-webfont.svg#open_sansextrabold_italic') format("svg");
+  font-weight: bolder;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'open_sansextrabold';
+  src: url('/fonts/opensans-extrabold-webfont.eot');
+  src: url('/fonts/opensans-extrabold-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-extrabold-webfont.woff') format("woff"), url('/fonts/opensans-extrabold-webfont.ttf') format("truetype"), url('/fonts/opensans-extrabold-webfont.svg#open_sansextrabold') format("svg");
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'open_sansbold_italic';
+  src: url('/fonts/opensans-bolditalic-webfont.eot');
+  src: url('/fonts/opensans-bolditalic-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-bolditalic-webfont.woff') format("woff"), url('/fonts/opensans-bolditalic-webfont.ttf') format("truetype"), url('/fonts/opensans-bolditalic-webfont.svg#open_sansbold_italic') format("svg");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'open_sansbold';
+  src: url('/fonts/opensans-bold-webfont.eot');
+  src: url('/fonts/opensans-bold-webfont.eot?#iefix') format("embedded-opentype"), url('/fonts/opensans-bold-webfont.woff') format("woff"), url('/fonts/opensans-bold-webfont.ttf') format("truetype"), url('/fonts/opensans-bold-webfont.svg#open_sansbold') format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* To properly align the shuffle button. Variable shuffle margins is equal to the usable width function */
+/*The following contains styling on all buttons including size, spacing, and position. */
+/* line 27, ../sass/_controls.scss */
+div.button-container-ppreff {
+  width: 475px;
+  height: 93px;
+}
+@media (orientation: portrait) {
+  /* line 27, ../sass/_controls.scss */
+  div.button-container-ppreff {
+    margin-left: 125.5px;
+    margin-right: 125.5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 27, ../sass/_controls.scss */
+  div.button-container-ppreff {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 44, ../sass/_controls.scss */
+  div.music-buttons-total {
+    height: 179px;
+    width: 726px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 44, ../sass/_controls.scss */
+  div.music-buttons-total {
+    margin-top: 20px;
+    vertical-align: baseline;
+  }
+}
+
+/*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
+/* line 61, ../sass/_controls.scss */
+.not-a-button, button.play, button.rewind, button.fastforward, .shuffle-container {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: auto !important;
+  font-size: inherit;
+  font-family: inherit;
+  -webkit-font-smoothing: inherit;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+/* line 78, ../sass/_controls.scss */
+.music-button-container {
+  width: 93px;
+  height: 93px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: inline-block;
+}
+
+/* line 97, ../sass/_controls.scss */
+button.play {
+  background-repeat: no-repeat;
+  width: 93px;
+  height: 93px;
+  position: absolute;
+}
+
+/* line 102, ../sass/_controls.scss */
+button.rewind {
+  background-repeat: no-repeat;
+  width: 93px;
+  height: 93px;
+  position: absolute;
+}
+
+/* line 107, ../sass/_controls.scss */
+button.fastforward {
+  background-repeat: no-repeat;
+  width: 93px;
+  height: 93px;
+  position: absolute;
+}
+
+@media (orientation: portrait) {
+  /* line 118, ../sass/_controls.scss */
+  .shuffle-container {
+    width: 34px;
+    height: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    float: right;
+    margin-right: 18px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 118, ../sass/_controls.scss */
+  .shuffle-container {
+    width: 10%;
+    margin-right: 45%;
+    margin-left: 45%;
+    margin-top: 2vh;
+  }
+}
+
+/*toggle styles for JS */
+@media (orientation: landscape) {
+  /* line 149, ../sass/_controls.scss */
+  .isShuffleOn {
+    width: 34px;
+    height: 26px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-right: 18px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 149, ../sass/_controls.scss */
+  .isShuffleOn {
+    width: 10%;
+    margin-right: 45%;
+    margin-left: 45%;
+    margin-top: 2vh;
+  }
+}
+
+/* line 170, ../sass/_controls.scss */
+button.isPlaying {
+  width: 93px;
+  height: 93px;
+}
+
+@media (orientation: portrait) {
+  /* line 20, ../sass/_artwork.scss */
+  div.color {
+    position: absolute;
+    top: -0px;
+    height: 665px;
+    width: 1080px;
+    z-index: -1;
+  }
+}
+@media (orientation: landscape) {
+  /* line 20, ../sass/_artwork.scss */
+  div.color {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 36, ../sass/_artwork.scss */
+  .color > svg {
+    top: 628px;
+    position: absolute;
+    transform-origin: 50% 0%;
+    margin-left: 141px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 36, ../sass/_artwork.scss */
+  .color > svg {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 51, ../sass/_artwork.scss */
+  div.main-album-art {
+    height: 599px;
+    width: 599px;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 66, ../sass/_artwork.scss */
+  .main-album-art > img {
+    margin-left: 63.5px;
+    margin-right: 63.5px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 66, ../sass/_artwork.scss */
+  .main-album-art > img {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 3%;
+  }
+}
+
+/* line 80, ../sass/_artwork.scss */
+div.main-music-information {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (orientation: portrait) {
+  /* line 80, ../sass/_artwork.scss */
+  div.main-music-information {
+    margin-top: 43px;
+    margin-bottom: 43px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 80, ../sass/_artwork.scss */
+  div.main-music-information {
+    margin-bottom: 2%;
+  }
+}
+
+/* line 97, ../sass/_artwork.scss */
+.main-music-information > h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  z-index: 200;
+  margin-bottom: 4px;
+}
+@media (orientation: portrait) {
+  /* line 97, ../sass/_artwork.scss */
+  .main-music-information > h1 {
+    height: 50px;
+    margin-left: -100px;
+    margin-right: -100px;
+    font-size: 38px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 97, ../sass/_artwork.scss */
+  .main-music-information > h1 {
+    font-size: 3vh;
+    margin-bottom: 5px;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 122, ../sass/_artwork.scss */
+  .main-music-information > h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 122, ../sass/_artwork.scss */
+  .main-music-information > h2 {
+    font-size: 2.5vh;
+    margin-bottom: 5px;
+  }
+}
+
+@media (orientation: portrait) {
+  /* line 140, ../sass/_artwork.scss */
+  .main-music-information > h6 {
+    font-size: 24px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 140, ../sass/_artwork.scss */
+  .main-music-information > h6 {
+    font-size: 2vh;
+  }
+}
+
+/*Song and playlist information */
+/* line 45, ../sass/_playlist.scss */
+.playlist {
+  position: absolute;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 105%;
+}
+@media (orientation: portrait) {
+  /* line 45, ../sass/_playlist.scss */
+  .playlist {
+    height: 615px;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}
+
+/* line 62, ../sass/_playlist.scss */
+.playlist_line {
+  border-style: solid;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+}
+@media (orientation: portrait) {
+  /* line 62, ../sass/_playlist.scss */
+  .playlist_line {
+    position: relative;
+    top: 29px;
+    height: 1px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 62, ../sass/_playlist.scss */
+  .playlist_line {
+    display: none;
+  }
+}
+
+/* line 83, ../sass/_playlist.scss */
+#overlay {
+  display: inline-block;
+  position: relative;
+}
+@media (orientation: landscape) {
+  /* line 83, ../sass/_playlist.scss */
+  #overlay {
+    width: 100%;
+  }
+}
+
+/* line 94, ../sass/_playlist.scss */
+#overlay::after {
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
+  content: " ";
+  height: 5%;
+  top: 95%;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+@media (orientation: landscape) {
+  /* line 94, ../sass/_playlist.scss */
+  #overlay::after {
+    height: 5%;
+    top: 95%;
+  }
+}
+
+/* line 111, ../sass/_playlist.scss */
+.song {
+  height: 110px;
+  padding: 0px;
+  border-bottom: 1px solid;
+}
+@media (orientation: portrait) {
+  /* line 111, ../sass/_playlist.scss */
+  .song {
+    width: 726px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 111, ../sass/_playlist.scss */
+  .song {
+    width: 100%;
+  }
+}
+
+/* line 126, ../sass/_playlist.scss */
+.song-number {
+  text-align: left;
+  width: 40px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  top: -50px;
+  z-index: 1;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  margin-left: 8px;
+}
+
+/* line 140, ../sass/_playlist.scss */
+.song-playing-icon {
+  display: inline-block;
+  position: relative;
+  background-image: url('/img/../img/speaker-icon.svg?1406839031');
+  background-repeat: no-repeat;
+  z-index: 2;
+  color: transparent;
+  margin-left: 13px;
+  margin-right: 18px;
+  width: 17px;
+}
+
+/* line 152, ../sass/_playlist.scss */
+.song-thumbnail {
+  height: 70px;
+  width: 70px;
+  display: inline;
+  position: relative;
+}
+
+/* line 159, ../sass/_playlist.scss */
+.song-thumbnail > img {
+  height: 70px;
+  width: 70px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+/* line 167, ../sass/_playlist.scss */
+.song-name-artist-container {
+  display: inline-block;
+  margin-top: 27px;
+  margin-bottom: 27px;
+  position: absolute;
+  margin-left: 20px;
+  text-overflow: ellipsis;
+}
+@media (orientation: portrait) {
+  /* line 167, ../sass/_playlist.scss */
+  .song-name-artist-container {
+    width: 500px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 167, ../sass/_playlist.scss */
+  .song-name-artist-container {
+    width: 70%;
+  }
+}
+
+/* line 188, ../sass/_playlist.scss */
+.song-name-list {
+  margin-top: 16px;
+  font-size: 17px;
+  height: 20px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 199, ../sass/_playlist.scss */
+.artist-name-list {
+  height: 22px;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (orientation: portrait) {
+  /* line 199, ../sass/_playlist.scss */
+  .artist-name-list {
+    width: 500px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 199, ../sass/_playlist.scss */
+  .artist-name-list {
+    width: 70%;
+  }
+}
+
+/* line 223, ../sass/_playlist.scss */
+.song-time {
+  float: right;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  margin-right: 12.6px;
+}
+
+/* iScroll Plugin Styling */
+/* line 239, ../sass/_playlist.scss */
+#wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Prevent native touch events on Windows */
+  -ms-touch-action: none;
+  /* Prevent the callout on tap-hold and text selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Prevent text resize on orientation change, useful for web-apps */
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+@media (orientation: portrait) {
+  /* line 239, ../sass/_playlist.scss */
+  #wrapper {
+    width: 726px;
+    height: 615px;
+  }
+}
+@media (orientation: landscape) {
+  /* line 239, ../sass/_playlist.scss */
+  #wrapper {
+    max-height: 900px;
+    min-height: 400px;
+    height: 95vh;
+    width: 100%;
+    float: right;
+    top: -22px;
+  }
+}
+
+/* line 283, ../sass/_playlist.scss */
+#scroller {
+  position: absolute;
+  /* Prevent elements to be highlighted on tap */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* Put the scroller into the HW Compositing layer right from the start */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* line 297, ../sass/_playlist.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 1, ../sass/_login.scss */
+.login {
+  text-align: center;
+  margin-top: 20%;
+  font-family: 'Open Sans', Sans;
+  font-size: 36px;
+}
+
+/* line 9, ../sass/_login.scss */
+.login > h1 {
+  margin-bottom: 20px;
+}
+
+/* line 14, ../sass/_login.scss */
+.loginlink {
+  margin-top: 100px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* line 2, ../sass/_sidescreen.scss */
+body.visual {
+  cursor: none;
+  background-color: white;
+  overflow: hidden;
+  margin: 0px;
+}
+
+/* line 2, ../sass/themes/_blue.scss */
+div.color {
+  background-color: #4dd0e1;
+}
+
+/* line 8, ../sass/themes/_blue.scss */
+.main-music-information > h1 {
+  font-family: 'Open Sans';
+  font-weight: bold;
+}
+
+/* line 22, ../sass/themes/_blue.scss */
+.playlist_line {
+  color: #eaf0f0;
+}
+
+/* line 26, ../sass/themes/_blue.scss */
+.song {
+  border-bottom: #eaf0f0 1px solid;
+}
+
+/* line 30, ../sass/themes/_blue.scss */
+.song-number {
+  color: #bfc2c3;
+}
+
+/* line 34, ../sass/themes/_blue.scss */
+.song-name-list {
+  color: #afb1b2;
+}
+
+/* line 38, ../sass/themes/_blue.scss */
+.artist-name-list {
+  color: #424242;
+}
+
+/* line 43, ../sass/themes/_blue.scss */
+.song-time {
+  color: #959ea3;
+}
+
+/* line 48, ../sass/themes/_blue.scss */
+.song-playing-icon {
+  color: transparent;
+}

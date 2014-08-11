@@ -109,10 +109,7 @@ body{
   overflow:$overflow;
 	}
 
-  @media(width:1080px height:1920px){
-  overflow:none;
-  cursor:none;
-  }
+
 
   @media (orientation:landscape){
   height:100%;
