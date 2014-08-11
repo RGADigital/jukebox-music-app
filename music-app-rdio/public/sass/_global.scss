@@ -102,12 +102,18 @@ $container1-width:45%;
 
 
 body{
-	overflow:$overflow;
+	
 	font-family: 'Open Sans', Helvetica;
 
 	@media (orientation:portrait){
-  overflow:hidden;
+  overflow:$overflow;
 	}
+
+  @media(width:1080px height:1920px){
+  overflow:none;
+  cursor:none;
+  }
+
   @media (orientation:landscape){
   height:100%;
   }
