@@ -1,16 +1,18 @@
+/**
+ *jukebox-rdio-controller module is a module which takes care about the communication between Jukebox and Rdio.
+ */
 (function(w,d,$){
 
-  // a global variable that will hold a reference to the api swf once it has loaded
-  apiswf = null;
-  callback_object = {};
-  var socket=io.connect(window.location.hostname.toString()+':9001');
+  
+  apiswf = null; // a global variable that will hold a reference to the api swf once it has loaded.
+  callback_object = {}; // This object is used to get callback information from rdio Web Playback Api.
+  var socket=io.connect(window.location.hostname.toString()+':9001'); //port for websocket.
 
   var RdioController={
     self:{},
-
-    // on page load use SWFObject to load the API swf into div#apiswf
+ 
     flashvars: {
-      'playbackToken':'', //token is based on domain (http://www.rdio.com/developers/docs/web-service/methods/playback/ref-web-service-method-getplaybacktoken)
+      'playbackToken':'', //token is based on domain, you can change it in config.json. (http://www.rdio.com/developers/docs/web-service/methods/playback/ref-web-service-method-getplaybacktoken)
       'domain': window.location.hostname.toString(),          
       'listener': 'callback_object'    // the global name of the object that will receive callbacks from the SWF
     },
@@ -19,8 +21,9 @@
     },
     attributes: {},
 
+    
     embedSWF: function(){
-      console.log('embedSucessed');
+      /*on page load use SWFObject to load the API swf into div#apiswf*/
       swfobject.embedSWF(
         'http://www.rdio.com/api/swf/', // the location of the Rdio Playback API SWF
         'apiswf', // the ID of the element that will be replaced with the SWF
@@ -35,8 +38,10 @@
 
     playMusicEventHandler: function(event, musicKey){
       if(musicKey){
+        //playing a new sound
         apiswf.rdio_play(musicKey);
       }else{
+        //continue the music if it is paused
         apiswf.rdio_play();
       };
     },
@@ -49,17 +54,32 @@
       $(d).trigger('PLAYER_DATA_LOADED_EVENT');
     },
 
+    /**
+     *broadcast playlist data from Rdio api
+     *@param {object} data - the playlist data from ajax call.
+     */
     rdioData: function(data){
       $(d).trigger('RDIO_DATA_EVENT',[data]);
     },
 
+    /**
+     *broadcast when position of current playing music changes.
+     *@param {float} position - position of current playing music.
+     */
     musicPosition: function(position){
       $(d).trigger('MUSIC_POSITION_DATA_EVENT',[position]);
     },
 
+    /**
+     *broadcast when playing track changes.
+     *@param {string} trackName - Name of playing track.
+     *@param {string} artist - Name of artist.
+     *@param {string} art - The URL for album cover.
+     */
     trackInformation: function(trackName, artist, art){
       $(d).trigger('TRACK_INFORMATION_DATA_EVENT',[trackName, artist, art]);
     },
+
 
     callForDataFromServer:function(){
       $.ajax({
@@ -70,7 +90,6 @@
           console.log('success data from server.js');
           console.log(res);
           RdioController.rdioData(res);
-          
         }
       });
     },
@@ -89,7 +108,7 @@
       }, 15000);
     },
 
-    // call backs of player
+    /*Callbacks from Rdio Web Playback API */
     rdioPlayerApiCallbacks: function(){
 
       callback_object.ready = function ready(user) {
@@ -155,23 +174,17 @@
         // If playback begins somewhere else then playback will stop and this callback will be called.
       };
       callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString) {
-        // Called with frequency information after apiswf.rdio_startFrequencyAnalyzer(options) is called.
-        // arrayAsString is a list of comma separated floats.
-        // var arr = arrayAsString.split(',');
-        // $('#freq div').each(function(i) {
-        //      $(this).width(parseInt(parseFloat(arr[i])*500));
-        // })
-        // console.log(arrayAsString);
-        socket.emit('bit', arrayAsString);
-      
+        socket.emit('bit', arrayAsString); //emit the frequency data of playing music to websockets.
       };
 
     },
 
+    /** 
+     *Change the authentication token base on different domains. One for production and one for development.
+     * You can change the production domain and token in config.json (public>js).
+     */
     configDomain:function(){
-
       var configData;
-      
       $.getJSON("js/config.json", function(data) {
         configData=data;
         if(window.location.hostname.toString()=="localhost"){
@@ -179,7 +192,6 @@
         }else{
           RdioController.flashvars.playbackToken=configData.production.playbackToken;
         };
-
         RdioController.embedSWF();
       });      
     },

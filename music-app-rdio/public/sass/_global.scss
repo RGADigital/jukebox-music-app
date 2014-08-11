@@ -42,10 +42,10 @@
 /* this creates an all-blank mouse cursor on all elements of the page */
 
 //comment this during development
-html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
-  cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII='),
-  none !important;
-}
+// html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
+//   cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII='),
+//   none !important;
+// }
 
 /*
 Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
@@ -94,7 +94,7 @@ The sizing should work for the screen and cut off any extra.
 
 $overflow:auto;
 // $cursor:none !important;//use this during production
-$cursor:none !important;//use this during development
+$cursor:auto !important;//use this during development
 
 
 

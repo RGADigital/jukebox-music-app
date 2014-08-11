@@ -1,5 +1,6 @@
 {
   "introduction":"If you want to use your own playlist please replace the userID and playlistID with yours.",
   "userID": "s23152898",
-  "playlistID": "p10302240"
+  "playlistID": "p10302240",
+  "maxSoundsKeepInPlaylist": 150
 }

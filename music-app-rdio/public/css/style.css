@@ -1,10 +1,5 @@
 /* disable/enable text selection css rules: copied from sass/skin/builder/core/base/_common.scss */
 /* this creates an all-blank mouse cursor on all elements of the page */
-/* line 45, ../sass/_global.scss */
-html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
-  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
-}
-
 /*
 Any single page, touch-screen client (like Studio) shall hide mouse cursor, body scrollbars, and text selection
 (if you need scrollbars in the body, add overflow: auto to a nested div)
@@ -71,7 +66,7 @@ body {
   width: 1080px;
   height: 1920px;
   position: relative;
-  cursor: none !important;
+  cursor: auto !important;
   -webkit-user-select: none;
   font-family: 'Open Sans', Helvetica;
 }
@@ -80,7 +75,7 @@ body {
 img {
   -webkit-user-select: none;
   pointer-events: none;
-  cursor: none !important;
+  cursor: auto !important;
 }
 
 /* line 134, ../sass/_global.scss */
@@ -92,7 +87,7 @@ div.usablescreen {
   margin-left: 177px;
   width: 726px;
   height: 1560px;
-  cursor: none !important;
+  cursor: auto !important;
 }
 
 /* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
