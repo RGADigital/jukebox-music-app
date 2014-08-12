@@ -45,22 +45,24 @@ app.get('/cleanup', function(req, res){
             console.log(err);
           }
 
-          var playListData=data.result;
-          var trackListToCleanup=[];
+          if(data.result){
+            var playListData=data.result;
+            var trackListToCleanup=[];
 
-          var lengthToClean=(playListData[0].tracks.length)-2;
-          var i=0;
+            var lengthToClean=(playListData[0].tracks.length)-2;
+            var i=0;
 
-          for(i;i < lengthToClean;i++){
-            trackListToCleanup[i]=playListData[0].tracks[i].key;
+            for(i;i < lengthToClean;i++){
+              trackListToCleanup[i]=playListData[0].tracks[i].key;
+            };
+
+            trackListToCleanup=trackListToCleanup.toString();
+            lengthToClean=lengthToClean.toString();
+            rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {
+              console.log('Musics have been cleaned up from the playlist');
+              res.redirect('/player');
+            });
           };
-
-          trackListToCleanup=trackListToCleanup.toString();
-          lengthToClean=lengthToClean.toString();
-          rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {
-            console.log('Musics have been cleaned up from the playlist');
-            res.redirect('/player');
-          });
           
       });
 
@@ -137,35 +139,37 @@ app.get('/callback', function(req, res){
           intervalGettingData = setInterval(function(){
             rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
               if (err) {console.log(err);};
-              var playListData=data.result;
-              var lengthOfPlaylist=playListData[0].tracks.length;
-              
-              /**
-                * delete some musics if the playlist is longer than maxSoundsKeepInPlaylist.
-                * If the playlist is too long we will delete some music from the playlist first
-                * and update our playlistDataFromRdio object next time.
-                */
-              if(lengthOfPlaylist>maxSoundsKeepInPlaylist){
-                console.log('delete music because the playlist is too long');
 
-                var lengthToDelete=lengthOfPlaylist-maxSoundsKeepInPlaylist;
-                var tracksToDelete=[];
-                var i=0;
-                for(i; i < lengthToDelete; i++){
-                  tracksToDelete[i]=playListData[0].tracks[i].key;
+              if(data.result){
+                var playListData=data.result;
+                var lengthOfPlaylist=playListData[0].tracks.length;
+                /**
+                  * delete some musics if the playlist is longer than maxSoundsKeepInPlaylist.
+                  * If the playlist is too long we will delete some music from the playlist first
+                  * and update our playlistDataFromRdio object next time.
+                  */
+                if(lengthOfPlaylist>maxSoundsKeepInPlaylist){
+                  console.log('delete music because the playlist is too long');
+
+                  var lengthToDelete=lengthOfPlaylist-maxSoundsKeepInPlaylist;
+                  var tracksToDelete=[];
+                  var i=0;
+                  for(i; i < lengthToDelete; i++){
+                    tracksToDelete[i]=playListData[0].tracks[i].key;
+                  };
+
+                  tracksToDelete=tracksToDelete.toString();
+                  lengthToDelete=lengthToDelete.toString();
+
+                  rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToDelete, tracks:tracksToDelete}, function(err, data) {
+                    console.log('some musics have been removed from playlist');
+                  });
+                }else{
+                  playlistDataFromRdio=playListData;
+                  // console.log(playlistDataFromRdio);
+                  console.log('update playlist data with RDIO');
                 };
-
-                tracksToDelete=tracksToDelete.toString();
-                lengthToDelete=lengthToDelete.toString();
-
-                rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToDelete, tracks:tracksToDelete}, function(err, data) {
-                  console.log('some musics have been removed from playlist');
-                });
-              }else{
-                playlistDataFromRdio=playListData;
-                // console.log(playlistDataFromRdio);
-                console.log('update playlist data with RDIO');
-              };
+              };  
             });
           }, 15000);
 
