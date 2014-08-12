@@ -16,42 +16,73 @@ $main-album-title-font-size:24px;
 
 //for when songs are incredibly long and don't fit inside their container
 $negative-margins-long-song:-100px;
+30
 
 div.color{
 	
-	 @media (orientation:portrait){
-		position:absolute;
-		top:-0px;
-		height:665px;
-		width:$width-entire;
-		z-index:-1;
-	}
+	//  @media (height:1920px){
+	// 	position:absolute;
+	// 	top:-0px;
+	// 	height:665px;
+	// 	width:$width-entire;
+	// 	z-index:-1;
+	// }
 
-	 @media (orientation:landscape){
+	background-color: #4dd0e1; 
+
+	@media (orientation:landscape){
 	 	display:none;
   
   }
+
+  @media (orientation:portrait){
+  		position:absolute;
+		top:-0px;
+		height:34.63%;
+		width:100%;
+		z-index:-1;
+
+  }
+
+
 }
 
 .color > svg{
-	 @media (orientation:portrait){
-		top:628px;
-		position:absolute;
-		transform-origin:50% 0%;
-		margin-left:141px;
-	}
+	//  @media (height:1920px){
+	// 	top:628px;
+	// 	position:absolute;
+	// 	transform-origin:50% 0%;
+	// 	margin-left:141px;
+	// }
 
 	 @media (orientation:landscape){
 	 	display:none;
   
   }
+
+   @media (orientation:portrait){
+		top:32.7%;
+		position:absolute;
+		transform-origin:50% 0%;
+		margin-left:13.05%;
+		width:73.27%;
+		display:none;
+	}
 }
 
 
 div.main-album-art{
-	 @media (orientation:portrait){
-		height:$main-album-art-width-and-height;
-		width:$main-album-art-width-and-height;
+	// @media (height:1920px){
+	// 	height:$main-album-art-width-and-height;
+	// 	width:$main-album-art-width-and-height;
+	// }
+
+	@media (orientation:portrait){
+	display:block;
+	height:31.19%;
+	margin-left:auto;
+	margin-right:auto;
+		
 	}
 
 	 @media (orientation:landscape){
@@ -64,15 +95,25 @@ div.main-album-art{
 
 
 .main-album-art > img{
-	@media (orientation:portrait){
-	margin-left:album-art-margins($usable-width, $main-album-art-width-and-height);
-	margin-right:album-art-margins($usable-width, $main-album-art-width-and-height);
-	}
+	// @media (height:1920px){
+	// margin-left:album-art-margins($usable-width, $main-album-art-width-and-height);
+	// margin-right:album-art-margins($usable-width, $main-album-art-width-and-height);
+	// }
+
+	
+
 	@media (orientation:landscape){
 		width:70%;
 		margin-left:15%;
 		margin-right:15%;
 		margin-bottom:3%;	
+	}
+
+	@media (orientation:portrait){
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	width:82.5%;
 	}
 
 }
@@ -82,9 +123,16 @@ div.main-music-information{
 		position:relative;
 		z-index:1;
 		pointer-events:none;
+
+	// @media (height:1920px){
+	// 	margin-top:$music-information-margin;
+	// 	margin-bottom:$music-information-margin;
+	
+	// }	
+
 	@media (orientation:portrait){
-		margin-top:$music-information-margin;
-		margin-bottom:$music-information-margin;
+		margin-top:2.76%;
+		margin-bottom:2.76%;
 	
 	}	
 	@media (orientation:landscape){
@@ -104,11 +152,20 @@ div.main-music-information{
 	
 
 	@media (orientation:portrait){
-	height:50px;
+
 	margin-left:$negative-margins-long-song;
 	margin-right:$negative-margins-long-song;
-	font-size:$main-song-font-size;
+	font-size:5.2vw;
+	
   	}
+
+
+	// @media (height:1920px){
+	// height:3.2%;
+	// margin-left:$negative-margins-long-song;
+	// margin-right:$negative-margins-long-song;
+	// font-size:$main-song-font-size;
+ //  	}
 
 	@media (orientation:landscape){
 	font-size:3vh;
@@ -123,11 +180,11 @@ div.main-music-information{
 
 	
 
-	@media (orientation:portrait){
-	font-size:$main-artist-font-size;
-	margin-bottom:12px;
+	// @media (height:1920px){
+	// font-size:$main-artist-font-size;
+	// margin-bottom:12px;
   
-  	}
+ //  	}
 
   	@media (orientation:landscape){
 	font-size:2.5vh;
@@ -135,18 +192,27 @@ div.main-music-information{
   
   	}
 	
+	@media (orientation:portrait){
+	font-size:4.1vw;
+	margin-bottom:0.76%;
+  
+  	}
 }
 
 .main-music-information > h6{
 
 	
-  	@media (orientation:portrait){
-	font-size:$main-album-title-font-size;
-  	}
+ //  	@media (height:1920px){
+	// font-size:$main-album-title-font-size;
+ //  	}
 	
 	@media (orientation:landscape){
 	font-size:2vh;
   
+  	}
+
+  	@media (orientation:portrait){
+	font-size:$main-album-title-font-size;
   	}
 }
 

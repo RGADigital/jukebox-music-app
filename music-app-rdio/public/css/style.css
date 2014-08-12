@@ -63,30 +63,29 @@ body {
   /* line 104, ../sass/_global.scss */
   body {
     height: 100%;
+    width: 100%;
+  }
+}
+@media (orientation: portrait) {
+  /* line 104, ../sass/_global.scss */
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
   }
 }
 
-/* line 121, ../sass/_global.scss */
+/* line 126, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 126, ../sass/_global.scss */
+/* line 131, ../sass/_global.scss */
 .entirescreen {
   font-family: 'Open Sans', Helvetica;
 }
-@media (orientation: portrait) {
-  /* line 126, ../sass/_global.scss */
-  .entirescreen {
-    width: 1080px;
-    height: 1920px;
-    position: relative;
-    cursor: none !important;
-    -webkit-user-select: none;
-  }
-}
 @media (orientation: landscape) {
-  /* line 126, ../sass/_global.scss */
+  /* line 131, ../sass/_global.scss */
   .entirescreen {
     height: 100%;
     min-width: 1100px;
@@ -94,8 +93,19 @@ body {
     box-sizing: border-box;
   }
 }
+@media (orientation: portrait) {
+  /* line 131, ../sass/_global.scss */
+  .entirescreen {
+    width: 100%;
+    height: 1920px;
+    position: relative;
+    cursor: none !important;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+  }
+}
 
-/* line 145, ../sass/_global.scss */
+/* line 161, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
@@ -103,30 +113,39 @@ img {
 }
 
 @media (orientation: portrait) {
-  /* line 152, ../sass/_global.scss */
+  /* line 168, ../sass/_global.scss */
   div.usablescreen {
-    position: absolute;
-    margin-bottom: 210px;
-    margin-top: 150px;
-    margin-right: 177px;
-    margin-left: 177px;
-    width: 726px;
-    height: 1560px;
+    margin-bottom: auto;
+    margin-top: 9.6%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 67.22%;
+    height: 81.26%;
+    vertical-align: bottom;
+    min-height: 1500px;
     cursor: none !important;
+    min-width: 450px;
+    box-sizing: border-box;
   }
 }
 @media (orientation: landscape) {
-  /* line 152, ../sass/_global.scss */
+  /* line 168, ../sass/_global.scss */
   div.usablescreen {
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 1%;
+    padding: 3%;
   }
 }
 
+@media (orientation: portrait) {
+  /* line 208, ../sass/_global.scss */
+  .container1 {
+    width: 100%;
+  }
+}
 @media (orientation: landscape) {
-  /* line 175, ../sass/_global.scss */
+  /* line 208, ../sass/_global.scss */
   .container1 {
     width: 45%;
     min-width: 475px;
@@ -136,8 +155,14 @@ img {
   }
 }
 
+@media (orientation: portrait) {
+  /* line 223, ../sass/_global.scss */
+  .container2 {
+    width: 100%;
+  }
+}
 @media (orientation: landscape) {
-  /* line 185, ../sass/_global.scss */
+  /* line 223, ../sass/_global.scss */
   .container2 {
     width: 45%;
     min-width: 475px;
@@ -302,40 +327,46 @@ div.button-container-ppreff {
   width: 475px;
   height: 93px;
 }
-@media (orientation: portrait) {
-  /* line 27, ../sass/_controls.scss */
-  div.button-container-ppreff {
-    margin-left: 125.5px;
-    margin-right: 125.5px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
 @media (orientation: landscape) {
   /* line 27, ../sass/_controls.scss */
   div.button-container-ppreff {
     margin-right: auto;
     margin-left: auto;
+    width: 475px;
+    height: 93px;
+  }
+}
+@media (orientation: portrait) {
+  /* line 27, ../sass/_controls.scss */
+  div.button-container-ppreff {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 65.4%;
+    height: 5.96%;
   }
 }
 
-@media (orientation: portrait) {
-  /* line 44, ../sass/_controls.scss */
-  div.music-buttons-total {
-    height: 179px;
-    width: 726px;
-  }
-}
 @media (orientation: landscape) {
-  /* line 44, ../sass/_controls.scss */
+  /* line 59, ../sass/_controls.scss */
   div.music-buttons-total {
     margin-top: 20px;
     vertical-align: baseline;
   }
 }
+@media (orientation: portrait) {
+  /* line 59, ../sass/_controls.scss */
+  div.music-buttons-total {
+    height: 12%;
+    width: 100%;
+  }
+}
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
-/* line 61, ../sass/_controls.scss */
+/* line 81, ../sass/_controls.scss */
 .not-a-button, button.play, button.rewind, button.fastforward, .shuffle-container {
   background-color: transparent;
   border: none;
@@ -349,52 +380,56 @@ div.button-container-ppreff {
   padding: 0;
 }
 
-/* line 78, ../sass/_controls.scss */
+/* line 98, ../sass/_controls.scss */
 .music-button-container {
   width: 93px;
   height: 93px;
   margin-left: 30px;
   margin-right: 30px;
   display: inline-block;
+  position: relative;
+}
+@media (orientation: portrait) {
+  /* line 98, ../sass/_controls.scss */
+  .music-button-container {
+    width: 19.6%;
+    margin-left: 6.31%;
+    margin-right: 6.31%;
+    display: inline-block;
+  }
 }
 
-/* line 97, ../sass/_controls.scss */
+/* line 126, ../sass/_controls.scss */
 button.play {
-  background-repeat: no-repeat;
-  width: 93px;
-  height: 93px;
+  width: 19.6%;
   position: absolute;
 }
 
-/* line 102, ../sass/_controls.scss */
+/* line 129, ../sass/_controls.scss */
 button.rewind {
-  background-repeat: no-repeat;
-  width: 93px;
-  height: 93px;
+  width: 19.6%;
   position: absolute;
 }
 
-/* line 107, ../sass/_controls.scss */
+/* line 132, ../sass/_controls.scss */
 button.fastforward {
-  background-repeat: no-repeat;
-  width: 93px;
-  height: 93px;
+  width: 19.6%;
   position: absolute;
 }
 
 @media (orientation: portrait) {
-  /* line 118, ../sass/_controls.scss */
+  /* line 165, ../sass/_controls.scss */
   .shuffle-container {
-    width: 34px;
-    height: 26px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    width: 4.6%;
+    height: 1.667%;
+    margin-top: 2.56%;
+    margin-bottom: 1.28%;
     float: right;
-    margin-right: 18px;
+    margin-right: 2.5%;
   }
 }
 @media (orientation: landscape) {
-  /* line 118, ../sass/_controls.scss */
+  /* line 165, ../sass/_controls.scss */
   .shuffle-container {
     width: 10%;
     margin-right: 45%;
@@ -404,18 +439,19 @@ button.fastforward {
 }
 
 /*toggle styles for JS */
-@media (orientation: landscape) {
-  /* line 149, ../sass/_controls.scss */
+@media (orientation: portrait) {
+  /* line 203, ../sass/_controls.scss */
   .isShuffleOn {
-    width: 34px;
-    height: 26px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-right: 18px;
+    width: 4.6%;
+    height: 1.667%;
+    margin-top: 2.56%;
+    margin-bottom: 1.28%;
+    float: right;
+    margin-right: 4.1%;
   }
 }
 @media (orientation: landscape) {
-  /* line 149, ../sass/_controls.scss */
+  /* line 203, ../sass/_controls.scss */
   .isShuffleOn {
     width: 10%;
     margin-right: 45%;
@@ -424,62 +460,67 @@ button.fastforward {
   }
 }
 
-/* line 170, ../sass/_controls.scss */
-button.isPlaying {
-  width: 93px;
-  height: 93px;
+@media (orientation: portrait) {
+  /* line 235, ../sass/_controls.scss */
+  button.isPlaying {
+    width: 19.6%;
+  }
 }
 
+/* line 21, ../sass/_artwork.scss */
+30
+div.color {
+  background-color: #4dd0e1;
+}
+@media (orientation: landscape) {
+  /* line 21, ../sass/_artwork.scss */
+  30
+  div.color {
+    display: none;
+  }
+}
 @media (orientation: portrait) {
-  /* line 20, ../sass/_artwork.scss */
+  /* line 21, ../sass/_artwork.scss */
+  30
   div.color {
     position: absolute;
     top: -0px;
-    height: 665px;
-    width: 1080px;
+    height: 34.63%;
+    width: 100%;
     z-index: -1;
   }
 }
+
 @media (orientation: landscape) {
-  /* line 20, ../sass/_artwork.scss */
-  div.color {
+  /* line 50, ../sass/_artwork.scss */
+  .color > svg {
     display: none;
   }
 }
-
 @media (orientation: portrait) {
-  /* line 36, ../sass/_artwork.scss */
+  /* line 50, ../sass/_artwork.scss */
   .color > svg {
-    top: 628px;
+    top: 32.7%;
     position: absolute;
     transform-origin: 50% 0%;
-    margin-left: 141px;
-  }
-}
-@media (orientation: landscape) {
-  /* line 36, ../sass/_artwork.scss */
-  .color > svg {
+    margin-left: 13.05%;
+    width: 73.27%;
     display: none;
   }
 }
 
 @media (orientation: portrait) {
-  /* line 51, ../sass/_artwork.scss */
+  /* line 74, ../sass/_artwork.scss */
   div.main-album-art {
-    height: 599px;
-    width: 599px;
+    display: block;
+    height: 31.19%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-@media (orientation: portrait) {
-  /* line 66, ../sass/_artwork.scss */
-  .main-album-art > img {
-    margin-left: 63.5px;
-    margin-right: 63.5px;
-  }
-}
 @media (orientation: landscape) {
-  /* line 66, ../sass/_artwork.scss */
+  /* line 97, ../sass/_artwork.scss */
   .main-album-art > img {
     width: 70%;
     margin-left: 15%;
@@ -487,8 +528,17 @@ button.isPlaying {
     margin-bottom: 3%;
   }
 }
+@media (orientation: portrait) {
+  /* line 97, ../sass/_artwork.scss */
+  .main-album-art > img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 82.5%;
+  }
+}
 
-/* line 80, ../sass/_artwork.scss */
+/* line 121, ../sass/_artwork.scss */
 div.main-music-information {
   text-align: center;
   position: relative;
@@ -496,20 +546,20 @@ div.main-music-information {
   pointer-events: none;
 }
 @media (orientation: portrait) {
-  /* line 80, ../sass/_artwork.scss */
+  /* line 121, ../sass/_artwork.scss */
   div.main-music-information {
-    margin-top: 43px;
-    margin-bottom: 43px;
+    margin-top: 2.76%;
+    margin-bottom: 2.76%;
   }
 }
 @media (orientation: landscape) {
-  /* line 80, ../sass/_artwork.scss */
+  /* line 121, ../sass/_artwork.scss */
   div.main-music-information {
     margin-bottom: 2%;
   }
 }
 
-/* line 97, ../sass/_artwork.scss */
+/* line 145, ../sass/_artwork.scss */
 .main-music-information > h1 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -519,47 +569,46 @@ div.main-music-information {
   margin-bottom: 4px;
 }
 @media (orientation: portrait) {
-  /* line 97, ../sass/_artwork.scss */
+  /* line 145, ../sass/_artwork.scss */
   .main-music-information > h1 {
-    height: 50px;
     margin-left: -100px;
     margin-right: -100px;
-    font-size: 38px;
+    font-size: 5.2vw;
   }
 }
 @media (orientation: landscape) {
-  /* line 97, ../sass/_artwork.scss */
+  /* line 145, ../sass/_artwork.scss */
   .main-music-information > h1 {
     font-size: 3vh;
     margin-bottom: 5px;
   }
 }
 
-@media (orientation: portrait) {
-  /* line 122, ../sass/_artwork.scss */
-  .main-music-information > h2 {
-    font-size: 30px;
-    margin-bottom: 12px;
-  }
-}
 @media (orientation: landscape) {
-  /* line 122, ../sass/_artwork.scss */
+  /* line 179, ../sass/_artwork.scss */
   .main-music-information > h2 {
     font-size: 2.5vh;
     margin-bottom: 5px;
   }
 }
-
 @media (orientation: portrait) {
-  /* line 140, ../sass/_artwork.scss */
-  .main-music-information > h6 {
-    font-size: 24px;
+  /* line 179, ../sass/_artwork.scss */
+  .main-music-information > h2 {
+    font-size: 4.1vw;
+    margin-bottom: 0.76%;
   }
 }
+
 @media (orientation: landscape) {
-  /* line 140, ../sass/_artwork.scss */
+  /* line 202, ../sass/_artwork.scss */
   .main-music-information > h6 {
     font-size: 2vh;
+  }
+}
+@media (orientation: portrait) {
+  /* line 202, ../sass/_artwork.scss */
+  .main-music-information > h6 {
+    font-size: 24px;
   }
 }
 
@@ -569,18 +618,18 @@ div.main-music-information {
   position: absolute;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 105%;
+  width: 100%;
 }
 @media (orientation: portrait) {
   /* line 45, ../sass/_playlist.scss */
   .playlist {
-    height: 615px;
-    margin-top: 20px;
-    font-size: 20px;
+    height: 39.4%;
+    margin-top: 0%;
+    font-size: 1.28%;
   }
 }
 
-/* line 62, ../sass/_playlist.scss */
+/* line 68, ../sass/_playlist.scss */
 .playlist_line {
   border-style: solid;
   border-bottom-width: 0px;
@@ -588,33 +637,33 @@ div.main-music-information {
   border-left-width: 0px;
 }
 @media (orientation: portrait) {
-  /* line 62, ../sass/_playlist.scss */
+  /* line 68, ../sass/_playlist.scss */
   .playlist_line {
-    position: relative;
-    top: 29px;
     height: 1px;
+    margin-bottom: 0px;
+    width: 100%;
   }
 }
 @media (orientation: landscape) {
-  /* line 62, ../sass/_playlist.scss */
+  /* line 68, ../sass/_playlist.scss */
   .playlist_line {
     display: none;
   }
 }
 
-/* line 83, ../sass/_playlist.scss */
+/* line 97, ../sass/_playlist.scss */
 #overlay {
   display: inline-block;
   position: relative;
 }
 @media (orientation: landscape) {
-  /* line 83, ../sass/_playlist.scss */
+  /* line 97, ../sass/_playlist.scss */
   #overlay {
     width: 100%;
   }
 }
 
-/* line 94, ../sass/_playlist.scss */
+/* line 108, ../sass/_playlist.scss */
 #overlay::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 100%);
   content: " ";
@@ -625,33 +674,33 @@ div.main-music-information {
   z-index: 1000;
 }
 @media (orientation: landscape) {
-  /* line 94, ../sass/_playlist.scss */
+  /* line 108, ../sass/_playlist.scss */
   #overlay::after {
     height: 5%;
     top: 95%;
   }
 }
 
-/* line 111, ../sass/_playlist.scss */
+/* line 125, ../sass/_playlist.scss */
 .song {
   height: 110px;
   padding: 0px;
   border-bottom: 1px solid;
 }
 @media (orientation: portrait) {
-  /* line 111, ../sass/_playlist.scss */
+  /* line 125, ../sass/_playlist.scss */
   .song {
-    width: 726px;
+    width: 100%;
   }
 }
 @media (orientation: landscape) {
-  /* line 111, ../sass/_playlist.scss */
+  /* line 125, ../sass/_playlist.scss */
   .song {
     width: 100%;
   }
 }
 
-/* line 126, ../sass/_playlist.scss */
+/* line 144, ../sass/_playlist.scss */
 .song-number {
   text-align: left;
   width: 40px;
@@ -664,8 +713,25 @@ div.main-music-information {
   margin-bottom: 45px;
   margin-left: 8px;
 }
+@media (orientation: portrait) {
+  /* line 144, ../sass/_playlist.scss */
+  .song-number {
+    text-align: left;
+    width: 5%;
+    height: 20px;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    top: -50px;
+    z-index: 1;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    margin-left: 1.1%;
+    margin-right: 2.47%;
+  }
+}
 
-/* line 140, ../sass/_playlist.scss */
+/* line 174, ../sass/_playlist.scss */
 .song-playing-icon {
   display: inline-block;
   position: relative;
@@ -677,8 +743,22 @@ div.main-music-information {
   margin-right: 18px;
   width: 17px;
 }
+@media (orientation: portrait) {
+  /* line 174, ../sass/_playlist.scss */
+  .song-playing-icon {
+    display: inline-block;
+    position: relative;
+    background-image: url('/img/../img/speaker-icon.svg?1406839031');
+    background-repeat: no-repeat;
+    z-index: 2;
+    color: transparent;
+    margin-left: 1.1%;
+    margin-right: 2.47%;
+    width: 5%;
+  }
+}
 
-/* line 152, ../sass/_playlist.scss */
+/* line 199, ../sass/_playlist.scss */
 .song-thumbnail {
   height: 70px;
   width: 70px;
@@ -686,7 +766,7 @@ div.main-music-information {
   position: relative;
 }
 
-/* line 159, ../sass/_playlist.scss */
+/* line 206, ../sass/_playlist.scss */
 .song-thumbnail > img {
   height: 70px;
   width: 70px;
@@ -694,7 +774,7 @@ div.main-music-information {
   margin-bottom: 22px;
 }
 
-/* line 167, ../sass/_playlist.scss */
+/* line 214, ../sass/_playlist.scss */
 .song-name-artist-container {
   display: inline-block;
   margin-top: 27px;
@@ -704,19 +784,19 @@ div.main-music-information {
   text-overflow: ellipsis;
 }
 @media (orientation: portrait) {
-  /* line 167, ../sass/_playlist.scss */
+  /* line 214, ../sass/_playlist.scss */
   .song-name-artist-container {
-    width: 500px;
+    width: 70%;
   }
 }
 @media (orientation: landscape) {
-  /* line 167, ../sass/_playlist.scss */
+  /* line 214, ../sass/_playlist.scss */
   .song-name-artist-container {
     width: 70%;
   }
 }
 
-/* line 188, ../sass/_playlist.scss */
+/* line 235, ../sass/_playlist.scss */
 .song-name-list {
   margin-top: 16px;
   font-size: 17px;
@@ -726,9 +806,22 @@ div.main-music-information {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media (orientation: landscape) {
+  /* line 235, ../sass/_playlist.scss */
+  .song-name-list {
+    width: 70%;
+  }
+}
+@media (orientation: portrait) {
+  /* line 235, ../sass/_playlist.scss */
+  .song-name-list {
+    width: 80%;
+  }
+}
 
-/* line 199, ../sass/_playlist.scss */
+/* line 255, ../sass/_playlist.scss */
 .artist-name-list {
+  font-size: 20px;
   height: 22px;
   white-space: nowrap;
   display: block;
@@ -736,21 +829,22 @@ div.main-music-information {
   text-overflow: ellipsis;
 }
 @media (orientation: portrait) {
-  /* line 199, ../sass/_playlist.scss */
+  /* line 255, ../sass/_playlist.scss */
   .artist-name-list {
-    width: 500px;
+    width: 80%;
   }
 }
 @media (orientation: landscape) {
-  /* line 199, ../sass/_playlist.scss */
+  /* line 255, ../sass/_playlist.scss */
   .artist-name-list {
     width: 70%;
   }
 }
 
-/* line 223, ../sass/_playlist.scss */
+/* line 279, ../sass/_playlist.scss */
 .song-time {
   float: right;
+  font-size: 20px;
   height: 20px;
   display: inline-block;
   position: relative;
@@ -761,7 +855,7 @@ div.main-music-information {
 }
 
 /* iScroll Plugin Styling */
-/* line 239, ../sass/_playlist.scss */
+/* line 296, ../sass/_playlist.scss */
 #wrapper {
   position: relative;
   overflow: hidden;
@@ -781,25 +875,25 @@ div.main-music-information {
   text-size-adjust: none;
 }
 @media (orientation: portrait) {
-  /* line 239, ../sass/_playlist.scss */
+  /* line 296, ../sass/_playlist.scss */
   #wrapper {
-    width: 726px;
+    width: 100%;
     height: 615px;
   }
 }
 @media (orientation: landscape) {
-  /* line 239, ../sass/_playlist.scss */
+  /* line 296, ../sass/_playlist.scss */
   #wrapper {
     max-height: 900px;
     min-height: 400px;
-    height: 95vh;
+    height: 90vh;
     width: 100%;
     float: right;
     top: -22px;
   }
 }
 
-/* line 283, ../sass/_playlist.scss */
+/* line 346, ../sass/_playlist.scss */
 #scroller {
   position: absolute;
   /* Prevent elements to be highlighted on tap */
@@ -812,7 +906,7 @@ div.main-music-information {
   transform: translateZ(0);
 }
 
-/* line 297, ../sass/_playlist.scss */
+/* line 360, ../sass/_playlist.scss */
 li {
   list-style-type: none;
 }
