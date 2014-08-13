@@ -11,6 +11,8 @@ var clientLinked=true,
     playlistDataFromRdio,
     maxSoundsKeepInPlaylist=config.maxSoundsKeepInPlaylist; //change this number in config.json
 
+var numUsers=0;
+
 
 app.configure(function() {
 	app.set('port', process.env.PORT || 8888);
@@ -137,40 +139,47 @@ app.get('/callback', function(req, res){
 
           /* Check the playListData with Rdio.com every 15 seconds.*/
           intervalGettingData = setInterval(function(){
-            rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
-              if (err) {console.log(err);};
-
-              if(data.result){
-                var playListData=data.result;
-                var lengthOfPlaylist=playListData[0].tracks.length;
-                /**
-                  * delete some musics if the playlist is longer than maxSoundsKeepInPlaylist.
-                  * If the playlist is too long we will delete some music from the playlist first
-                  * and update our playlistDataFromRdio object next time.
-                  */
-                if(lengthOfPlaylist>maxSoundsKeepInPlaylist){
-                  console.log('delete music because the playlist is too long');
-
-                  var lengthToDelete=lengthOfPlaylist-maxSoundsKeepInPlaylist;
-                  var tracksToDelete=[];
-                  var i=0;
-                  for(i; i < lengthToDelete; i++){
-                    tracksToDelete[i]=playListData[0].tracks[i].key;
-                  };
-
-                  tracksToDelete=tracksToDelete.toString();
-                  lengthToDelete=lengthToDelete.toString();
-
-                  rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToDelete, tracks:tracksToDelete}, function(err, data) {
-                    console.log('some musics have been removed from playlist');
-                  });
-                }else{
-                  playlistDataFromRdio=playListData;
-                  // console.log(playlistDataFromRdio);
-                  console.log('update playlist data with RDIO');
+            if(numUsers>0){
+              rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
+                if (err) {
+                  console.log(err);
+                  return
                 };
-              };  
-            });
+
+                if(data){
+                  var playListData=data.result;
+                  var lengthOfPlaylist=playListData[0].tracks.length;
+                  /**
+                    * delete some musics if the playlist is longer than maxSoundsKeepInPlaylist.
+                    * If the playlist is too long we will delete some music from the playlist first
+                    * and update our playlistDataFromRdio object next time.
+                    */
+                  if(lengthOfPlaylist>maxSoundsKeepInPlaylist){
+                    console.log('delete music because the playlist is too long');
+
+                    var lengthToDelete=lengthOfPlaylist-maxSoundsKeepInPlaylist;
+                    var tracksToDelete=[];
+                    var i=0;
+                    for(i; i < lengthToDelete; i++){
+                      tracksToDelete[i]=playListData[0].tracks[i].key;
+                    };
+
+                    tracksToDelete=tracksToDelete.toString();
+                    lengthToDelete=lengthToDelete.toString();
+
+                    rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToDelete, tracks:tracksToDelete}, function(err, data) {
+                      console.log('some musics have been removed from playlist');
+                    });
+                  }else{
+                    playlistDataFromRdio=playListData;
+                    // console.log(playlistDataFromRdio);
+                    console.log('update playlist data with RDIO');
+                  };
+                }else{
+                  return
+                }; 
+              });
+            };
           }, 15000);
 
         }else{
@@ -188,6 +197,28 @@ app.get('/logout', function(request, result){
 
 
 io.on('connection', function(socket){
+
+  var IsAMainScreenUser=false;
+
+  socket.on('add mainscreen user', function(username){
+    console.log('Hi!connected with:'+ username);
+    ++numUsers;
+    console.log('-----User Number:'+ numUsers);
+    socket.username = username;
+    IsAMainScreenUser=true;
+  });
+
+  
+
+
+  socket.on('disconnect', function(){
+    if(IsAMainScreenUser){
+      console.log('Disconnected:'/*+ socket.username*/);
+      --numUsers;
+      console.log('-----User Number:'+ numUsers);
+    };
+  });
+
   socket.on('bit', function(msg){
     io.emit('pot', msg);
   });
