@@ -53,3 +53,9 @@
 3. Click "collaborate" on the top right to collaborate with this playlist.
 4. Add musics you like into the playlist.
 
+**Change to your playlist and domain**
+
+Change the playlist: change information in **config.json** under **music-app-rdio**
+
+Change the domain: change information in **config.json** under **public> js**
+

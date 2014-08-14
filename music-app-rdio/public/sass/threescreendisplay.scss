@@ -1,35 +1,36 @@
-			body {
-				padding: 0;
-				margin: 0;
-				display: flex;
-				justify-content: space-between;
-				width: 100%;
-				height: 100%;
-			}
 
-			iframe {
-				border: none;
-				width: 33%;
-				height: 100%;
-			}
+body {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+}
 
-			#main {
-				width:105%;
-				height:105%;
-			}
+iframe {
+	border: none;
+	width: 33%;
+	height: 100%;
+}
 
-			.sidescreen--1 {
-				order: 1;
-			}
+#main {
+	width:105%;
+	height:105%;
+}
 
-			.sidescreen--2 {
-				order: 3;
-			}
+.sidescreen--1 {
+	order: 1;
+}
 
-			.test{
-				order:2;
-				width:33%;
-				height:100%;
-				overflow-x:hidden;
-				min-width:675px;
-			}
+.sidescreen--2 {
+	order: 3;
+}
+
+.test{
+	order:2;
+	width:33%;
+	height:100%;
+	overflow-x:hidden;
+	min-width:675px;
+}
