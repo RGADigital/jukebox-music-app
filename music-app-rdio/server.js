@@ -11,7 +11,8 @@ var clientLinked=true,
     playlistDataFromRdio,
     maxSoundsKeepInPlaylist=config.maxSoundsKeepInPlaylist; //change this number in config.json
 
-var numUsers=0;
+var numUsers=0,
+    usernamesList = {};
 
 
 app.configure(function() {
@@ -202,10 +203,14 @@ io.on('connection', function(socket){
 
   socket.on('add mainscreen user', function(username){
     console.log('Hi!connected with:'+ username);
+    usernamesList[username]=username;
     ++numUsers;
     console.log('-----User Number:'+ numUsers);
     socket.username = username;
     IsAMainScreenUser=true;
+
+    // test
+    io.emit('userList',usernamesList);
   });
 
   
@@ -213,14 +218,17 @@ io.on('connection', function(socket){
 
   socket.on('disconnect', function(){
     if(IsAMainScreenUser){
-      console.log('Disconnected:'/*+ socket.username*/);
+      console.log('Disconnected:'+ socket.username);
       --numUsers;
       console.log('-----User Number:'+ numUsers);
     };
   });
 
   socket.on('bit', function(msg){
-    io.emit('pot', msg);
+    io.emit(socket.username, {
+      userName: socket.username,
+      fData: msg
+    });
   });
 });
 

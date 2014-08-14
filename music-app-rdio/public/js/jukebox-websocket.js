@@ -20,11 +20,26 @@
     		return random; 
 		},
 
+		bindEvents: function(){
+      		$(d).bind('MUSIC_FREQUENCY_DATA_EVENT',websocketSelf.musicFrequencyDataEventHandler);
+    	},
+
+    	musicFrequencyDataEventHandler: function(event, frequency){
+          socket.emit('bit', frequency); //emit the frequency data of playing music to websockets.
+    	},
+
 		init:function(){
 			websocketSelf=this;
-			websocketSelf.userName=websocketSelf.randomChar(5);
-			console.log('Websocket');
+			websocketSelf.bindEvents();
 			socket.emit('add mainscreen user',websocketSelf.userName); //emit the frequency data of playing music to websockets.
+			/*--------------test here--------------------*/
+			// socket.on(websocketSelf.userName, function(data) {
+   //              console.log('we paired');
+   //              console.log(data);
+   //          });
+			socket.on('userList', function(data) {
+                console.log(data);
+            });
 		}
 	};
 
