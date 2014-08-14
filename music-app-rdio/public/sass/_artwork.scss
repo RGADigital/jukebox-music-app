@@ -16,10 +16,12 @@ $main-album-title-font-size:24px;
 
 //for when songs are incredibly long and don't fit inside their container
 $negative-margins-long-song:-100px;
-30
 
 div.color{
 	
+
+	
+
 	//  @media (height:1920px){
 	// 	position:absolute;
 	// 	top:-0px;
@@ -28,26 +30,28 @@ div.color{
 	// 	z-index:-1;
 	// }
 
-	background-color: #4dd0e1; 
+	@media(orientation:portrait){
+		background-color: #4dd0e1;
+  		position:absolute;
+		top:-10%;
+		height:34.63%;
+		width:100%;
+		z-index:-1;
+	}
+
 
 	@media (orientation:landscape){
 	 	display:none;
   
   }
 
-  @media (orientation:portrait){
-  		position:absolute;
-		top:-0px;
-		height:34.63%;
-		width:100%;
-		z-index:-1;
-
-  }
+  
 
 
 }
 
 .color > svg{
+	
 	//  @media (height:1920px){
 	// 	top:628px;
 	// 	position:absolute;
@@ -148,7 +152,8 @@ div.main-music-information{
 	white-space:nowrap;
 	position:relative;
 	z-index:200;
-	margin-bottom:4px;
+	
+	height:5vh;
 	
 
 	@media (orientation:portrait){
@@ -156,6 +161,8 @@ div.main-music-information{
 	margin-left:$negative-margins-long-song;
 	margin-right:$negative-margins-long-song;
 	font-size:5.2vw;
+	height:6vw;
+
 	
   	}
 
@@ -168,8 +175,8 @@ div.main-music-information{
  //  	}
 
 	@media (orientation:landscape){
-	font-size:3vh;
-	margin-bottom:5px;
+	font-size:4vh;
+	
   
   	}
 
@@ -212,7 +219,7 @@ div.main-music-information{
   	}
 
   	@media (orientation:portrait){
-	font-size:$main-album-title-font-size;
+	font-size:3.5vw;
   	}
 }
 
