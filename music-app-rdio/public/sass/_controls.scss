@@ -127,8 +127,13 @@ button > svg {
 	
 }
 
-.shuffle-container > button{
-
+.shuffle {
+	&.isShuffleOn {
+		path {
+			transition: fill 250ms;
+			fill: cornflowerblue;
+		}
+	}
 }
 
 
