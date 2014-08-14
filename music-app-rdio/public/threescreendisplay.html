@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<style>
+						body {
+				padding: 0;
+				margin: 0;
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				height: 100%;
+			}
+
+			iframe {
+				border: none;
+				width: 33%;
+				height: 100%;
+			}
+
+			#main {
+				width:105%;
+				height:105%;
+			}
+
+			.sidescreen--1 {
+				order: 1;
+			}
+
+			.sidescreen--2 {
+				order: 3;
+			}
+
+			.test{
+				order:2;
+				width:33%;
+				height:100%;
+				overflow-x:hidden;
+				min-width:675px;
+			}		
+		
+		</style> 
+	</head> 
+
+	<body> 
+		
+			<iframe class="sidescreen sidescreen--1" src="sketch_test.html"> 
+			</iframe> 
+
+			<div class="test"> 
+				<iframe id="main" src="player.html"> 
+				</iframe> 
+			</div> 
+
+			<iframe class="sidescreen sidescreen--2" src="sketch_test.html"> 
+			</iframe> 
+	</body> 
+
+
+</html> 
