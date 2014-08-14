@@ -123,10 +123,7 @@ div.music-buttons-total{
 
 
 button > svg {
-
-	@media(orientation:landscape){
-		
-	}
+	color:#bfc2c3;
 	
 }
 
@@ -135,10 +132,27 @@ button > svg {
 }
 
 
-button.play{
-	
+.play{
+	.svg1{
+		display:block;
+	}
+	.svg2{
+		display:none;
+	}
+	&.isPlaying{
+		.svg1{
+			display:none;
+		}
+		.svg2{
+			display:block;
+		}
+	}
+
 	@include button-style	
+
 }
+
+
 button.rewind{
 	
 	@include button-style

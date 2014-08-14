@@ -1,8 +1,4 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-		<style>
-						body {
+			body {
 				padding: 0;
 				margin: 0;
 				display: flex;
@@ -36,24 +32,4 @@
 				height:100%;
 				overflow-x:hidden;
 				min-width:675px;
-			}		
-		
-		</style> 
-	</head> 
-
-	<body> 
-		
-			<iframe class="sidescreen sidescreen--1" src="sketch_test.html"> 
-			</iframe> 
-
-			<div class="test"> 
-				<iframe id="main" src="player.html"> 
-				</iframe> 
-			</div> 
-
-			<iframe class="sidescreen sidescreen--2" src="sketch_test.html"> 
-			</iframe> 
-	</body> 
-
-
-</html> 
+			}
