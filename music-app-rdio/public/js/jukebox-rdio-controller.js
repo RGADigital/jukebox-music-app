@@ -71,6 +71,14 @@
     },
 
     /**
+     *broadcast when frequency of current playing music changes.
+     *@param {string} frequency - frequency of current playing music.
+     */
+    musicFrequencyData:function(frequency){
+      $(d).trigger('MUSIC_FREQUENCY_DATA_EVENT',[frequency]);
+    },
+
+    /**
      *broadcast when playing track changes.
      *@param {string} trackName - Name of playing track.
      *@param {string} artist - Name of artist.
@@ -174,7 +182,7 @@
         // If playback begins somewhere else then playback will stop and this callback will be called.
       };
       callback_object.updateFrequencyData = function updateFrequencyData(arrayAsString) {
-        socket.emit('bit', arrayAsString); //emit the frequency data of playing music to websockets.
+        RdioController.musicFrequencyData(arrayAsString);
       };
 
     },
@@ -198,6 +206,7 @@
 
     init:function(){
       $(d).trigger('GET_RDIO_DATA_EVENT');
+      
       self=this;
       self.configDomain();
       self.bindEvents();
