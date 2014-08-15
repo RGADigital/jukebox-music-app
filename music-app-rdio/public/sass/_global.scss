@@ -66,6 +66,10 @@ html.touch-screen, html.touch-screen body {
 svg {
   display: block;
   max-width: 100%;
+  fill:#959ea3;
+    & :hover{
+      fill:#424242;
+    }
 }
 
 

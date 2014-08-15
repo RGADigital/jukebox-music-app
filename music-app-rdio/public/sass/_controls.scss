@@ -246,12 +246,13 @@ button.fastforward{
  //  	}
 
   @media (orientation:portrait){
-	width:4.6%;
+
+	width:10%;
 	height:1.667%;
 	margin-top:2.56%;
 	margin-bottom:1.28%;
 	float:right;
-	margin-right:4.1%; 
+	margin-right:2.5%; 
 	//background-image:image-url('../img/shuffle-button-stop.svg');
   		
   	}
@@ -279,3 +280,9 @@ button.isPlaying{
 
 }
 
+.button-style-svg{
+	path{
+	color:blue;
+	}
+
+}

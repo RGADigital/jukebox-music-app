@@ -92,8 +92,7 @@ app.get('/login', function(req, res){
 	
 	rdio.beginAuthentication(callbackUrl, function(err, authUrl) {
 	  	if (err) {
-	    	console.log(err);
-	        req.reply(new Error("Error beginning authentication"));
+	    	  console.log(err);
 	    }
 
 	    req.session.requestToken= {
