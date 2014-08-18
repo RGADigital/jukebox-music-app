@@ -231,7 +231,7 @@ io.on('connection', function(socket){
 
     io.emit('pot', msg);
 
-    console.log(usernameID);
+    // console.log(usernameID);
     io.emit(usernameID, {
       userName: socket.username,
       fData: msg
