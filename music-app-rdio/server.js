@@ -28,6 +28,7 @@ http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
 
+
 app.get('/player', function(req, res){
   res.sendfile('public/player.html');
 });
@@ -200,6 +201,7 @@ app.get('/logout', function(request, result){
 io.on('connection', function(socket){
 
   var IsAMainScreenUser=false;
+  var usernameID;
 
   socket.on('add mainscreen user', function(username){
     console.log('Hi!connected with:'+ username);
@@ -207,9 +209,8 @@ io.on('connection', function(socket){
     ++numUsers;
     console.log('-----User Number:'+ numUsers);
     socket.username = username;
+    usernameID= username;
     IsAMainScreenUser=true;
-
-    // test
     io.emit('userList',usernamesList);
   });
 
@@ -220,12 +221,18 @@ io.on('connection', function(socket){
     if(IsAMainScreenUser){
       console.log('Disconnected:'+ socket.username);
       --numUsers;
+      delete usernamesList[socket.username];
+      io.emit('userList',usernamesList);
       console.log('-----User Number:'+ numUsers);
     };
   });
 
   socket.on('bit', function(msg){
-    io.emit(socket.username, {
+
+    io.emit('pot', msg);
+
+    console.log(usernameID);
+    io.emit(usernameID, {
       userName: socket.username,
       fData: msg
     });

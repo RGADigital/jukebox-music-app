@@ -20,6 +20,27 @@
     		return random; 
 		},
 
+		setParameter: function(paramName, paramValue)
+		{
+		    var url = window.location.href;
+		    if (url.indexOf(paramName + "=") >= 0)
+		    {
+		        var prefix = url.substring(0, url.indexOf(paramName));
+		        var suffix = url.substring(url.indexOf(paramName));
+		        suffix = suffix.substring(suffix.indexOf("=") + 1);
+		        suffix = (suffix.indexOf("&") >= 0) ? suffix.substring(suffix.indexOf("&")) : "";
+		        url = prefix + paramName + "=" + paramValue + suffix;
+		    }
+		    else
+		    {
+		    if (url.indexOf("?") < 0)
+		        url += "?" + paramName + "=" + paramValue;
+		    else
+		        url += "&" + paramName + "=" + paramValue;
+		    }
+		    window.location.href = url;
+		},
+
 		bindEvents: function(){
       		$(d).bind('MUSIC_FREQUENCY_DATA_EVENT',websocketSelf.musicFrequencyDataEventHandler);
     	},
@@ -28,15 +49,19 @@
           socket.emit('bit', frequency); //emit the frequency data of playing music to websockets.
     	},
 
+    	
+
 		init:function(){
 			websocketSelf=this;
+			if(!($.url().param('id'))){
+				websocketSelf.userName=websocketSelf.randomChar(5);
+				websocketSelf.setParameter('id', websocketSelf.userName);
+			}else{
+				websocketSelf.userName=$.url().param('id');
+			};
 			websocketSelf.bindEvents();
 			socket.emit('add mainscreen user',websocketSelf.userName); //emit the frequency data of playing music to websockets.
 			/*--------------test here--------------------*/
-			// socket.on(websocketSelf.userName, function(data) {
-   //              console.log('we paired');
-   //              console.log(data);
-   //          });
 			socket.on('userList', function(data) {
                 console.log(data);
             });

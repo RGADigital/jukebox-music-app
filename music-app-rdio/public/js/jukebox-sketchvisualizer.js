@@ -1,23 +1,34 @@
 
        
-            var musicData,
-                intervalId;
+    var musicData,
+        intervalId,
+        usenameforPair;
 
-            function sortNumber(a,b)
-            {
-                return a - b
-            };
+    var socket = io.connect('http://'+window.location.hostname.toString()+':9001');
 
-            var socket = io.connect('http://'+window.location.hostname.toString()+':9001');
-            socket.on('pot', function(data) {
-                musicData = data.split(',');
-                //musicData = musicData.sort(sortNumber).reverse();
-                MAX_PARTICLES=musicData[1]*100;
-                //console.log('MAX_PARTICLES from io-----'+ MAX_PARTICLES)
-                DATA_FORCE=musicData[5]*25;
-                //console.log('DATA_FORCE from io ------- ' + DATA_FORCE)
-                // console.log(musicData);
-            });
+    socket.on('userList', function(data) {
+                console.log(data);
+    });
+
+    if($.url().param('id')){
+        console.log($.url().param('id'));
+        usenameforPair=$.url().param('id')
+        socket.on(usenameforPair, function(data) {
+            console.log('we paired with: '+ usenameforPair);
+            musicData = data.fData.split(',');
+            MAX_PARTICLES=musicData[1]*100;
+            DATA_FORCE=musicData[5]*25;
+        });
+    }else{
+        socket.on('pot', function(data) {
+            musicData = data.split(',');
+            MAX_PARTICLES=musicData[1]*100;
+            DATA_FORCE=musicData[5]*25;
+        });
+    };
+    
+
+    
 
 
             
