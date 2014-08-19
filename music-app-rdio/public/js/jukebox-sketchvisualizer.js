@@ -28,15 +28,6 @@
     };
     
 
-    
-
-
-            
-            
-        // ----------------------------------------
-        // Particle
-        // ----------------------------------------
-
         function Particle( x, y, radius ) {
             this.init( x, y, radius );
         }
@@ -86,30 +77,13 @@
             }
         };
 
-        // ----------------------------------------
-        // Example
-        // ----------------------------------------
-
+       
         var MAX_PARTICLES = 10;
         console.log(MAX_PARTICLES);
 
-        var COLOURS = 
-//ten colors bold- darker on ends of array
-        // [  '#CF0025', '#FF5108','#FF1258', '#FF7D2B' ,'#FFF22E','#00E53E', '#4DD0E1', '#BF51E8', '#411C4F', '#002691' ];
-
-        [ '#FFF22E', '#FF7D2B' , '#FF1258', '#FF5108', '#CF0025', '#002691', '#411C4F' , '#BF51E8', '#4DD0E1', '#00E53E'
+        var COLOURS =[ '#FFF22E', '#FF7D2B' , '#FF1258', '#FF5108', '#CF0025', '#002691', '#411C4F' , '#BF51E8', '#4DD0E1', '#00E53E'
         ];
 
-//OR ten colors kuler monochromatic
-        // [ '#4DD0E1', '#2C767F', '#57ECFF', '#163B40' , '#4FD4E5', '#57ECFF', '#2B767F', '#4ED4E5', '#163B40' , '#4FD4E5'
-
-        // ];
-
-//OR ten colors google design monochromatic
-
-    // [ '#00bcd4', '#e0f7fa' , '#b2ebf2' , '#80deea', '#4dd0e1', '#26c6da', '#00bcd4', '#00acc1' , '#0097a7', '#00838f', '#006064'
-
-    // ];
 
 
 

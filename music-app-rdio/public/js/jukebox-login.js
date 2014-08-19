@@ -4,11 +4,13 @@
 
 		$login: $( "#login" ),
 		
+		/** The interaction events with DOM */
 		attachEvents:function(){
 			$login.click(loginClickEventHandler);
 		},
 		
 		loginClickEventHandler: function() {
+			/** make a ajax call to login */
 			$.ajax({
 			      url : '/login',
 			      type : 'GET',

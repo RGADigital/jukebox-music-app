@@ -61,10 +61,6 @@
 			};
 			websocketSelf.bindEvents();
 			socket.emit('add mainscreen user',websocketSelf.userName); //emit the frequency data of playing music to websockets.
-			/*--------------test here--------------------*/
-			socket.on('userList', function(data) {
-                console.log(data);
-            });
 		}
 	};
 

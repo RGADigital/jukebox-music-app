@@ -12,95 +12,116 @@
     $next: $('.fastforward'),// next button
     $shuffle: $('.shuffle-container'),
 
-    /*store playListData.*/
-    playListData:{},
-    tracksKeys:[],
-    tracksNames:[],
-    tracksDurations:[],
-    tracksSmallIcon:[],
-    tracksAlbumNames:[],
-    tracksArtists:[],
-    trackKeysForCompare:[],
+    playListData:{}, // Object to store playlist data gotten from server.
+    tracksKeys:[], // Array of tracks keys(id) in playlist.
+    tracksNames:[], // Array of tracks name in playlist.
+    tracksDurations:[], // Array of tracks duations in playlist.
+    tracksSmallIcon:[], // Array of tracks small size album covers urls in playlist.
+    tracksAlbumNames:[], // Array of tracks album names in playlist.
+    tracksArtists:[], // Array of tracks artists names in playlist.
+    trackKeysForCompare:[], //Array used to compare current and previous playlist data after update.
     soundIsPlaying:0,//The number of playing musisc in the playlist.
-    isShuffle:false,
-    isMusicPlaying:false,
-    isFirstPlay:true,
-    myScroll:{},
-    maxSoundsNumberInPlaylist:150,//How many musics keep in playlist
-    easingLevelForShuffle:15,
+    isShuffle:false, // If shuffle is open, isShuffle=true.
+    isMusicPlaying:false,// If music is play, isMusicPlaying=true.
+    isFirstPlay:true, //isFirstPlay=true, we start to playmusic after we get the playlist data at the first time.
+    myScroll:{}, // The object for iScroll.
+    easingLevelForShuffle:15, //The easing leave when we are in shuffle mode. EX.shuffle range MUSIC_IS_PLAY-15 < MUSIC_IS_PLAY > MUSIC_IS_PLAY+15
 
     /*set up the touch event controlers.*/
     attachUIEventS: function(){ 
-      /*click Play button*/
+      /** click Play button */
       self.$play.click(self.playClickEventHandler);
-      /*click Previous button*/
+      /** click Previous button */
       self.$previous.click(self.previousClickEventHandler);
-      /*click Next button*/
+      /** click Next button */
       self.$next.click(self.nextClickEventHandler);
-      /*click shuffle button*/
+      /** click shuffle button */
       self.$shuffle.click(self.shuffleClikcEventHandler);
     },
 
+    /** After click the shuffle button */
     shuffleClikcEventHandler: function(event) {
+        /** change the shuffle status */
         self.isShuffle =! self.isShuffle;
         console.log('shuffle: '+self.isShuffle);
         if(self.isShuffle){
+          /** If it is shuffle mode, add .isShuffleOn to shuffle button on the screen, it will be changed to green. */
           self.$shuffle.removeClass('isShuffleOn')
           self.$shuffle.toggleClass('isShuffleOn');
         }else{
+          /** If it is not the shuffle mode, change the shuffle button to original color. */
           self.$shuffle.removeClass('isShuffleOn');
         };
     },
 
+    /** After click the Play button, play or pasue the music */
     playClickEventHandler: function(){
-
       if(self.isMusicPlaying){
-        //pauseMuisc
+        /** If music is playing, pause the music. */
         self.pauseMusic();
+        /** Change the pause icon to play icon */
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[false]);
       }else{
-        //playMusic
+        /** If music is paused, continually play the music. */
         self.playMusic();
+        /** Change the play icon to pause icon */
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
       };  
     },
 
+    /** After click the Previous button */
     previousClickEventHandler: function() {
+      /** If the playing music is the first music in the playlist, we won't do anything. Becasue there is no previous music. */
       if(self.soundIsPlaying > 0){
+        /** Change the pause icon to play icon */
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
-        //shuffle status on Previous control
+        /** Check shuffle status first. */
         if(self.isShuffle){
-          //the algorithm for Shuffling the music
+          /** the algorithm for Shuffling the music */
           self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
+          /** play a random music in playlist. */
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
+          /** Change the soundIsPlaying number to previous music. */
           self.soundIsPlaying--;
+          /** Play previous music */
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         };   
       }; 
     },
 
+    /** After click the Next button */
     nextClickEventHandler: function() {
+      /** If the playing music is the last music in the playlist, we won't do anything. Becasue there is no next music. */
       if(self.soundIsPlaying < (self.playListData[0].tracks.length-1)){
+        /** Change the pause icon to play icon */
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
-        //shuffle status on Next control
+        /** Check shuffle status first. */
         if(self.isShuffle){
-          //the algorithm for Shuffling the music
+          /** the algorithm for Shuffling the music. */
           self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
+          /** play a random music in playlist. */
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
+          /** Change the soundIsPlaying number to next music. */
           self.soundIsPlaying++;
+          /** Play next music */
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         };
       }; 
     },
 
+    /**
+      * Play the muisc by id and change the play button icon.
+      * @param {string} id - the musicKey.
+      */
     playMusic: function(id){
       var orderNumber=self.soundIsPlaying == 0 ? 1 : self.soundIsPlaying;
-      //play muisc by id
+      /** play muisc by id(musicKey) */
       $(d).trigger('PLAY_MUSIC_EVENT',[id]);
-      //change the play icon in playlist in PlayListItem Module.
+      /** change the play icon in playlist in PlayListItem Module. */
       $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
+      /** scroll the playlist */
       self.autoIscroll();
     },
 
