@@ -9,6 +9,7 @@
 			$login.click(loginClickEventHandler);
 		},
 		
+		/** Run after click. */
 		loginClickEventHandler: function() {
 			/** make a ajax call to login */
 			$.ajax({

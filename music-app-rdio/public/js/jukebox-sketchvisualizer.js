@@ -1,18 +1,24 @@
 
        
-    var musicData,
+    var musicData,// The music frequency data.
         intervalId,
-        usenameforPair;
+        usenameforPair;// The user name code used to pair with the main screen.
 
+    /** Connect with websocket. */
     var socket = io.connect('http://'+window.location.hostname.toString()+':9001');
 
+    /** Get the 'userList' from websocket. */
     socket.on('userList', function(data) {
                 console.log(data);
     });
 
+
     if($.url().param('id')){
+        /** If app get query parameter {id} in url, the side screen listen to main screen which has the same username(id). */
         console.log($.url().param('id'));
+        /** Get the value of id. */
         usenameforPair=$.url().param('id')
+        /** Get the frequency data from main screen that the sidecreen paired with. */
         socket.on(usenameforPair, function(data) {
             console.log('we paired with: '+ usenameforPair);
             musicData = data.fData.split(',');
@@ -20,6 +26,7 @@
             DATA_FORCE=musicData[5]*25;
         });
     }else{
+        /** If app can't get query parameter {id} in url, it will just get the frequency data from random mainscreen. */
         socket.on('pot', function(data) {
             musicData = data.split(',');
             MAX_PARTICLES=musicData[1]*100;
@@ -27,6 +34,7 @@
         });
     };
     
+    /** Websocket's code finishs here. */
 
         function Particle( x, y, radius ) {
             this.init( x, y, radius );

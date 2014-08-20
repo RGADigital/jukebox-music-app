@@ -20,7 +20,7 @@
     tracksAlbumNames:[], // Array of tracks album names in playlist.
     tracksArtists:[], // Array of tracks artists names in playlist.
     trackKeysForCompare:[], //Array used to compare current and previous playlist data after update.
-    soundIsPlaying:0,//The number of playing musisc in the playlist.
+    soundIsPlaying:0,//The number of playing musisc in the playlist. It is super important in our app. It is a pointer tells our app which music to play.
     isShuffle:false, // If shuffle is open, isShuffle=true.
     isMusicPlaying:false,// If music is play, isMusicPlaying=true.
     isFirstPlay:true, //isFirstPlay=true, we start to playmusic after we get the playlist data at the first time.
@@ -125,62 +125,76 @@
       self.autoIscroll();
     },
 
+    /** Pause the music */
     pauseMusic: function(){
       $(d).trigger('PAUSE_MUSIC_EVENT');
     },
 
+    /** Send playlist data to render module, and render module start to render the playlist with these data. */
     renderPlaylist:function(soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists){
       $(d).trigger('PLAYLIST_RENDER_EVENT',[soundIsPlaying, tracksKeys, tracksNames, tracksDurations, tracksSmallIcon, tracksAlbumNames, tracksArtists]);
     },
 
+    /** Playlist auto scroll */
     autoIscroll: function(){
       var orderNumber=self.soundIsPlaying == 0 ? 1 : self.soundIsPlaying;
-      //iscroll auto scroll
+      /** iscroll auto scroll */
       self.myScroll.scrollToElement(document.querySelector('.playlist-content li:nth-child('+orderNumber+')'));
     },
 
+    /** bindEvents is taking care of all the .bind functions */
     bindDataEvents: function(){
-      //run when music player loaded
+      /** run when music player loaded. */
       $(d).bind('PLAYER_DATA_LOADED_EVENT',self.playerLoadedEventHandler);
-      //run everytime after get data from rdio api
+      /** run after get data from rdio api. */
       $(d).bind('RDIO_DATA_EVENT',self.rdioDataEventHandler);
-      // get music position 
+      /** get music position. */
       $(d).bind('MUSIC_POSITION_DATA_EVENT', self.musicPositionEventHandler);
-      //get soundisplaying number from PlaylistItem
+      /** get soundisplaying number from PlaylistItem. */
       $(d).bind('CHANGE_SOUNDISPLAYING_EVENT', self.changeSoundisPlayingEventHandler);
-      //get isMusicPlaying status from View and PlaylistItem
+      /** get isMusicPlaying status from View and PlaylistItem. */
       $(d).bind('CHANGE_ISMUSICPLAYING_STATUS_EVENT', self.changeIsMuicPlayingStatusEventHandler);
+      /** Start to initialize iscroll. */
       $(d).bind('INITIAL_ISCROLL_EVENT', self.initialIscrollEventHandler);
     },
 
+    /** run when music player loaded. */
     playerLoadedEventHandler: function() {
       console.log('playerLoaded');
     },
 
+    /** run after get data from rdio api. */
     rdioDataEventHandler: function(event,data){
+      /** Save the playlist data to playListData. */
       self.playListData=data;
+      /** Use updateData to separate data to different array. */
       self.updataData();
 
-      //play the music at the first time
+      /** Play the music at the first time. */
       if(self.isFirstPlay){
-        self.playMusic(self.tracksKeys[self.soundIsPlaying]);//first time play music in the playlist.
+        /** Play music by id, first time play music in the playlist. */
+        self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+        /** Change the play icon to pause icon. */
         $(d).trigger('CHANGE_ISMUSICPLAYING_STATUS_EVENT',[true]);
         self.isFirstPlay=false;
       }; 
     },
 
+    /** Initialize Iscroll */
     initialIscrollEventHandler:function(){
       self.myScroll = new IScroll('#wrapper', { tap: true });
       document.addEventListener('touchmove', function (e) { }, false);
     },
 
+    /** get soundisplaying number from PlaylistItem, and Change it. */
     changeSoundisPlayingEventHandler:function(event, soundIsPlaying){
       self.soundIsPlaying=soundIsPlaying;
     },
 
+    /** Change the style of play button between play icon and pause icon. */
     changeIsMuicPlayingStatusEventHandler:function(event, isMusicPlaying){
       self.isMusicPlaying=isMusicPlaying;
-      //change the style of play button
+      /** Change the style of play button. */
       if(self.isMusicPlaying){
         self.$play.removeClass('isPlaying');
         self.$play.toggleClass('isPlaying');
@@ -189,21 +203,23 @@
       };
     },
 
+    /** Get music's current position, and compare it with duration. When this muisc finish, the app will play next music. */
     musicPositionEventHandler: function(event, position){
-      // when a music finished what we need to do: next sound/loop the play list/ shuffle
+      /** When a music finished what we need to do: next sound/loop the play list/ shuffle. */
       if(position >= (self.tracksDurations[self.soundIsPlaying]-0.7/*-0.5*/)){
-        //Shuffle
+        /** Shuffle */
         if(self.isShuffle){
-          //shuffle the playlist and play randomly
+          /** Shuffle the playlist and play randomly */
+          /** Get a random number for soundIsPlaying. */
           self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
           if(self.soundIsPlaying == (self.playListData[0].tracks.length-1)){
-            //loop after the playlist finish
+            /** If this music is the last sound in playlist, loop the playlist after the playlist finish. */
             self.soundIsPlaying=0;
             self.playMusic(self.tracksKeys[self.soundIsPlaying]);
           }else{
-            //play next music after one music finish
+            /** Play next music after one music finish. */
             self.soundIsPlaying++;
             self.playMusic(self.tracksKeys[self.soundIsPlaying]);
           };
@@ -211,7 +227,7 @@
       };
     },
     
-    /*get tracksKeys,trackName, and tracksDurations information from data from rdio api and save them.*/
+    /*Get tracksKeys,trackName, and tracksDurations information from data from rdio api and save them to different arrays.*/
     updataData: function(){
 
       self.tracksKeys=[];
@@ -229,28 +245,33 @@
         self.tracksArtists[i]=self.playListData[0].tracks[i].artist;
       };
 
+      /** Compare the current playlist data with last playlist data. */
       self.playListCompare();
     },
 
+    /** Compare the current playlist data with last playlist data. If two data are different, it means the playlist has been changed on rdio.com */
     playListCompare: function(){
       var order;//order is the order number of the music which is playing on the screen
       if((self.trackKeysForCompare.toString()) != (self.tracksKeys.toString())){
-            /*ask renderPlaylist to render the playlist*/
+            /** ask renderPlaylist to render the playlist */
             self.renderPlaylist(self.soundIsPlaying, self.tracksKeys, self.tracksNames, self.tracksDurations, self.tracksSmallIcon, self.tracksAlbumNames, self.tracksArtists);
-            /*do something after the playlist order changed or deleted some music */
-            if((self.trackKeysForCompare.length) > 1){//make sure there are somemusic in the playlist
+            /** Do something after the playlist order changed or deleted some music */
+            if((self.trackKeysForCompare.length) > 1){/** make sure there are somemusic in the playlist */
+              /** Found the order of current playing music in playlist. */
               order=_.indexOf(self.tracksKeys, self.trackKeysForCompare[self.soundIsPlaying]);
               if(order >= 0){
-                /*change the soundisPlaying when the order of playlist is changed.*/
+                /** Change the soundisPlaying when the order of current playing muisc in playlist is changed. */
                 self.soundIsPlaying=order;
               }else{
-                /*the playing music is deleted*/
+                /** The playing music is deleted*/
                 self.playMusic(self.tracksKeys[self.soundIsPlaying]);
               };
             };
+            /** Change the play button icon. */
             $(d).trigger('CHANGE_PLAYLISTICON_EVENT',[self.soundIsPlaying]);
+            /** Scroll the playlist */
             self.autoIscroll();
-            
+            /** Save this playlist data for comparing next time. */
             self.trackKeysForCompare=self.tracksKeys;
       }else{
         return
@@ -270,7 +291,6 @@
       while(randomOutputNumber<0 || randomOutputNumber>(self.playListData[0].tracks.length-1));
 
       return randomOutputNumber
-
     },
 
     init: function() {

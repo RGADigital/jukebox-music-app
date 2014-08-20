@@ -79,7 +79,7 @@
         /** initalize the playlist items. */
         new PlaylistItem(renderSelf.tracksKeys[i], renderSelf.tracksNames[i], renderSelf.tracksDurations[i], renderSelf.tracksSmallIcon[i], renderSelf.tracksAlbumNames[i], renderSelf.tracksArtists[i],(i+1)).init();
       };
-      /** initalize the iscroll object. */
+      /** initalize the iscroll object in View module. */
       $(d).trigger('INITIAL_ISCROLL_EVENT'); 
     },
 

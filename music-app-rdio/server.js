@@ -1,3 +1,9 @@
+/**
+  *
+  *This App is using Rdio api. More infromation about Rdio Api, please visit: http://www.rdio.com/developers/
+  *
+  */
+
 var Rdio=require('./rdio_modules/rdio'),
     RdioCredentials = require('./my_modules/rdio_consumer_credentials.js'),
     express = require('express'),
@@ -7,12 +13,11 @@ var Rdio=require('./rdio_modules/rdio'),
     io = require('socket.io').listen(9001),
     config = require('config.json')('./config.json');
 
-var clientLinked=true,
-    playlistDataFromRdio,
-    maxSoundsKeepInPlaylist=config.maxSoundsKeepInPlaylist; //change this number in config.json
+var playlistDataFromRdio,// playlist data from rdio.
+    maxSoundsKeepInPlaylist=config.maxSoundsKeepInPlaylist; //How many musics you want to keep in playlist. Change this number in config.json.
 
-var numUsers=0,
-    usernamesList = {};
+var numUsers=0, //How many users are linking with server.
+    usernamesList = {};// the list of users.
 
 
 app.configure(function() {
@@ -30,13 +35,16 @@ http.createServer(app).listen(app.get('port'), function () {
 
 
 app.get('/player', function(req, res){
+  /** Load player.html. */
   res.sendfile('public/player.html');
 });
 
 app.get('/sidescreen', function(req, res){
+  /** Load sketch_test.html. */
   res.sendfile('public/sketch_test.html');
 });
 
+/** Clean up the whole playlist. */
 app.get('/cleanup', function(req, res){
   console.log('clean up the playlist');
   var accessToken = req.session.accessToken;
@@ -44,24 +52,28 @@ app.get('/cleanup', function(req, res){
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [accessToken.token, accessToken.secret]);
 
+      /** Rdio.api get playlist data first. extras:'tracks' means give me the track information in this playlist. */
       rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
           if (err) {
             console.log(err);
           }
 
-          if(data.result){
+          /** If we get the data, we use the playlist data to clean up playlist. */
+          if(data){
             var playListData=data.result;
+            /** Which musics are going to be deleted from playlist. */
             var trackListToCleanup=[];
 
             var lengthToClean=(playListData[0].tracks.length)-2;
             var i=0;
-
             for(i;i < lengthToClean;i++){
               trackListToCleanup[i]=playListData[0].tracks[i].key;
             };
 
+            /** Change the list of musics need to be deleted to string, because rdio api can only read string. */
             trackListToCleanup=trackListToCleanup.toString();
             lengthToClean=lengthToClean.toString();
+            /** removeFromPlaylist is rdio's api, runing this can remove some musics from the playlist. */
             rdio.call('removeFromPlaylist',{playlist:config.playlistID, index:'0', count:lengthToClean, tracks:trackListToCleanup}, function(err, data) {
               console.log('Musics have been cleaned up from the playlist');
               res.redirect('/player');
@@ -111,14 +123,13 @@ app.get('/callback', function(req, res){
 	var verifier = req.query.oauth_verifier;
 
 	if (requestToken && verifier) {
-      // exchange the request token and verifier for an access token.
+      /** exchange the request token and verifier for an access token. */
       var rdio = new Rdio([RdioCredentials.RDIO_CONSUMER_KEY, RdioCredentials.RDIO_CONSUMER_SECRET],
                           [requestToken.token, requestToken.secret]);
 
       rdio.completeAuthentication(verifier, function(err) {
         if (err) {
           console.log(err);
-          // req.reply(new Error("Error completing Authentication"));
         }
 
         req.session.accessToken= {
@@ -130,17 +141,18 @@ app.get('/callback', function(req, res){
 
         if(accessToken){
 
+          /** First time get playlist data. */
           rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
             if (err) {
               console.log(err);
             }
             playlistDataFromRdio=data.result;
-            // console.log(playlistDataFromRdio);
             res.redirect('/player');
           });
 
-          /* Check the playListData with Rdio.com every 15 seconds.*/
+          /* Update the playListData from Rdio.com every 15 seconds.*/
           intervalGettingData = setInterval(function(){
+            /** numUsers mains no main screen client is connected with server. If no one is connected with server, server will not call for playlist data from rdio.com. */
             if(numUsers>0){
               rdio.call('getUserPlaylists',{user:config.userID,extras:'tracks'},function(err, data) {
                 if (err) {
@@ -198,24 +210,31 @@ app.get('/logout', function(request, result){
 });
 
 
+/*
+ *
+ * Websocket- socket.io
+ *
+ */
+
 io.on('connection', function(socket){
 
-  var IsAMainScreenUser=false;
-  var usernameID;
+  var IsAMainScreenUser=false;// tell differents bewteen mainscreen and sidescrenn.
+  var usernameID; // The user id of connected client.
 
+  /** add a user*/
   socket.on('add mainscreen user', function(username){
     console.log('Hi!connected with:'+ username);
+    /** Put username into user list */
     usernamesList[username]=username;
+    /** Add one user to how many user is connecting with websocket. */
     ++numUsers;
     console.log('-----User Number:'+ numUsers);
+    /** Add username to socket */
     socket.username = username;
     usernameID= username;
     IsAMainScreenUser=true;
     io.emit('userList',usernamesList);
   });
-
-  
-
 
   socket.on('disconnect', function(){
     if(IsAMainScreenUser){
@@ -230,8 +249,6 @@ io.on('connection', function(socket){
   socket.on('bit', function(msg){
 
     io.emit('pot', msg);
-
-    // console.log(usernameID);
     io.emit(usernameID, {
       userName: socket.username,
       fData: msg
