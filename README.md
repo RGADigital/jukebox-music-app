@@ -1,14 +1,14 @@
-#Jukebox
-**Jukebox** is a music web app using Rdio api on touch screen. It is using Rdio api, so everyone can add musics into Jukebox playlist, a public playlist on [Rdio.com](http://www.rdio.com/). Musics in the playlist will be rendered on this touch screen and can be played from touch screen. 
+Jukebox
+==============
+**Jukebox** is a music web app using [Rdio api](http://www.rdio.com/developers/) on touch screen. It is using Rdio api, so everyone can add musics into Jukebox playlist, a public playlist on [Rdio.com](http://www.rdio.com/). Musics in the playlist will be rendered on this touch screen and can be played from touch screen. 
 
-
+** Live Demo: **  [click here](http://jukebox.rgadev.com/)
 
 **"demos-and-tests":** demos and test around this app.
 
 **"music-app-rdio":** the main directory of Jukebox music web app.
 
-
-
+##How to use
 **Before you run the app**
 
 
@@ -44,6 +44,12 @@
         localhost:8888
         
 5. Follow the process and enjoy the music.
+    
+    1) Click "login"
+
+    2) Login with your rdio account.
+    
+    3) Enjoy the music from playlist.
 
 
 **Join and edit the playlist**
