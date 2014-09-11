@@ -16,7 +16,7 @@ node_modules
 # library package from bower.io
 bower_components
 # credentials
-rdio_consumer_credentials
+my_modules
 
 
 # OS or Editor folders

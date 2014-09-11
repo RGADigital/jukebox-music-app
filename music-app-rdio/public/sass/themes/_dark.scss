@@ -1,0 +1,14 @@
+//Dark Color Scheme
+$app-background-color:				#000;
+$artwork-background-color: 		#434343;
+
+$playlist-song-number-color: red;
+$playlist-song-title-color: blue;
+$playlist-song-album-color: green;
+$playlist-song-time-color: yellow;
+$playlist-song-line-color: pink;
+
+body.dark-theme {
+	@import "../theme";
+}
+

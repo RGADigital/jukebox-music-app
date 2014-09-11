@@ -1,0 +1,46 @@
+
+//App background color
+.entirescreen {
+	background-color: $app-background-color;
+}
+
+//Album artwork background color
+div.color{
+	background-color: $artwork-background-color;
+}
+
+//music information text
+.main-music-information > h1{
+	font-family:'Open Sans';
+	font-weight:bold;
+}
+
+.playlist_line{
+	color: $playlist-song-line-color;
+}
+
+.song{
+	border-bottom: $playlist-song-line-color 1px solid;
+}
+
+.song-number{
+	color: $playlist-song-number-color;
+}
+
+.song-name-list{
+	color: $playlist-song-album-color;
+}
+
+.artist-name-list{
+	color: $playlist-song-title-color;
+}
+
+
+.song-time{
+	color: $playlist-song-time-color;
+}
+
+//needs to STAY transparent so numbers can't show up when the song is playing
+.song-playing-icon{
+	color: transparent;
+}

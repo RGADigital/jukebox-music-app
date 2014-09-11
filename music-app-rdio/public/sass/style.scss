@@ -3,11 +3,12 @@
 @import "compass";
 @import "compass/reset";
 
-@import "_fonts.scss";
-@import "_controls.scss";
-@import "_artwork.scss";
-@import "_playlist.scss";
-@import "_login.scss";
-@import "_sidescreen.scss";
+@import "fonts";
+@import "controls";
+@import "artwork";
+@import "playlist";
+@import "login";
+@import "sidescreen";
 
-@import "themes/_blue.scss";
+@import "themes/light";
+@import "themes/dark";

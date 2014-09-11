@@ -1,0 +1,14 @@
+//Light Color Scheme
+$app-background-color:				#fff;
+$artwork-background-color: 		#4dd0e1;
+
+$playlist-song-number-color:	#bfc2c3;
+$playlist-song-title-color:		#424242;
+$playlist-song-album-color:		#afb1b2;
+$playlist-song-time-color:		#959ea3;
+$playlist-song-line-color:		#eaf0f0;
+
+body.light-theme {
+	@import "../theme";
+}
+
