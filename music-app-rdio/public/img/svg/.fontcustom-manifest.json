@@ -1,0 +1,70 @@
+{
+  "checksum": {
+    "previous": "e49bf2becb23a5fb2bd5ba9a24383835996e38c92b0e37ceda109d6243680ef7",
+    "current": "e49bf2becb23a5fb2bd5ba9a24383835996e38c92b0e37ceda109d6243680ef7"
+  },
+  "fonts": [
+    "fontcustom/fontcustom_e49bf2becb23a5fb2bd5ba9a24383835.ttf",
+    "fontcustom/fontcustom_e49bf2becb23a5fb2bd5ba9a24383835.svg",
+    "fontcustom/fontcustom_e49bf2becb23a5fb2bd5ba9a24383835.woff",
+    "fontcustom/fontcustom_e49bf2becb23a5fb2bd5ba9a24383835.eot"
+  ],
+  "glyphs": {
+    "next-btn": {
+      "codepoint": 61696,
+      "source": "v2/next-btn.svg"
+    },
+    "pause-btn": {
+      "codepoint": 61697,
+      "source": "v2/pause-btn.svg"
+    },
+    "play-btn": {
+      "codepoint": 61698,
+      "source": "v2/play-btn.svg"
+    },
+    "prev-btn": {
+      "codepoint": 61699,
+      "source": "v2/prev-btn.svg"
+    },
+    "repeat-icon": {
+      "codepoint": 61700,
+      "source": "v2/repeat-icon.svg"
+    },
+    "shuffle-icon": {
+      "codepoint": 61701,
+      "source": "v2/shuffle-icon.svg"
+    },
+    "speaker-icon": {
+      "codepoint": 61702,
+      "source": "v2/speaker-icon.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "v2",
+      "vectors": "v2"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}

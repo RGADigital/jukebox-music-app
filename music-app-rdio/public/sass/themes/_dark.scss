@@ -1,12 +1,14 @@
 //Dark Color Scheme
-$app-background-color:				#000;
-$artwork-background-color: 		#434343;
+$artwork-background-color: 			#000;
+$app-background-color:					#161616;
 
-$playlist-song-number-color: red;
-$playlist-song-title-color: blue;
-$playlist-song-album-color: green;
-$playlist-song-time-color: yellow;
-$playlist-song-line-color: pink;
+$main-music-information-color:	#636363;
+
+$playlist-song-number-color: 		#636363;
+$playlist-song-title-color: 		#3f3f3f;
+$playlist-song-album-color: 		#636363;
+$playlist-song-time-color: 			#636363;
+$playlist-song-line-color: 			#3f3f3f;
 
 body.dark-theme {
 	@import "../theme";

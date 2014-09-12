@@ -631,78 +631,86 @@ body.light-theme .entirescreen {
 body.light-theme div.color {
   background-color: #4dd0e1;
 }
-/* line 13, ../sass/_theme.scss */
-body.light-theme .main-music-information > h1 {
+/* line 15, ../sass/_theme.scss */
+body.light-theme .main-music-information {
+  color: #ddd;
+}
+/* line 18, ../sass/_theme.scss */
+body.light-theme .main-music-information h1 {
   font-family: 'Open Sans';
   font-weight: bold;
 }
-/* line 18, ../sass/_theme.scss */
+/* line 24, ../sass/_theme.scss */
 body.light-theme .playlist_line {
   color: #eaf0f0;
 }
-/* line 22, ../sass/_theme.scss */
+/* line 28, ../sass/_theme.scss */
 body.light-theme .song {
   border-bottom: #eaf0f0 1px solid;
 }
-/* line 26, ../sass/_theme.scss */
+/* line 32, ../sass/_theme.scss */
 body.light-theme .song-number {
   color: #bfc2c3;
 }
-/* line 30, ../sass/_theme.scss */
+/* line 36, ../sass/_theme.scss */
 body.light-theme .song-name-list {
   color: #afb1b2;
 }
-/* line 34, ../sass/_theme.scss */
+/* line 40, ../sass/_theme.scss */
 body.light-theme .artist-name-list {
   color: #424242;
 }
-/* line 39, ../sass/_theme.scss */
+/* line 45, ../sass/_theme.scss */
 body.light-theme .song-time {
   color: #959ea3;
 }
-/* line 44, ../sass/_theme.scss */
+/* line 50, ../sass/_theme.scss */
 body.light-theme .song-playing-icon {
   color: transparent;
 }
 
 /* line 3, ../sass/_theme.scss */
 body.dark-theme .entirescreen {
-  background-color: #000;
+  background-color: #161616;
 }
 /* line 8, ../sass/_theme.scss */
 body.dark-theme div.color {
-  background-color: #434343;
+  background-color: #000;
 }
-/* line 13, ../sass/_theme.scss */
-body.dark-theme .main-music-information > h1 {
+/* line 15, ../sass/_theme.scss */
+body.dark-theme .main-music-information {
+  color: #636363;
+}
+/* line 18, ../sass/_theme.scss */
+body.dark-theme .main-music-information h1 {
   font-family: 'Open Sans';
   font-weight: bold;
 }
-/* line 18, ../sass/_theme.scss */
+/* line 24, ../sass/_theme.scss */
 body.dark-theme .playlist_line {
-  color: pink;
+  color: #3f3f3f;
 }
-/* line 22, ../sass/_theme.scss */
+/* line 28, ../sass/_theme.scss */
 body.dark-theme .song {
-  border-bottom: pink 1px solid;
+  border-bottom: #3f3f3f 1px solid;
 }
-/* line 26, ../sass/_theme.scss */
+/* line 32, ../sass/_theme.scss */
 body.dark-theme .song-number {
-  color: red;
+  color: #636363;
 }
-/* line 30, ../sass/_theme.scss */
+/* line 36, ../sass/_theme.scss */
 body.dark-theme .song-name-list {
-  color: green;
+  color: #636363;
 }
-/* line 34, ../sass/_theme.scss */
+/* line 40, ../sass/_theme.scss */
 body.dark-theme .artist-name-list {
-  color: blue;
+  color: #3f3f3f;
 }
-/* line 39, ../sass/_theme.scss */
+/* line 45, ../sass/_theme.scss */
 body.dark-theme .song-time {
-  color: yellow;
+  color: #636363;
 }
-/* line 44, ../sass/_theme.scss */
+/* line 50, ../sass/_theme.scss */
 body.dark-theme .song-playing-icon {
   color: transparent;
 }

@@ -9,10 +9,16 @@ div.color{
 	background-color: $artwork-background-color;
 }
 
+
+
 //music information text
-.main-music-information > h1{
-	font-family:'Open Sans';
-	font-weight:bold;
+.main-music-information {
+	color: $main-music-information-color;
+
+	h1{
+		font-family:'Open Sans';
+		font-weight:bold;
+	}
 }
 
 .playlist_line{
