@@ -85,74 +85,45 @@ div.music-buttons-total{
 
 
 
+
+
+
+.rewind{
+	@extend .icon-prev-btn;
+}
 .play{
-	.svg1{
-		display:block;
-	}
-	.svg2{
-		display:none;
-	}
+	@extend .icon-play-btn;
 	&.isPlaying{
-		.svg1{
-			display:none;
-		}
-		.svg2{
-			display:block;
-		}
+		@extend .icon-pause-btn;
 	}
-
-	@include button-style($button-width-and-height)	
-
+}
+.fastforward{
+	@extend .icon-next-btn;
+}
+.button-container-ppreff .icon {
+	font-size: 95px;
+}
+.shuffle.icon {
+	@extend .icon-shuffle-icon;
+	font-size: 35px;
+}
+.song-playing-icon {
+	@extend .icon-speaker-icon;
+	&:before {
+		color: red;
+	}
 }
 
-button.rewind{
-	//background-image: image-url('../img/previous-button.svg');
-	background-repeat:no-repeat;
-	@include button-style($button-width-and-height)
-}
-button.fastforward{
-	//background-image:image-url('../img/next-button.svg');
-	background-repeat:no-repeat;
-	@include button-style($button-width-and-height)
-}
 
-
-
-
-button.isPlaying{
-	width:$button-width-and-height;
-	height:$button-width-and-height;
-	//background-image:image-url('../img/pause-button.svg');
-	
-
-}
 
 .shuffle-container{
-	.shuffle1{
-		display:block;
-	}
-	.shuffle2{
-		display:none;
-	}
-	&.isShuffleOn{
-		.shuffle1{
-			display:none;
-		}
-		.shuffle2{
-			display:block;
-		}
-	}
-
 	width:$shuffle-width;
 	height:$shuffle-height;
 	margin-top:$shuffle-top-margin;
 	margin-bottom:$shuffle-bottom-margin;
 	float:right;
 	margin-right:$margin-shuffle-right; 
-	//background-image:image-url('../img/shuffle-button-stop.svg');
-
 	@extend .not-a-button;
-
 }
 
 
