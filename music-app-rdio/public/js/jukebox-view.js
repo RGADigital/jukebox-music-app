@@ -44,13 +44,20 @@
 
 		/** After click the shuffle button */
 		themeClickEventHandler: function(event) {
-			var $body = $("body");
+			var $body = $("body"),
+					currentThemeCSSClass;
 
 			if($body.hasClass("dark-theme")) {
-				$body.removeClass("dark-theme").addClass("light-theme");
+				currentThemeCSSClass = "light-theme";
+				$body.removeClass("dark-theme");
 			}else {
-				$body.removeClass("light-theme").addClass("dark-theme");
+				currentThemeCSSClass = "dark-theme";
+				$body.removeClass("light-theme");
 			}
+
+			$body.addClass(currentThemeCSSClass);
+
+			$(d).trigger('USER_CHANGE_THEME', currentThemeCSSClass);
 		},
 
     /** After click the shuffle button */

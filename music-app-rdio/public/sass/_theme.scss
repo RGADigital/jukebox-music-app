@@ -69,3 +69,8 @@ div.color{
 #theme-switcher {
 	border-color: $main-music-information-color;
 }
+
+//Sidescreens
+&.visual {
+	background-color: $app-background-color;
+}

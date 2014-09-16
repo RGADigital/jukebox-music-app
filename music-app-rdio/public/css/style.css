@@ -674,7 +674,6 @@ h1 {
 /* line 2, ../sass/_sidescreen.scss */
 body.visual {
   cursor: none;
-  background-color: white;
   overflow: hidden;
   margin: 0px;
 }
@@ -740,6 +739,10 @@ body.light-theme #overlay::after {
 body.light-theme #theme-switcher {
   border-color: #424242;
 }
+/* line 74, ../sass/_theme.scss */
+body.light-theme.visual {
+  background-color: #fff;
+}
 
 /* line 3, ../sass/_theme.scss */
 body.dark-theme .entirescreen {
@@ -801,4 +804,8 @@ body.dark-theme #overlay::after {
 /* line 69, ../sass/_theme.scss */
 body.dark-theme #theme-switcher {
   border-color: #93a1a1;
+}
+/* line 74, ../sass/_theme.scss */
+body.dark-theme.visual {
+  background-color: #073642;
 }

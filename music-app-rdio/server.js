@@ -41,7 +41,7 @@ app.get('/player', function(req, res){
 
 app.get('/sidescreen', function(req, res){
   /** Load sketch_test.html. */
-  res.sendfile('public/sketch_test.html');
+  res.sendfile('public/sidescreen.html');
 });
 
 /** Clean up the whole playlist. */

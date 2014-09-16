@@ -8,6 +8,8 @@
 		websocketSelf:{}, //websocketSelf=this.
 		userName:"", // {string} - The random user name for this main player client.
 
+		playerThemeCSSClass: "dark-theme",
+
 		/**
 		 * give me a random string as user name.
 		 * @parem {int} length - the length of the random string.
@@ -53,13 +55,23 @@
 		bindEvents: function(){
 			/** Get current music's frequency data from Rdio_controller moudle. */
       		$(d).bind('MUSIC_FREQUENCY_DATA_EVENT',websocketSelf.musicFrequencyDataEventHandler);
+					$(d).bind('USER_CHANGE_THEME',websocketSelf.userChangeThemeEventHandler);
     	},
 
     	/** After get the frequency data from Rdio_controller moudle, emit the frequency data of playing music to websockets.  */
     	musicFrequencyDataEventHandler: function(event, frequency){
     		/** Emit the frequency data of playing music to websockets. */
-        	socket.emit('bit', frequency);
+				var data = {
+					frequency: frequency,
+					currentThemeCSSClass: websocketSelf.playerThemeCSSClass
+				}
+
+				socket.emit('bit', data);
     	},
+
+		userChangeThemeEventHandler: function(event, currentThemeCSSClass){
+			websocketSelf.playerThemeCSSClass = currentThemeCSSClass;
+		},
 
 		init:function(){
 			websocketSelf=this;
