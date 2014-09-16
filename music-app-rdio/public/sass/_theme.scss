@@ -55,7 +55,8 @@ div.color{
 	&:before {
 		color: $icons-color;
 	}
-	&.isShuffleOn {
+	&.isShuffleOn,
+	&.isRepeatOn {
 		&:before {
 			color: $icons-active-color;
 		}

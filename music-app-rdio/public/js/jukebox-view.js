@@ -11,6 +11,7 @@
     $previous: $('.rewind'),// previous button
     $next: $('.fastforward'),// next button
     $shuffle: $('.shuffle-container'),
+		$repeat: $('.repeat-container'),
 		$theme: $('#theme-switcher'),
 
     playListData:{}, // Object to store playlist data gotten from server.
@@ -27,6 +28,7 @@
     isFirstPlay:true, //isFirstPlay=true, we start to playmusic after we get the playlist data at the first time.
     myScroll:{}, // The object for iScroll.
     easingLevelForShuffle:15, //The easing leave when we are in shuffle mode. EX.shuffle range MUSIC_IS_PLAY-15 < MUSIC_IS_PLAY > MUSIC_IS_PLAY+15
+		isRepeat: false,
 
     /*set up the touch event controlers.*/
     attachUIEventS: function(){ 
@@ -40,6 +42,8 @@
       self.$shuffle.click(self.shuffleClikcEventHandler);
 			/** click theme */
 			self.$theme.click(self.themeClickEventHandler);
+			/** repeat */
+			self.$repeat.click(self.repeatClickEventHandler);
     },
 
 		/** After click the shuffle button */
@@ -58,6 +62,13 @@
 			$body.addClass(currentThemeCSSClass);
 
 			$(d).trigger('USER_CHANGE_THEME', currentThemeCSSClass);
+		},
+
+		/** After click the shuffle button */
+		repeatClickEventHandler: function(event) {
+			self.isRepeat =! self.isRepeat;
+
+			self.$repeat.toggleClass("isRepeatOn", self.isRepeat);
 		},
 
     /** After click the shuffle button */
@@ -235,10 +246,12 @@
           self.soundIsPlaying=self.randomNmuberWithEasing(self.easingLevelForShuffle, self.soundIsPlaying);
           self.playMusic(self.tracksKeys[self.soundIsPlaying]);
         }else{
-          if(self.soundIsPlaying == (self.playListData[0].tracks.length-1)){
-            /** If this music is the last sound in playlist, loop the playlist after the playlist finish. */
-            self.soundIsPlaying=0;
-            self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+          if(self.soundIsPlaying == self.playListData[0].tracks.length-1){
+						if(self.isRepeat) {
+							/** If this music is the last sound in playlist, loop the playlist after the playlist finish. */
+							self.soundIsPlaying=0;
+							self.playMusic(self.tracksKeys[self.soundIsPlaying]);
+						}
           }else{
             /** Play next music after one music finish. */
             self.soundIsPlaying++;

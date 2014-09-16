@@ -103,6 +103,10 @@ div.music-buttons-total{
 .button-container-ppreff .icon {
 	font-size: 95px;
 }
+.repeat.icon {
+	@extend .icon-repeat-icon;
+	font-size: 35px;
+}
 .shuffle.icon {
 	@extend .icon-shuffle-icon;
 	font-size: 35px;
@@ -116,13 +120,14 @@ div.music-buttons-total{
 
 
 
-.shuffle-container{
+.shuffle-container,
+.repeat-container {
 	width:$shuffle-width;
 	height:$shuffle-height;
 	margin-top:$shuffle-top-margin;
 	margin-bottom:$shuffle-bottom-margin;
 	float:right;
-	margin-right:$margin-shuffle-right; 
+	margin-left:$margin-shuffle-right;
 	@extend .not-a-button;
 }
 

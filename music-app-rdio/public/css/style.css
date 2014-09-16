@@ -187,6 +187,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .icon-prev-btn:before,
 .rewind:before,
 .icon-repeat-icon:before,
+.repeat.icon:before,
 .icon-shuffle-icon:before,
 .shuffle.icon:before,
 .icon-speaker-icon:before,
@@ -226,7 +227,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 51, ../sass/_fonts.scss */
-.icon-repeat-icon:before {
+.icon-repeat-icon:before, .repeat.icon:before {
   content: "\f104";
 }
 
@@ -342,7 +343,8 @@ div.music-buttons-total {
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
 /* line 54, ../sass/_controls.scss */
-.not-a-button, .shuffle-container {
+.not-a-button, .shuffle-container,
+.repeat-container {
   background-color: transparent;
   border: none;
   color: inherit;
@@ -370,26 +372,32 @@ div.music-buttons-total {
 }
 
 /* line 106, ../sass/_controls.scss */
+.repeat.icon {
+  font-size: 35px;
+}
+
+/* line 110, ../sass/_controls.scss */
 .shuffle.icon {
   font-size: 35px;
 }
 
-/* line 112, ../sass/_controls.scss */
+/* line 116, ../sass/_controls.scss */
 .song-playing-icon:before {
   color: red;
 }
 
-/* line 119, ../sass/_controls.scss */
-.shuffle-container {
+/* line 123, ../sass/_controls.scss */
+.shuffle-container,
+.repeat-container {
   width: 34px;
   height: 26px;
   margin-top: 40px;
   margin-bottom: 20px;
   float: right;
-  margin-right: 18px;
+  margin-left: 18px;
 }
 
-/* line 130, ../sass/_controls.scss */
+/* line 135, ../sass/_controls.scss */
 #theme-switcher {
   width: 20px;
   height: 20px;
@@ -727,19 +735,19 @@ body.light-theme .song-playing-icon {
 body.light-theme .icon:before {
   color: #424242;
 }
-/* line 59, ../sass/_theme.scss */
-body.light-theme .icon.isShuffleOn:before {
+/* line 60, ../sass/_theme.scss */
+body.light-theme .icon.isShuffleOn:before, body.light-theme .icon.isRepeatOn:before {
   color: #15fb04;
 }
-/* line 65, ../sass/_theme.scss */
+/* line 66, ../sass/_theme.scss */
 body.light-theme #overlay::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
-/* line 69, ../sass/_theme.scss */
+/* line 70, ../sass/_theme.scss */
 body.light-theme #theme-switcher {
   border-color: #424242;
 }
-/* line 74, ../sass/_theme.scss */
+/* line 75, ../sass/_theme.scss */
 body.light-theme.visual {
   background-color: #fff;
 }
@@ -793,19 +801,19 @@ body.dark-theme .song-playing-icon {
 body.dark-theme .icon:before {
   color: #93a1a1;
 }
-/* line 59, ../sass/_theme.scss */
-body.dark-theme .icon.isShuffleOn:before {
+/* line 60, ../sass/_theme.scss */
+body.dark-theme .icon.isShuffleOn:before, body.dark-theme .icon.isRepeatOn:before {
   color: #fdf6e3;
 }
-/* line 65, ../sass/_theme.scss */
+/* line 66, ../sass/_theme.scss */
 body.dark-theme #overlay::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #073642 100%);
 }
-/* line 69, ../sass/_theme.scss */
+/* line 70, ../sass/_theme.scss */
 body.dark-theme #theme-switcher {
   border-color: #93a1a1;
 }
-/* line 74, ../sass/_theme.scss */
+/* line 75, ../sass/_theme.scss */
 body.dark-theme.visual {
   background-color: #073642;
 }
