@@ -48,12 +48,12 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
   	overflow-x:hidden;
 	width:105%;
 	height:$playlist-height;
-	margin-top:$playlist-top-margin;
+	margin-top:0;
 	font-size:$font-size-song;
 }
 .playlist_line{
 	position:relative;
-	top:29px;
+	top:9px;
 	height:1px;
 	border-style:solid;
 	border-bottom-width:0px;

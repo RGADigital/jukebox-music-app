@@ -389,6 +389,23 @@ div.music-buttons-total {
   margin-right: 18px;
 }
 
+/* line 130, ../sass/_controls.scss */
+#theme-switcher {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  opacity: 0.5;
+}
+
 /* line 20, ../sass/_artwork.scss */
 div.color {
   position: absolute;
@@ -460,14 +477,14 @@ div.main-music-information {
   overflow-x: hidden;
   width: 105%;
   height: 615px;
-  margin-top: 20px;
+  margin-top: 0;
   font-size: 20px;
 }
 
 /* line 54, ../sass/_playlist.scss */
 .playlist_line {
   position: relative;
-  top: 29px;
+  top: 9px;
   height: 1px;
   border-style: solid;
   border-bottom-width: 0px;
@@ -672,7 +689,7 @@ body.light-theme div.color {
 }
 /* line 15, ../sass/_theme.scss */
 body.light-theme .main-music-information {
-  color: #ddd;
+  color: #424242;
 }
 /* line 18, ../sass/_theme.scss */
 body.light-theme .main-music-information h1 {
@@ -713,24 +730,28 @@ body.light-theme .icon:before {
 }
 /* line 59, ../sass/_theme.scss */
 body.light-theme .icon.isShuffleOn:before {
-  color: green;
+  color: #15fb04;
 }
 /* line 65, ../sass/_theme.scss */
 body.light-theme #overlay::after {
   background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #fff 100%);
 }
+/* line 69, ../sass/_theme.scss */
+body.light-theme #theme-switcher {
+  border-color: #424242;
+}
 
 /* line 3, ../sass/_theme.scss */
 body.dark-theme .entirescreen {
-  background-color: #161616;
+  background-color: #073642;
 }
 /* line 8, ../sass/_theme.scss */
 body.dark-theme div.color {
-  background-color: #000;
+  background-color: #002b36;
 }
 /* line 15, ../sass/_theme.scss */
 body.dark-theme .main-music-information {
-  color: #636363;
+  color: #93a1a1;
 }
 /* line 18, ../sass/_theme.scss */
 body.dark-theme .main-music-information h1 {
@@ -739,27 +760,27 @@ body.dark-theme .main-music-information h1 {
 }
 /* line 24, ../sass/_theme.scss */
 body.dark-theme .playlist_line {
-  color: #3f3f3f;
+  color: #586e75;
 }
 /* line 28, ../sass/_theme.scss */
 body.dark-theme .song {
-  border-bottom: #3f3f3f 1px solid;
+  border-bottom: #586e75 1px solid;
 }
 /* line 32, ../sass/_theme.scss */
 body.dark-theme .song-number {
-  color: #636363;
+  color: #586e75;
 }
 /* line 36, ../sass/_theme.scss */
 body.dark-theme .song-name-list {
-  color: #636363;
+  color: #586e75;
 }
 /* line 40, ../sass/_theme.scss */
 body.dark-theme .artist-name-list {
-  color: #3f3f3f;
+  color: #93a1a1;
 }
 /* line 45, ../sass/_theme.scss */
 body.dark-theme .song-time {
-  color: #636363;
+  color: #586e75;
 }
 /* line 50, ../sass/_theme.scss */
 body.dark-theme .song-playing-icon {
@@ -767,13 +788,17 @@ body.dark-theme .song-playing-icon {
 }
 /* line 55, ../sass/_theme.scss */
 body.dark-theme .icon:before {
-  color: #fff;
+  color: #93a1a1;
 }
 /* line 59, ../sass/_theme.scss */
 body.dark-theme .icon.isShuffleOn:before {
-  color: green;
+  color: #fdf6e3;
 }
 /* line 65, ../sass/_theme.scss */
 body.dark-theme #overlay::after {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #161616 100%);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #073642 100%);
+}
+/* line 69, ../sass/_theme.scss */
+body.dark-theme #theme-switcher {
+  border-color: #93a1a1;
 }

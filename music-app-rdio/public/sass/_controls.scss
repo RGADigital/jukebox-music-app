@@ -127,3 +127,19 @@ div.music-buttons-total{
 }
 
 
+#theme-switcher {
+	width: 20px;
+	height: 20px;
+	position: fixed;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	border-radius: 20px;
+	z-index: 1000;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	opacity: 0.5;
+}
+

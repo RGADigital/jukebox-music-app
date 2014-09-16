@@ -1,17 +1,20 @@
+$dark-grey:	#586e75;
+$light-grey:	#93a1a1;
+
 //Dark Color Scheme
-$artwork-background-color: 			#000;
-$app-background-color:					#161616;
+$artwork-background-color: 			#002b36;
+$app-background-color:					#073642;
 
-$main-music-information-color:	#636363;
+$main-music-information-color:	$light-grey;
 
-$icons-color: 									#fff;
-$icons-active-color:						green;
+$icons-color: 									$light-grey;
+$icons-active-color:						#fdf6e3;
 
-$playlist-song-number-color: 		#636363;
-$playlist-song-title-color: 		#3f3f3f;
-$playlist-song-album-color: 		#636363;
-$playlist-song-time-color: 			#636363;
-$playlist-song-line-color: 			#3f3f3f;
+$playlist-song-number-color: 		$dark-grey;
+$playlist-song-title-color: 		$light-grey;
+$playlist-song-album-color: 		$dark-grey;
+$playlist-song-time-color: 			$dark-grey;
+$playlist-song-line-color: 			$dark-grey;
 
 body.dark-theme {
 	@import "../theme";

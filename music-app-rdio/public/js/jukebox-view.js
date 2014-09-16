@@ -11,6 +11,7 @@
     $previous: $('.rewind'),// previous button
     $next: $('.fastforward'),// next button
     $shuffle: $('.shuffle-container'),
+		$theme: $('#theme-switcher'),
 
     playListData:{}, // Object to store playlist data gotten from server.
     tracksKeys:[], // Array of tracks keys(id) in playlist.
@@ -37,7 +38,20 @@
       self.$next.click(self.nextClickEventHandler);
       /** click shuffle button */
       self.$shuffle.click(self.shuffleClikcEventHandler);
+			/** click theme */
+			self.$theme.click(self.themeClickEventHandler);
     },
+
+		/** After click the shuffle button */
+		themeClickEventHandler: function(event) {
+			var $body = $("body");
+
+			if($body.hasClass("dark-theme")) {
+				$body.removeClass("dark-theme").addClass("light-theme");
+			}else {
+				$body.removeClass("light-theme").addClass("dark-theme");
+			}
+		},
 
     /** After click the shuffle button */
     shuffleClikcEventHandler: function(event) {
