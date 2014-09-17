@@ -807,7 +807,7 @@ body.dark-theme .icon.isShuffleOn:before, body.dark-theme .icon.isRepeatOn:befor
 }
 /* line 66, ../sass/_theme.scss */
 body.dark-theme #overlay::after {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #073642 100%);
+  background-image: -webkit-linear-gradient(top, rgba(7, 54, 66, 0) 0%, #073642 100%);
 }
 /* line 70, ../sass/_theme.scss */
 body.dark-theme #theme-switcher {
