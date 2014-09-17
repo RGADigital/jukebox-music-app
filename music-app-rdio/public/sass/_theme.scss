@@ -64,7 +64,7 @@ div.color{
 }
 
 #overlay::after {
-	background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, $app-background-color 100%);
+	background-image: -webkit-linear-gradient(top, rgba(red($app-background-color), green($app-background-color), blue($app-background-color), 0) 0%, $app-background-color 100%);
 }
 
 #theme-switcher {
