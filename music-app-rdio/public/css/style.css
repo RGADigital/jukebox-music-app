@@ -355,7 +355,7 @@ div.music-buttons-total {
   background-color: transparent;
   border: none;
   color: inherit;
-  cursor: auto !important;
+  cursor: none !important;
   font-size: inherit;
   font-family: inherit;
   -webkit-font-smoothing: inherit;
@@ -419,6 +419,7 @@ div.music-buttons-total {
   border-width: 1px;
   border-style: solid;
   opacity: 0.5;
+  cursor: none !important;
 }
 
 /* line 20, ../sass/_artwork.scss */

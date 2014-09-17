@@ -17,8 +17,8 @@ $shuffle-bottom-margin:20px;
 
 $margin-shuffle-right:18px;
 
-// $cursor:none !important;//use this during production
-$cursor:auto !important;//use this during development
+$cursor:none !important;//use this during production
+//$cursor:auto !important;//use this during development
 
 
 div.button-container-ppreff{
@@ -146,5 +146,6 @@ div.music-buttons-total{
 	border-width: 1px;
 	border-style: solid;
 	opacity: 0.5;
+	cursor: $cursor;
 }
 
