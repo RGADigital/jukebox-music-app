@@ -122,7 +122,8 @@ $song-number-margin-vertical: song-number-margin-vertical($song-height, $song-nu
 	margin-left:13px;
 	margin-right:18px;
 	width:17px;
-	top:-25%;
+	top: 0;
+	left: -5px;
 	}
 
 }
