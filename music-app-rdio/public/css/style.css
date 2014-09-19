@@ -44,41 +44,39 @@ html.touch-screen, html.touch-screen body {
 On overflow=hidden, the size of the window is what you get. You won't be able to see anything that's cut off. 
 The sizing should work for the screen and cut off any extra. 
 */
-/* line 101, ../sass/_global.scss */
+/* line 99, ../sass/_global.scss */
 body {
   overflow: auto;
   font-family: 'Open Sans', Helvetica;
 }
 @media (orientation: portrait) {
-  /* line 101, ../sass/_global.scss */
+  /* line 99, ../sass/_global.scss */
   body {
     overflow: hidden;
   }
 }
 
-/* line 112, ../sass/_global.scss */
+/* line 110, ../sass/_global.scss */
 ::selection {
   background: transparent;
 }
 
-/* line 117, ../sass/_global.scss */
+/* line 115, ../sass/_global.scss */
 .entirescreen {
   width: 1080px;
   height: 1920px;
   position: relative;
-  cursor: none !important;
   -webkit-user-select: none;
   font-family: 'Open Sans', Helvetica;
 }
 
-/* line 127, ../sass/_global.scss */
+/* line 124, ../sass/_global.scss */
 img {
   -webkit-user-select: none;
   pointer-events: none;
-  cursor: none !important;
 }
 
-/* line 134, ../sass/_global.scss */
+/* line 130, ../sass/_global.scss */
 div.usablescreen {
   position: absolute;
   margin-bottom: 210px;
@@ -87,14 +85,16 @@ div.usablescreen {
   margin-left: 177px;
   width: 726px;
   height: 1560px;
-  cursor: none !important;
 }
 
-/* line 146, ../sass/_global.scss */
+/* line 140, ../sass/_global.scss */
 body {
-  cursor: none;
   overflow: hidden;
-  margin: 0px;
+}
+
+/* line 144, ../sass/_global.scss */
+html.touch-screen *, html.touch-screen *:active, html.touch-screen *:hover {
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QQWFyYjmlZMcQAAAA1JREFUCNdjYGBgYAQAAAYAAl4th88AAAAASUVORK5CYII="), none !important;
 }
 
 /* line 5, ../../../../../.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.0/stylesheets/compass/reset/_utilities.scss */
@@ -320,7 +320,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-style: normal;
 }
 /* To properly align the shuffle button. Variable shuffle margins is equal to the usable width function */
-/* line 24, ../sass/_controls.scss */
+/* line 21, ../sass/_controls.scss */
 div.button-container-ppreff {
   width: 475px;
   height: 93px;
@@ -332,7 +332,7 @@ div.button-container-ppreff {
 }
 
 /*The following contains styling on all buttons including size, spacing, and position. */
-/* line 36, ../sass/_controls.scss */
+/* line 33, ../sass/_controls.scss */
 div.button-container-ppreff {
   width: 475px;
   height: 93px;
@@ -342,20 +342,19 @@ div.button-container-ppreff {
   margin-bottom: 0px;
 }
 
-/* line 45, ../sass/_controls.scss */
+/* line 42, ../sass/_controls.scss */
 div.music-buttons-total {
   height: 179px;
   width: 726px;
 }
 
 /*div to hold the buttons for spacing reasons and not-a-button to remove typical button features */
-/* line 54, ../sass/_controls.scss */
+/* line 51, ../sass/_controls.scss */
 .not-a-button, .shuffle-container,
 .repeat-container {
   background-color: transparent;
   border: none;
   color: inherit;
-  cursor: none !important;
   font-size: inherit;
   font-family: inherit;
   -webkit-font-smoothing: inherit;
@@ -364,7 +363,7 @@ div.music-buttons-total {
   padding: 0;
 }
 
-/* line 71, ../sass/_controls.scss */
+/* line 67, ../sass/_controls.scss */
 .music-button-container {
   width: 93px;
   height: 93px;
@@ -373,27 +372,27 @@ div.music-buttons-total {
   display: inline-block;
 }
 
-/* line 103, ../sass/_controls.scss */
+/* line 99, ../sass/_controls.scss */
 .button-container-ppreff .icon {
   font-size: 95px;
 }
 
-/* line 106, ../sass/_controls.scss */
+/* line 102, ../sass/_controls.scss */
 .repeat.icon {
   font-size: 35px;
 }
 
-/* line 110, ../sass/_controls.scss */
+/* line 106, ../sass/_controls.scss */
 .shuffle.icon {
   font-size: 35px;
 }
 
-/* line 116, ../sass/_controls.scss */
+/* line 112, ../sass/_controls.scss */
 .song-playing-icon:before {
   color: red;
 }
 
-/* line 123, ../sass/_controls.scss */
+/* line 119, ../sass/_controls.scss */
 .shuffle-container,
 .repeat-container {
   width: 34px;
@@ -404,7 +403,7 @@ div.music-buttons-total {
   margin-left: 18px;
 }
 
-/* line 135, ../sass/_controls.scss */
+/* line 131, ../sass/_controls.scss */
 #theme-switcher {
   width: 20px;
   height: 20px;
@@ -419,7 +418,6 @@ div.music-buttons-total {
   border-width: 1px;
   border-style: solid;
   opacity: 0.5;
-  cursor: none !important;
 }
 
 /* line 20, ../sass/_artwork.scss */
